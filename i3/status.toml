@@ -2,7 +2,7 @@
 name = "gruvbox-dark"
 
 [icons]
-name = "awesome"
+name = "none"
 
 [theme.overrides]
 separator_fg = "#FFFFFF"
@@ -11,12 +11,11 @@ separator = " | "
 [[block]]
 block = "bluetooth"
 mac = "DC:2C:26:B6:B0:6B"
-label = " Mouse"
 
 [[block]]
 block = "disk_space"
 path = "/"
-alias = "/"
+alias = "ROOT"
 info_type = "available"
 unit = "GB"
 interval = 20
