@@ -9,6 +9,7 @@
 !alacritty/
 !rofi/
 !zsh/
+!nvim/
 
 coc/extensions/*
 zsh/.zcompdump*
