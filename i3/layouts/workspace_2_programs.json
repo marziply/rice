@@ -1,0 +1,33 @@
+[
+  {
+    "command": [
+      "/usr/lib/brave-bin/brave"
+    ],
+    "working_directory": "/home/hayden"
+  },
+  {
+    "command": [
+      "/usr/lib/brave-bin/brave"
+    ],
+    "working_directory": "/home/hayden"
+  },
+  {
+    "command": [
+      "/usr/lib/electron4/electron",
+      "/usr/share/postman/app"
+    ],
+    "working_directory": "/home/hayden"
+  },
+  {
+    "command": [
+      "/usr/bin/alacritty"
+    ],
+    "working_directory": "/home/hayden/dev/pollen8-backend-v2"
+  },
+  {
+    "command": [
+      "/opt/spotify/spotify"
+    ],
+    "working_directory": "/home/hayden"
+  }
+]

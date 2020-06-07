@@ -1,0 +1,10 @@
+[user]
+	name = Hayden Perry
+	email = haydencwperry@gmail.com
+[core]
+	editor = nvim
+	sshCommand = ssh -i ~/.ssh/id_rsa -F /dev/null
+[mergetool "fugitive"]
+	cmd = nvim -f -c \"Gdiff\" \"$MERGED\"
+[merge]
+	tool = fugitive

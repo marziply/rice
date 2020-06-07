@@ -1,0 +1,42 @@
+[theme]
+name = "gruvbox-dark"
+
+[icons]
+name = "awesome"
+
+[theme.overrides]
+separator_fg = "#FFFFFF"
+separator = " | "
+
+[[block]]
+block = "bluetooth"
+mac = "DC:2C:26:B6:B0:6B"
+label = " Mouse"
+
+[[block]]
+block = "disk_space"
+path = "/"
+alias = "/"
+info_type = "available"
+unit = "GB"
+interval = 20
+warning = 20.0
+alert = 10.0
+
+[[block]]
+block = "memory"
+display_type = "memory"
+format_mem = "{Mup}%"
+format_swap = "{SUp}%"
+
+[[block]]
+block = "cpu"
+interval = 1
+
+[[block]]
+block = "sound"
+
+[[block]]
+block = "time"
+interval = 60
+format = "%a %d/%m %R"

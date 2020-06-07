@@ -1,0 +1,14 @@
+/*
+
+!.git*
+!LICENSE.md
+!README.md
+!rc/
+!coc/
+!i3/
+!alacritty/
+!rofi/
+!zsh/
+
+coc/extensions/*
+zsh/.zcompdump*

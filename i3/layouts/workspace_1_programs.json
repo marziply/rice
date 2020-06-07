@@ -1,0 +1,26 @@
+[
+  {
+    "command": [
+      "/usr/bin/alacritty"
+    ],
+    "working_directory": "/home/hayden/dev/pollen8-backend-v2"
+  },
+  {
+    "command": [
+      "/usr/bin/alacritty"
+    ],
+    "working_directory": "/home/hayden/dev/pollen8-backend-v2"
+  },
+  {
+    "command": [
+      "/usr/bin/alacritty"
+    ],
+    "working_directory": "/home/hayden/dev/pollen8-backend-v2"
+  },
+  {
+    "command": [
+      "/usr/bin/alacritty"
+    ],
+    "working_directory": "/home/hayden/dev/pollen8-platform-customer"
+  }
+]
