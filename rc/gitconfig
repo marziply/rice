@@ -12,3 +12,7 @@
 	rebase = true
 [push]
 	recurseSubmodules = on-demand
+[commit]
+	gpgsign = true
+[gpg]
+	program = gpg2
