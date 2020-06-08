@@ -10,6 +10,7 @@
 !rofi/
 !zsh/
 !nvim/
+!gpg/
 
 coc/extensions/*
 zsh/.zcompdump*
