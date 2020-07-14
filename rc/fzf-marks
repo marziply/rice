@@ -1,4 +1,4 @@
 discover : /home/hayden/dev/pollen8-discover
-backend : /home/hayden/dev/pollen8-backend
 platform : /home/hayden/dev/pollen8-platform-customer
+backend : /home/hayden/dev/pollen8-backend
 config : /home/hayden/.config
