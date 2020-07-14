@@ -1,0 +1,3 @@
+./token.sh
+
+kubectl proxy
