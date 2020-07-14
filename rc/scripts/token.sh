@@ -1,1 +1,1 @@
-kubectl -n kube-system describe secret eks-admin-token-lpzzs | grep -Po 'token:\s+\K.*' | xclip -sel clip
+gcloud config config-helper --format=json | jq -r '.credential.access_token' | xclip -sel clip
