@@ -124,6 +124,8 @@ bindkey '^[[P' delete-char
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
+alias pgc="pgcli postgres postgres --auto-vertical-output"
+
 source $NVM_DIR/nvm.sh
 source $NVM_DIR/bash_completion
 source $RVM_DIR/scripts/rvm
