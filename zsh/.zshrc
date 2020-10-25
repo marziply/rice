@@ -126,6 +126,9 @@ bindkey '^e' edit-command-line
 
 alias pgc="pgcli postgres postgres --auto-vertical-output"
 
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
 source $NVM_DIR/nvm.sh
 source $NVM_DIR/bash_completion
 source $RVM_DIR/scripts/rvm
