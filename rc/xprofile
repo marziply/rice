@@ -44,9 +44,10 @@ export RC_DIR="$XDG_CONFIG_HOME/rc"
 # Start graphical server on tty1 if not already running.
 [ "$(tty)" = "/dev/tty1" ] && ! ps -e | grep -qw Xorg && exec startx
 
-sh $RC_DIR/scripts/layout.sh -w
 xrb $RC_DIR/Xresources &	# Uncomment to use Xresources colors/settings on startup
 xset r rate 250 25 &	# Speed xrate up
 unclutter &		# Remove mouse when idle
+keynav &
 bluetoothctl power on &
 setxkbmap -layout gb -option &
+/usr/lib/xfce4/notifyd/xfce4-notifyd &
