@@ -15,3 +15,4 @@
 coc/extensions/*
 zsh/.zcompdump*
 i3/layouts/*
+rc/fzf-marks
