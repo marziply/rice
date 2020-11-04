@@ -60,7 +60,7 @@ configuration {
 	color-window: "#272827, #13bf9d, #13bf9d";
 /*	max-history-size: 25;*/
 /*	combi-hide-mode-prefix: false;*/
-/*	matching-negate-char: '-' /* unsupported */;*/
+/*	matching-negate-char: '-' unsupported */
 /*	cache-dir: ;*/
 /*	pid: "/run/user/1000/rofi.pid";*/
 /*	display-window: ;*/

@@ -63,7 +63,13 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
 
 # start program launcher
-bindsym $mod+d exec --no-startup-id rofi -show run
+bindsym $mod+d exec --no-startup-id rofi -show run -width 512
+
+# start window switcher
+bindsym $mod+q exec --no-startup-id rofi -show window -width 512
+
+# start lpass rofi
+bindsym $mod+p exec --no-startup-id $XDG_CONFIG_HOME/rofi/scripts/lpass.sh
 
 # change focus
 bindsym $mod+h focus left
