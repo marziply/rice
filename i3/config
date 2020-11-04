@@ -80,7 +80,6 @@ bindsym $mod+Shift+l move right
 # split orientation
 bindsym $mod+x split h;
 bindsym $mod+v split v;
-bindsym $mod+q split toggle
 
 # toggle fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -88,7 +87,6 @@ bindsym $mod+f fullscreen toggle
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -96,14 +94,8 @@ bindsym $mod+Shift+space floating toggle
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
-# toggle sticky
-bindsym $mod+Shift+s sticky toggle
-
-# focus the parent container
-bindsym $mod+a focus parent
-
+# Open a scratchpad terminal
 bindsym $mod+Shift+Return exec alacritty --class floating_alacritty
-# bindsym $mod+Shift+Return exec notify-send "hello"
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -135,13 +127,11 @@ bindsym $mod+Shift+r exec $scripts/compile_config.sh
 bindsym $mod+0 mode "$mode_system"
 
 mode "$mode_system" {
-  bindsym l exec --no-startup-id i3exit lock, mode "default"
-  bindsym s exec --no-startup-id i3exit suspend, mode "default"
-  bindsym u exec --no-startup-id i3exit switch_user, mode "default"
+  bindsym l exec --no-startup-id betterlockscreen -l, mode "default"
   bindsym e exec --no-startup-id i3exit logout, mode "default"
-  bindsym h exec --no-startup-id i3exit hibernate, mode "default"
+  # bindsym h exec --no-startup-id i3exit hibernate, mode "default"
   bindsym r exec --no-startup-id i3exit reboot, mode "default"
-  bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
+  bindsym s exec --no-startup-id i3exit shutdown, mode "default"
 
   # exit system mode: "Enter" or "Escape"
   bindsym Return mode "default"
@@ -180,7 +170,6 @@ bindsym $mod+Shift+F11 exec sh $scripts/save_workspaces.sh
 bindsym $mod+Shift+F12 exec sh $scripts/restore_workspaces.sh
 
 # Float
-# bindsym $mod+Shift+f exec --no-startup-id $scripts/float_window.py
 bindsym $mod+Shift+f exec --no-startup-id $scripts/float_window.sh
 
 ### 40_bar.i3.config ###
