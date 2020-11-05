@@ -1,23 +1,41 @@
 #!/bin/bash
 
-IFS='
-'
-
 declare -A map
 
-for item in `lpass ls --format "%ai %an %au"`; do
-  id=${item#* }
-  id="${id#"${id%%[![:space:]]*}"}"
-  id="${id%"${id##*[![:space:]]}"}"
+list=$(lpass ls \
+  --format "%ai,%an,%ag,%al,%au" \
+  | sed -r "s/^(.*)http:\/\/group//g" \
+  | sed -r "/^\s*$/d" \
+  | sed -r "s/\s+/###/g"
+)
 
-  if [ "$id" != "" ]; then
-    map[$id]=${item%% *}
+for item in $list; do
+  IFS="," read -r -a vals <<< $item
+
+  declare -A row=(
+    [id]=${vals[0]}
+    [name]=${vals[1]}
+    [group]=${vals[2]}
+    [url]=${vals[3]}
+    [user]=${vals[4]}
+  )
+
+  if [[ -z ${row[user]} ]]; then
+    if [ "${row[url]}" == "http://sn" ]; then
+      row[user]="gpg/form"
+    elif [ "${row[url]}" == "http://" ]; then
+      row[user]="password"
+    else
+      row[user]="unknown"
+    fi
   fi
+  
+  map["${row[name]//"###"/ } (${row[user]})"]=${row[id]}
 done
 
-sel=`printf "%s\n" "${!map[@]}" | rofi -dmenu -i -p "Account" -width 900`
+sel=`printf "%s\n" "${!map[@]}" | rofi -dmenu -i -p "Account" -width 1000`
 
-if [ -n $sel ]; then
+if [[ -n $sel ]]; then
   pass=$(lpass show --password ${map[$sel]})
 
   if [ -z $pass ]; then
