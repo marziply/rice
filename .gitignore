@@ -4,7 +4,6 @@
 !LICENSE.md
 !README.md
 !rc/
-!coc/
 !i3/
 !alacritty/
 !rofi/
@@ -12,7 +11,6 @@
 !nvim/
 !gpg/
 
-coc/extensions/*
 zsh/.zcompdump*
 i3/layouts/*
 rc/fzf-marks
