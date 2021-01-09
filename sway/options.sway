@@ -1,0 +1,52 @@
+xwayland disable
+seat * hide_cursor 5000
+
+focus_follows_mouse no
+focus_wrapping no
+default_border pixel 2
+default_floating_border normal
+font SourceCodePro 9
+workspace_auto_back_and_forth no
+floating_modifier $mod
+
+### Output configuration
+#
+# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
+# output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+
+output "DP-2" {
+  position 0,540
+}
+
+output "DP-3" {
+  position 2560,0
+  transform 270
+}
+
+### Idle configuration
+#
+# Example configuration:
+#
+# exec swayidle -w \
+#          timeout 300 'swaylock -f -c 000000' \
+#          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+#          before-sleep 'swaylock -f -c 000000'
+#
+# This will lock your screen after 300 seconds of inactivity, then turn off
+# your displays after another 300 seconds, and turn your screens back on when
+# resumed. It will also lock your screen before your computer goes to sleep.
+
+### Input configuration
+
+input "type:keyboard" {
+  xkb_layout gb
+  repeat_delay 300
+  repeat_rate 30
+}
+
+# Drag floating windows by holding down $mod and left mouse button.
+# Resize them with right mouse button + $mod.
+# Despite the name, also works for non-floating windows.
+# Change normal to inverse to use left mouse button for resizing and right
+# mouse button for dragging.
+floating_modifier $mod normal

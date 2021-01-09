@@ -1,0 +1,16 @@
+### Variables
+
+set $mod Mod1
+set $left h
+set $down j
+set $up k
+set $right l
+
+set $term alacritty
+set $filter ". | reverse | to_entries | .[] | select(.value.focused == true) | .key"
+set $display swaymsg -r -t get_outputs | jq $filter
+set $system (l)ock, (e)xit, (r)eboot, (s)hutdown
+set $menu dmenu_path | bemenu-run -m $($display) | xargs swaymsg exec --
+
+# set $scripts "$XDG_CONFIG_HOME/i3/scripts"
+# set $menu dmenu_path | wofi --show run -i | xargs swaymsg exec --

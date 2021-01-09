@@ -1,0 +1,14 @@
+# Status Bar:
+
+bar {
+  position top
+  font SourceCodePro 10
+
+  status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
+
+  colors {
+    statusline #ffffff
+    background #323232
+    inactive_workspace #323232 #323232 #5c5c5c
+  }
+}

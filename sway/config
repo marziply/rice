@@ -1,0 +1,9 @@
+set $sway $HOME/.config/sway
+
+include $sway/vars.sway
+include $sway/options.sway
+include $sway/mappings.sway
+include $sway/modes.sway
+include $sway/bar.sway
+
+include /etc/sway/config.d/*
