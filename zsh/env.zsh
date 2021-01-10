@@ -1,5 +1,7 @@
 #!/bin/zsh
 
+export GTK_THEME="Aritim-Dark"
+
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
@@ -21,4 +23,3 @@ export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm.conf"
 export FZF_DEFAULT_OPTS="--layout=reverse --height 40%"
 export FZF_DEFAULT_COMMAND="fd --type f"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-source "$HOME/.cargo/env"
