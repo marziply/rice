@@ -39,8 +39,9 @@ alias tmux="tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf"
 
 bindkey -s '^o' 'ranger\n'
 
-source $ZSH/oh-my-zsh.sh
-source /usr/share/nvm/init-nvm.sh
+source "$ZSH/oh-my-zsh.sh"
+source "$HOME/.cargo/env"
+source "/usr/share/nvm/init-nvm.sh"
 
 # source $ZDOTDIR/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
 # source $ZDOTDIR/plugins/zsh-interactive-cd.plugin.zsh

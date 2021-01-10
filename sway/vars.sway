@@ -7,10 +7,10 @@ set $up k
 set $right l
 
 set $term alacritty
+set $scripts "$XDG_CONFIG_HOME/scripts"
 set $filter ". | reverse | to_entries | .[] | select(.value.focused == true) | .key"
-set $display swaymsg -r -t get_outputs | jq $filter
-set $system (l)ock, (e)xit, (r)eboot, (s)hutdown
+set $display swaymsg -rt get_outputs | jq $filter
 set $menu dmenu_path | bemenu-run -m $($display) | xargs swaymsg exec --
+set $system (l)ock, (e)xit, (r)eboot, (s)hutdown
 
-# set $scripts "$XDG_CONFIG_HOME/i3/scripts"
 # set $menu dmenu_path | wofi --show run -i | xargs swaymsg exec --
