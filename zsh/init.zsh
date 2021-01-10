@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="robbyrussell"
+ZSH_THEME="bira"
 ZSH_CACHE_DIR="$XDG_CACHE_HOME/zsh"
 ZSH_COMPDUMP="$ZSH_CACHE_DIR/zcompdump-$HOST-$ZSH_VERSION"
 
@@ -19,7 +19,25 @@ HISTSIZE=999999999
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(\
+  git \
+  cargo \
+  colored-man-pages \
+  colorize \
+  common-aliases \
+  fbterm \
+  fzf \
+  git-extras \
+  gitfast \
+  nvm \
+  ripgrep \
+  rust \
+  rustup \
+  sudo \
+  tmux \
+  zsh-interactive-cd \
+  zsh-syntax-highlighting \
+)
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -41,7 +59,6 @@ bindkey -s '^o' 'ranger\n'
 
 source "$ZSH/oh-my-zsh.sh"
 source "$HOME/.cargo/env"
-source "/usr/share/nvm/init-nvm.sh"
 
 # source $ZDOTDIR/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
 # source $ZDOTDIR/plugins/zsh-interactive-cd.plugin.zsh
