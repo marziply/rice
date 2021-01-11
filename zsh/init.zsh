@@ -11,14 +11,6 @@ HISTFILE="$XDG_CACHE_HOME/zsh/history"
 SAVEHIST="$HISTSIZE"
 HISTSIZE=999999999
 
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
 plugins=(\
   git \
   cargo \
@@ -34,17 +26,9 @@ plugins=(\
   rust \
   rustup \
   sudo \
-  tmux \
   zsh-interactive-cd \
-  zsh-syntax-highlighting \
+  fast-syntax-highlighting \
 )
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
 
 setopt rmstarsilent
 setopt inc_append_history
@@ -59,10 +43,5 @@ bindkey -s '^o' 'ranger\n'
 
 source "$ZSH/oh-my-zsh.sh"
 source "$HOME/.cargo/env"
-
-# source $ZDOTDIR/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
-# source $ZDOTDIR/plugins/zsh-interactive-cd.plugin.zsh
-# source $ZDOTDIR/plugins/fzf-marks.plugin.zsh
-# source $ZDOTDIR/plugins/fzf.plugin.zsh
 
 rm -rf "$HOME/.zcompdump"
