@@ -13,7 +13,7 @@ mode "resize" {
 
 mode "$system" {
   # bindsym h exec --no-startup-id i3exit hibernate, mode "default"
-  bindsym l exec --no-startup-id betterlockscreen -l, mode "default"
+  bindsym l exec --no-startup-id swaylock-fancy -gt "DONT'T PANIC", mode "default"
   bindsym e exec --no-startup-id swaymsg exit, mode "default"
   bindsym r exec --no-startup-id reboot, mode "default"
   bindsym s exec --no-startup-id poweroff, mode "default"
