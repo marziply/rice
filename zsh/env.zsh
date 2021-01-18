@@ -1,8 +1,11 @@
 #!/bin/zsh
 
-export GTK_THEME="Aritim-Dark"
-
+export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$HOME/.gem/${$(rvm current)/-/\/}/bin"
+export PATH="$PATH:$HOME/.rvm/bin"
 export PYTHONPATH="/usr/lib/python3.9"
+
+export GTK_THEME="Aritim-Dark"
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
@@ -17,7 +20,6 @@ export READER="zathura"
 export NVIM_DIR="$XDG_CONFIG_HOME/nvim"
 export NVIM_COC_LOG_FILE="$XDG_RUNTIME_DIR/coc.log"
 
-export PATH="$HOME/.local/bin:$PATH"
 export PSQL_HISTORY="$XDG_CACHE_HOME/pg/history"
 export PGUSER=postgres
 

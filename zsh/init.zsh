@@ -38,7 +38,7 @@ setopt autocd
 alias brave="brave --enable-features=UseOzonePlatform --ozone-platform=wayland"
 alias pgc="pgcli postgres postgres --auto-vertical-output"
 alias tmux="tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf"
-alias pm="pacman -S"
+alias pm="sudo pacman -S"
 alias pms="pacman -Ss"
 alias y="yay -S"
 alias ys="yay -Ss"
@@ -47,5 +47,6 @@ bindkey -s '^o' 'ranger\n'
 
 source "$ZSH/oh-my-zsh.sh"
 source "$HOME/.cargo/env"
+source "$HOME/.rvm/scripts/rvm"
 
 rm -rf "$HOME/.zcompdump"
