@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="bira"
+ZSH_THEME="rice"
 ZSH_CACHE_DIR="$XDG_CACHE_HOME/zsh"
 ZSH_COMPDUMP="$ZSH_CACHE_DIR/zcompdump-$HOST-$ZSH_VERSION"
 

@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 export PATH="$PATH:$HOME/.local/bin"
-export PATH="$PATH:$HOME/.gem/${$(rvm current)/-/\/}/bin"
+export PATH="$PATH:$HOME/.gem/${$($HOME/.rvm/bin/rvm current)/-/\/}/bin"
 export PATH="$PATH:$HOME/.rvm/bin"
 export PYTHONPATH="/usr/lib/python3.9"
 
