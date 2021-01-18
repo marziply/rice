@@ -14,13 +14,21 @@ floating_modifier $mod
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 
+# Main landscape center display
 output "DP-2" {
   position 0,540
 }
 
+# Portrait right display
 output "DP-3" {
   position 2560,0
   transform 270
+}
+
+# Landscape left display TV
+output "HDMI-A-1" {
+  position -4096,0
+  disable
 }
 
 ### Idle configuration
