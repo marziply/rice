@@ -56,7 +56,7 @@ function gpp() {
 
 alias brave="brave --enable-features=UseOzonePlatform --ozone-platform=wayland"
 alias pgc="pgcli postgres postgres --auto-vertical-output"
-alias tmux="tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf"
+alias tmux="tmux -f $XDG_CONFIG_HOME/tmux.conf"
 alias pm="sudo pacman -S"
 alias pms="pacman -Ss"
 alias y="yay -S"

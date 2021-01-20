@@ -8,11 +8,11 @@
 !rofi/
 !zsh/
 !nvim/
-!tmux/
 !sway/
 !gpg/
 !gtk-3.0/
 !scripts/
 
+!tmux.conf
 !npm.conf
 !git.toml
