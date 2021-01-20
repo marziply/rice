@@ -48,6 +48,12 @@ setopt inc_append_history
 setopt share_history
 setopt autocd
 
+function gpp() {
+  git add .
+  git commit -am "$1"
+  git push
+}
+
 alias brave="brave --enable-features=UseOzonePlatform --ozone-platform=wayland"
 alias pgc="pgcli postgres postgres --auto-vertical-output"
 alias tmux="tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf"
@@ -55,6 +61,7 @@ alias pm="sudo pacman -S"
 alias pms="pacman -Ss"
 alias y="yay -S"
 alias ys="yay -Ss"
+alias gpp="gpp"
 
 source "$ZSH/oh-my-zsh.sh"
 source "$HOME/.cargo/env"
