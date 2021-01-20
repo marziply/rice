@@ -29,8 +29,18 @@ plugins=(\
   rustup \
   sudo \
   zsh-interactive-cd \
+  # https://github.com/zdharma/fast-syntax-highlighting.git
   fast-syntax-highlighting \
+  # https://github.com/urbainvaes/fzf-marks
   fzf-marks \
+  # https://github.com/arzzen/calc.plugin.zsh
+  calc \
+  # https://github.com/hlissner/zsh-autopair
+  zsh-autopair \
+  # https://github.com/djui/alias-tips
+  alias-tips \
+  # https://github.com/robertzk/send.zsh
+  send \
 )
 
 setopt rmstarsilent
