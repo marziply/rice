@@ -1,6 +1,5 @@
 #!/bin/zsh
 
-
 if [[ $TERM == "tmux" ]]; then
   export GEM_HOME="$HOME/.rvm/gems/ruby-3.0.0"
   export GEM_PATH="$GEM_HOME/bin"
@@ -21,9 +20,9 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_RUNTIME_DIR="/run/user/1000"
 
+export BROWSER="brave --enable-features=UseOzonePlatform --ozone-platform=wayland"
 export EDITOR="nvim"
 export TERMINAL="alacritty"
-export BROWSER="brave"
 export READER="zathura"
 
 export NVIM_DIR="$XDG_CONFIG_HOME/nvim"
