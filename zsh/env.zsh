@@ -1,24 +1,22 @@
 #!/bin/zsh
 
+if [[ $TERM == "tmux" ]]; then
+  export GEM_HOME="$HOME/.rvm/gems/ruby-3.0.0"
+  export GEM_PATH="$GEM_HOME/bin"
+
+  export RVM_BIN="$HOME/.rvm/bin"
+  export LOCAL_BIN="$HOME/.local/bin"
+
+  export PATH="$PATH:$LOCAL_BIN:$RVM_BIN"
+  export PYTHONPATH="/usr/lib/python3.9"
+fi
+
 export BROWSER="brave --enable-features=UseOzonePlatform --ozone-platform=wayland"
 export EDITOR="nvim"
 export TERMINAL="alacritty"
 export READER="zathura"
 
 export GTK_THEME="Aritim-Dark"
-
-if [[ $TERM == "tmux" ]]; then
-  export GEM_HOME="$HOME/.rvm/gems/ruby-3.0.0"
-  export GEM_PATH="$GEM_HOME/bin"
-
-  return
-fi
-
-export RVM_BIN="$HOME/.rvm/bin"
-export LOCAL_BIN="$HOME/.local/bin"
-
-export PATH="$PATH:$LOCAL_BIN:$RVM_BIN"
-export PYTHONPATH="/usr/lib/python3.9"
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"

@@ -2,7 +2,7 @@
 
 # Start a terminal
 bindsym $mod+Return exec $term
-bindsym $mod+Shift+Return exec $term -e tmux
+bindsym $mod+Shift+Return exec $term -e tmux -f "$XDG_CONFIG_HOME/tmux.conf"
 
 # Kill focused window
 bindsym $mod+Shift+q kill
