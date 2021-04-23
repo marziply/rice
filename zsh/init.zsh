@@ -48,12 +48,60 @@ setopt autocd
 
 tmux source-file "$XDG_CONFIG_HOME/tmux.conf"
 
+gpnv() {
+  git add .
+  git commit -am "$1"
+  git push origin "$(git_current_branch)" --no-verify
+}
+
+request() {
+  red=`tput setaf 1`
+  method=$1
+  url=$2
+
+  shift 2
+
+  result=$(\
+    /usr/bin/http \
+    -jb \
+    --check-status \
+    "$method" \
+    ":3000/api/$url" \
+    "Authorization:Bearer DEV_TOKEN" $@ \
+  )
+
+  if [[ $? -ge 4 ]]; then
+    echo $red
+    jq .message -r <<< $result
+  else
+    jq <<< $result
+  fi
+}
+
+get() {
+  request GET $@
+}
+
+put() {
+  request PUT $@
+}
+
+post() {
+  request POST $@
+}
+
+del() {
+  request DELETE $@
+}
+
 alias brave="brave --enable-features=UseOzonePlatform --ozone-platform=wayland"
 alias pgc="pgcli postgres postgres --auto-vertical-output"
 alias pm="sudo pacman -S"
 alias pms="pacman -Ss"
 alias y="yay -S"
 alias ys="yay -Ss"
+alias gacam="ga . && gcam"
+alias ggpnv="ggpush --no-verify"
 
 source "$ZSH/oh-my-zsh.sh"
 source "$HOME/.cargo/env"
