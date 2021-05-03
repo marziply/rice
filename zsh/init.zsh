@@ -95,7 +95,7 @@ del() {
 }
 
 alias brave="brave --enable-features=UseOzonePlatform --ozone-platform=wayland"
-alias pgc="pgcli postgres postgres --auto-vertical-output"
+alias pgc="clear && pgcli postgres postgres"
 alias pm="sudo pacman -S"
 alias pms="pacman -Ss"
 alias y="yay -S"
