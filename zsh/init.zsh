@@ -94,7 +94,6 @@ del() {
   request DELETE $@
 }
 
-alias brave="brave --enable-features=UseOzonePlatform --ozone-platform=wayland"
 alias pgc="clear && pgcli postgres postgres"
 alias pm="sudo pacman -S"
 alias pms="pacman -Ss"
