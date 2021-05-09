@@ -1,0 +1,10 @@
+# exec_search=true
+show=run
+allow_markup=true
+hide_scroll=true
+insensitive=true
+gtk_dark=true
+columns=2
+lines=5
+term=alacritty
+matching=fuzzy
