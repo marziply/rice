@@ -8,5 +8,5 @@ set $right l
 
 set $term alacritty
 set $system (l)ock, (e)xit, (r)eboot, (s)hutdown
-set $scripts "$XDG_CONFIG_HOME/scripts"
-set $menu wofi
+set $scripts "$config/scripts"
+set $lpass "$config/wofi/scripts/lpass.sh"

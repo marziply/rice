@@ -7,8 +7,11 @@ bindsym $mod+Shift+Return exec $term -e tmux
 # Kill focused window
 bindsym $mod+Shift+q kill
 
-# Start your launcher
-bindsym $mod+d exec $menu
+# Start launcher
+bindsym $mod+d exec wofi
+
+# Open lpass menu
+bindsym $mod+p exec $lpass
 
 # Reload the configuration file
 bindsym $mod+Shift+r reload

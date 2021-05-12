@@ -1,4 +1,5 @@
-set $sway $HOME/.config/sway
+set $config $HOME/.config
+set $sway $config/sway
 
 include $sway/vars.sway
 include $sway/options.sway

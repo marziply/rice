@@ -33,7 +33,7 @@ for item in $list; do
   map["${row[name]//"###"/ } (${row[user]})"]=${row[id]}
 done
 
-sel=`printf "%s\n" "${!map[@]}" | rofi -dmenu -i -p "Account" -width 1000`
+sel=`printf "%s\n" "${!map[@]}" | wofi -S dmenu -i -p "Account" -width 1000`
 
 if [[ -n $sel ]]; then
   pass=$(lpass show --password ${map[$sel]})
@@ -42,5 +42,5 @@ if [[ -n $sel ]]; then
     pass=$(lpass show --field=Passphrase ${map[$sel]})
   fi
 
-  echo $pass | tr -d "\n" | xclip -sel clip
+  echo $pass | tr -d "\n" | wl-copy
 fi
