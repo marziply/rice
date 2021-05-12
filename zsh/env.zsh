@@ -34,3 +34,5 @@ export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm.conf"
 export FZF_DEFAULT_OPTS="--layout=reverse --height 40%"
 export FZF_DEFAULT_COMMAND="fd --type f"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+export LESS="-XFR"
