@@ -8,5 +8,6 @@ set $right l
 
 set $term alacritty
 set $system (l)ock, (e)xit, (r)eboot, (s)hutdown
+set $now "$(date +%Y%m%d%H%M%S)"
 set $scripts "$config/scripts"
 set $lpass "$config/wofi/scripts/lpass.sh"
