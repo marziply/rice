@@ -1,3 +1,5 @@
+# vi: ft=sh
+
 #!/bin/zsh
 
 if [[ $TERM == "tmux" ]]; then
@@ -35,5 +37,17 @@ export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm.conf"
 export FZF_DEFAULT_OPTS="--layout=reverse --height 40%"
 export FZF_DEFAULT_COMMAND="fd --type f"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_MARKS_FILE="$XDG_CONFIG_HOME/marks"
+
+export ZSH="$HOME/.oh-my-zsh"
+export ZSH_THEME="rice"
+export ZSH_CACHE_DIR="$XDG_CACHE_HOME/zsh"
+export ZSH_COMPDUMP="$ZSH_CACHE_DIR/zcompdump-$HOST-$ZSH_VERSION"
+
+export DISABLE_UPDATE_PROMPT="true"
+export COMPLETION_WAITING_DOTS="true"
+export HISTSIZE=999999999
+export HISTFILE="$XDG_CACHE_HOME/zsh/history"
+export SAVEHIST="$HISTSIZE"
 
 export LESS="-XFR"

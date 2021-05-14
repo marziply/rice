@@ -1,17 +1,6 @@
+# vi: ft=sh
+
 #!/bin/zsh
-
-ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="rice"
-ZSH_CACHE_DIR="$XDG_CACHE_HOME/zsh"
-ZSH_COMPDUMP="$ZSH_CACHE_DIR/zcompdump-$HOST-$ZSH_VERSION"
-
-FZF_MARKS_FILE="$XDG_CONFIG_HOME/marks"
-
-DISABLE_UPDATE_PROMPT="true"
-COMPLETION_WAITING_DOTS="true"
-HISTSIZE=999999999
-HISTFILE="$XDG_CACHE_HOME/zsh/history"
-SAVEHIST="$HISTSIZE"
 
 plugins=(\
   git \
