@@ -93,6 +93,10 @@ bindsym --release Shift+Print \
   exec notify-send "Captured area"
 
 # Media player controls
-bindsym XF86AudioPlay exec $scripts/pctl_ops.sh play-pause
-bindsym XF86AudioNext exec $scripts/pctl_ops.sh next
-bindsym XF86AudioPrev exec $scripts/pctl_ops.sh previous
+# bindsym XF86AudioPlay exec $scripts/pctl_ops.sh play-pause
+# bindsym XF86AudioNext exec $scripts/pctl_ops.sh next
+# bindsym XF86AudioPrev exec $scripts/pctl_ops.sh previous
+
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous

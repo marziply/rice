@@ -61,6 +61,7 @@ request() {
 
   if [[ $? -ge 4 ]]; then
     echo $red
+
     jq .message -r <<< $result
   else
     jq <<< $result
@@ -83,13 +84,24 @@ del() {
   request DELETE $@
 }
 
+startc() {
+  sudo docker run \
+    --env-file=.env \
+    --net=host \
+    --init \
+    --rm \
+    -it \
+    $1
+}
+
 alias pgc="clear && pgcli postgres postgres"
 alias pm="sudo pacman -S"
 alias pms="pacman -Ss"
-alias y="yay -S"
-alias ys="yay -Ss"
+alias ym="yay -S"
+alias yms="yay -Ss"
 alias gacam="ga . && gcam"
 alias ggpnv="ggpush --no-verify"
+alias stopc='sudo docker container stop $(sudo docker container ls -lq)'
 
 source "$ZSH/oh-my-zsh.sh"
 source "$HOME/.cargo/env"

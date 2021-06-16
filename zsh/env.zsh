@@ -51,3 +51,4 @@ export HISTFILE="$XDG_CACHE_HOME/zsh/history"
 export SAVEHIST="$HISTSIZE"
 
 export LESS="-XFR"
+export LPASS_CLIPBOARD_COMMAND="wl-copy"
