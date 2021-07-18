@@ -16,7 +16,6 @@
 !scripts/
 
 !tmux.conf
-!npm.conf
 !git.ini
 
 spotify-tui/client.yml
