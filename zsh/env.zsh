@@ -17,6 +17,7 @@ export BROWSER="brave --enable-features=UseOzonePlatform --ozone-platform=waylan
 export EDITOR="nvim"
 export TERMINAL="alacritty"
 export READER="zathura"
+export GPG_TTY="$(tty)"
 
 export GTK_THEME="Aritim-Dark"
 
