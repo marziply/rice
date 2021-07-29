@@ -8,7 +8,8 @@ bindsym $mod+Shift+Return exec $term -e tmux
 bindsym $mod+Shift+q kill
 
 # Start launcher
-bindsym $mod+d exec wofi
+# bindsym $mod+d exec wofi
+bindsym $mod+d exec "ulauncher-toggle"
 
 # Open lpass menu
 bindsym $mod+p exec $lpass

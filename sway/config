@@ -13,3 +13,4 @@ include $sway/boot.sway
 include /etc/sway/config.d/*
 
 exec $sway/init.sh
+exec set-env --global XCURSOR_SIZE=16

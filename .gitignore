@@ -13,6 +13,7 @@
 !sway/
 !gpg/
 !gtk-3.0/
+!ranger
 !scripts/
 
 !tmux.conf
