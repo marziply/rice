@@ -3,9 +3,10 @@
 #!/bin/zsh
 
 alias pgc="clear && pgcli postgres postgres"
-alias pm="sudo pacman -S"
-alias pms="sudo pacman -Ss"
-alias pmr="sudo pacman -Rvns"
+alias pm="sudo pacman"
+alias pmi="yes | pm -S"
+alias pmr="yes | pm -Rvns"
+alias pms="pm -Ss"
 alias ym="yay -S"
 alias yms="yay -Ss"
 alias sc="sudo systemctl"
