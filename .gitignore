@@ -14,6 +14,7 @@
 !gpg/
 !gtk-3.0/
 !ranger
+!highlight
 !scripts/
 
 !tmux.conf
