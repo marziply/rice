@@ -99,6 +99,8 @@ source "$ZSH/oh-my-zsh.sh"
 source "$HOME/.cargo/env"
 source "$HOME/.rvm/scripts/rvm"
 
+bindkey -s "^Z" "ranger \n"
+
 rm -rf "$HOME/.zcompdump"
 rm -rf \
   "$HOME/Documents" \
