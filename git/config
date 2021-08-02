@@ -1,21 +1,21 @@
 [user]
 	name = marziply
 	email = contact@marziply.dev
-	signing-key = B541A47F7633DD59
+	signingkey = B541A47F7633DD59
 [core]
 	editor = nvim
-	ssh-command = ssh -i ~/.ssh/id_rsa -F /dev/null
+	sshcommand = ssh -i ~/.ssh/id_rsa -F /dev/null
 [pull]
 	rebase = true
 [push]
-	recurse-submodules = on-demand
+	recursesubmodules = on-demand
 [commit]
-	gpg-sign = true
+	gpgsign = true
 [credential]
 	helper = cache
 [init]
-	default-branch = master
+	defaultbranch = master
 [gpg]
-	program = ~/.config/scripts/gpg.sh
+	program = ./scripts/gpg.sh
 [alias]
 	conflicts = diff --name-only --diff-filter=U

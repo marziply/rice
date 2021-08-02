@@ -1,3 +1,8 @@
 #!/bin/bash
 
-gpg2 --password-fd=$(lpass show --field Passphrase 928732354107351825) $@
+# gpg $@
+gpg \
+  --passphrase "$(lpass show --field Passphrase 928732354107351825)" \
+  --pinentry-mode loopback \
+  --batch \
+  $@

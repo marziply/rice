@@ -13,8 +13,9 @@
 !sway/
 !gpg/
 !gtk-3.0/
-!ranger
-!highlight
+!ranger/
+!highlight/
+!git/
 !scripts/
 
 !tmux.conf
