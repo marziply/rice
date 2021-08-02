@@ -2,22 +2,23 @@
 
 declare -A map
 
-list=$(lpass ls \
+list=$(\
+  lpass ls \
   --format "%ai,%an,%ag,%al,%au" \
   | sed -r "s/^(.*)http:\/\/group//g" \
   | sed -r "/^\s*$/d" \
-  | sed -r "s/\s+/###/g"
+  | sed -r "s/\s+/###/g" \
 )
 
 for item in $list; do
   IFS="," read -r -a vals <<< $item
 
-  declare -A row=(
-    [id]=${vals[0]}
-    [name]=${vals[1]}
-    [group]=${vals[2]}
-    [url]=${vals[3]}
-    [user]=${vals[4]}
+  declare -A row=(\
+    [id]=${vals[0]} \
+    [name]=${vals[1]} \
+    [group]=${vals[2]} \
+    [url]=${vals[3]} \
+    [user]=${vals[4]} \
   )
 
   if [[ -z ${row[user]} ]]; then

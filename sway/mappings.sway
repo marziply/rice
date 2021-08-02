@@ -12,7 +12,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec "ulauncher-toggle"
 
 # Open lpass menu
-bindsym $mod+p exec $lpass
+bindsym $mod+p exec $scripts/lpass.sh
 
 # Reload the configuration file
 bindsym $mod+Shift+r reload

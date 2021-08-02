@@ -55,3 +55,4 @@ export SAVEHIST="$HISTSIZE"
 
 export LESS="-XFR"
 export LPASS_CLIPBOARD_COMMAND="wl-copy"
+export LPASS_AGENT_TIMEOUT=0
