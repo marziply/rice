@@ -16,6 +16,7 @@
 !ranger/
 !highlight/
 !git/
+!pgcli/
 !scripts/
 
 !tmux.conf
@@ -23,3 +24,5 @@
 
 spotify-tui/client.yml
 spotify-tui/*.json
+pgcli/history
+pgcli/log

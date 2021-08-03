@@ -16,6 +16,6 @@
 [init]
 	defaultbranch = master
 [gpg]
-	program = ./scripts/gpg.sh
+	program = /home/hayden/.config/scripts/gpg.sh
 [alias]
 	conflicts = diff --name-only --diff-filter=U
