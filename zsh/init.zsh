@@ -100,6 +100,7 @@ source "$HOME/.cargo/env"
 source "$HOME/.rvm/scripts/rvm"
 
 bindkey -s "^Z" "ranger \n"
+bindkey -s "^N" "nvim \n"
 
 rm -rf "$HOME/.zcompdump"
 rm -rf \
