@@ -99,8 +99,10 @@ source "$ZSH/oh-my-zsh.sh"
 source "$HOME/.cargo/env"
 source "$HOME/.rvm/scripts/rvm"
 
-bindkey -s "^Z" "ranger \n"
-bindkey -s "^N" "nvim \n"
+bindkey -s "^Z" "ranger\n"
+bindkey -s "^F" "fg\n"
+bindkey -s "^N" "n\n"
+bindkey -s "^\\" "zs && clear\n"
 
 rm -rf "$HOME/.zcompdump"
 rm -rf \
