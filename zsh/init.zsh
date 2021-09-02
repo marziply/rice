@@ -35,7 +35,7 @@ setopt inc_append_history
 setopt share_history
 setopt autocd
 
-tmux source-file "$XDG_CONFIG_HOME/tmux.conf"
+tmux source-file "$XDG_CONFIG_HOME/tmux/tmux.conf"
 
 gpnv() {
   git add .
@@ -101,7 +101,7 @@ source "$HOME/.rvm/scripts/rvm"
 
 bindkey -s "^Z" "ranger\n"
 bindkey -s "^F" "fg\n"
-bindkey -s "^N" "n\n"
+bindkey -s "^V" "n\n"
 bindkey -s "^\\" "zs && clear\n"
 
 rm -rf "$HOME/.zcompdump"

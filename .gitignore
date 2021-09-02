@@ -18,8 +18,8 @@
 !git/
 !pgcli/
 !scripts/
+!tmux/
 
-!tmux.conf
 !git.ini
 
 spotify-tui/client.yml
