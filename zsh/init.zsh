@@ -44,20 +44,23 @@ gpnv() {
 }
 
 request() {
+  /usr/bin/http \
+    -jb \
+    --check-status \
+    "$1" \
+    "$2" \
+    "Authorization:Bearer DEV_TOKEN" \
+    "${@:3}"
+}
+
+api_request() {
   red=`tput setaf 1`
   method=$1
   url=$2
 
   shift 2
 
-  result=$(\
-    /usr/bin/http \
-    -jb \
-    --check-status \
-    "$method" \
-    ":3000/api/$url" \
-    "Authorization:Bearer DEV_TOKEN" $@ \
-  )
+  result=$(request "$method" ":3000/api/$url" $@)
 
   if [[ $? -ge 4 ]]; then
     echo $red
@@ -69,19 +72,19 @@ request() {
 }
 
 get() {
-  request GET $@
+  api_request GET $@
 }
 
 put() {
-  request PUT $@
+  api_request PUT $@
 }
 
 post() {
-  request POST $@
+  api_request POST $@
 }
 
 del() {
-  request DELETE $@
+  api_request DELETE $@
 }
 
 startc() {
@@ -91,13 +94,12 @@ startc() {
     --init \
     --rm \
     -it \
-    $1
+    $@
 }
 
 source "$XDG_CONFIG_HOME/zsh/aliases.zsh"
 source "$ZSH/oh-my-zsh.sh"
 source "$HOME/.cargo/env"
-source "$HOME/.rvm/scripts/rvm"
 
 bindkey -s "^Z" "ranger\n"
 bindkey -s "^F" "fg\n"
@@ -111,3 +113,7 @@ rm -rf \
   "$HOME/Music" \
   "$HOME/Videos" \
   "$HOME/Pictures"
+
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

@@ -14,21 +14,26 @@ for_window [app_id="ulauncher"] floating enable, border none
 
 ### Output configuration
 
+# Landscape center display
+output "DP-1" {
+  position 5280,540
+}
+
 # Portrait left display
 output "DP-2" {
-  position 4000,0
+  position 3840,0
   transform 270
 }
 
 # Portrait right display
 output "DP-3" {
-  position 0,0
+  position 7840,0
   transform 270
 }
 
-# Landscape center display
-output "HDMI-A-1" {
-  position 1440,440
+output "HDMI-A-1" disable {
+  position 0,740
+  mode 3840x2160@30Hz
 }
 
 ### Idle configuration

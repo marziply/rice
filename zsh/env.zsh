@@ -13,23 +13,24 @@ if [[ $TERM == "tmux" ]]; then
   export PYTHONPATH="/usr/lib/python3.9"
 fi
 
-export BROWSER="brave --enable-features=UseOzonePlatform --ozone-platform=wayland"
+# export BROWSER="brave --enable-features=UseOzonePlatform --ozone-platform=wayland"
 export EDITOR="nvim"
 export TERMINAL="alacritty"
 export READER="zathura"
 export GPG_TTY="$(tty)"
-
-export GTK_THEME="Aritim-Dark"
-
-export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm.conf"
-
-export RANGER_LOAD_DEFAULT_RC="FALSE"
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_RUNTIME_DIR="/run/user/1000"
 export XDG_SCREENSHOTS_DIR="$HOME"
+
+export GTK_THEME="Aritim-Dark"
+
+export RANGER_LOAD_DEFAULT_RC="FALSE"
+
+export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm.conf"
+export NVM_DIR="$XDG_CONFIG_HOME/nvm"
 
 export NVIM_DIR="$XDG_CONFIG_HOME/nvim"
 export NVIM_COC_LOG_FILE="$XDG_RUNTIME_DIR/coc.log"
