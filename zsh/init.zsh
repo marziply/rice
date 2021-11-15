@@ -106,6 +106,8 @@ bindkey -s "^F" "fg\n"
 bindkey -s "^V" "n\n"
 bindkey -s "^\\" "zs && clear\n"
 
+unalias _
+
 rm -rf "$HOME/.zcompdump"
 rm -rf \
   "$HOME/Documents" \
