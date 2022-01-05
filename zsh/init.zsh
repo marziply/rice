@@ -5,8 +5,7 @@
 plugins=(\
   git \
   sudo \
-  cargo \
-  rustup \
+  rust \
   colored-man-pages \
   colorize \
   common-aliases \
@@ -16,7 +15,6 @@ plugins=(\
   gitfast \
   nvm \
   ripgrep \
-  rust \
   zsh-interactive-cd \
   # https://github.com/zdharma/fast-syntax-highlighting.git
   fast-syntax-highlighting \

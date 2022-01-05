@@ -80,6 +80,7 @@ bindsym $mod+minus scratchpad show
 
 bindsym $mod+r mode "resize"
 bindsym $mod+0 mode "$system"
+bindsym $mod+9 mode "$display"
 
 # # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 1 +5%
