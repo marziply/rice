@@ -88,10 +88,13 @@ bindsym XF86AudioLowerVolume exec pactl set-sink-volume 1 -5%
 bindsym XF86AudioMute exec pactl set-sink-mute 1 toggle
 
 bindsym --release Print \
-  exec grimshot save active - >> "$HOME/$now.png" && \
-  exec notify-send "Captured window"
+  exec grim -o $(\
+     swaymsg -t get_outputs \
+     | jq -r '.[] | select(.focused) | .name' \
+   ) "$HOME/$now.png" \
+   && exec notify-send "Captured window"
 bindsym --release Shift+Print \
-  exec grimshot save area - >> "$HOME/$now.png" && \
+  exec grim -g "$(slurp)" "$HOME/$now.png" && \
   exec notify-send "Captured area"
 
 # Media player controls
