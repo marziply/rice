@@ -21,6 +21,7 @@
 !tmux/
 
 !git.ini
+!mimeapps.list
 
 spotify-tui/client.yml
 spotify-tui/*.json
