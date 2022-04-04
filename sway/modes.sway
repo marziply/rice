@@ -14,7 +14,7 @@ mode "resize" {
 mode "$system" {
   # bindsym h exec --no-startup-id i3exit hibernate, mode "default"
   bindsym l exec --no-startup-id \
-    swaylock-fancy -gt "DON'T PANIC", \
+    swaylock -efF -c 2c2c2c, \
     mode "default"
   bindsym e exec --no-startup-id \
     swaymsg exit, \

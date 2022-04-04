@@ -61,6 +61,11 @@ input "type:keyboard" {
   repeat_rate 30
 }
 
+input "6790:57382:HID_1a86:e026_Keyboard" {
+  repeat_delay 0
+  repeat_rate 0
+}
+
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.
 # Despite the name, also works for non-floating windows.

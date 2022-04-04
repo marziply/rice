@@ -98,6 +98,8 @@ startc() {
 source "$XDG_CONFIG_HOME/zsh/aliases.zsh"
 source "$ZSH/oh-my-zsh.sh"
 source "$HOME/.cargo/env"
+source "$NVM_DIR/nvm.sh"
+source "$RVM_DIR/scripts/rvm"
 
 bindkey -s "^Z" "ranger\n"
 bindkey -s "^F" "fg\n"
@@ -106,14 +108,10 @@ bindkey -s "^\\" "zs && clear\n"
 
 unalias _
 
-rm -rf "$HOME/.zcompdump"
 rm -rf \
+  "$HOME/.zcompdump" \
   "$HOME/Documents" \
   "$HOME/Downloads" \
   "$HOME/Music" \
   "$HOME/Videos" \
   "$HOME/Pictures"
-
-export NVM_DIR="$HOME/.config/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
