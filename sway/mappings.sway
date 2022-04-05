@@ -1,5 +1,3 @@
-### Key bindings
-
 # Start a terminal
 bindsym $mod+Return exec $term
 bindsym $mod+Shift+Return exec $term -e tmux

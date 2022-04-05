@@ -32,6 +32,7 @@ export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm.conf"
 export NVM_DIR="$XDG_CONFIG_HOME/nvm"
 
 export NVIM_DIR="$XDG_CONFIG_HOME/nvim"
+export NVIM_CACHE_DIR="$XDG_CACHE_HOME/nvim"
 export NVIM_COC_LOG_FILE="$XDG_RUNTIME_DIR/coc.log"
 
 export PSQL_HISTORY="$XDG_CACHE_HOME/pg/history"
