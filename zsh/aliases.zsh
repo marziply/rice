@@ -2,6 +2,7 @@
 
 #!/bin/zsh
 
+alias n="nvim"
 alias pgc="clear && pgcli postgres postgres"
 alias pm="sudo pacman"
 alias pmi="yes | pm -S"
@@ -39,10 +40,7 @@ alias kcgaa="kcg all --all-namespaces"
 alias kcd="kc delete"
 alias kcdp="kcd pod"
 alias kcdj="kcd job"
-alias n="nvim"
 alias zs="source $XDG_CONFIG_HOME/zsh/init.zsh"
 alias zc="n $XDG_CONFIG_HOME/zsh/init.zsh"
 alias ze="n $XDG_CONFIG_HOME/zsh/env.zsh"
 alias za="n $XDG_CONFIG_HOME/zsh/aliases.zsh"
-alias glni="gl && ni && grhh"
-alias lpgpg="$XDG_CONFIG_HOME/scripts/gpg.sh"

@@ -3,8 +3,6 @@
 #!/bin/zsh
 
 export LOCAL_BIN="$HOME/.local/bin"
-# export LOCAL_SCRIPTS="$XDG_CONFIG_HOME/scripts"
-
 export PATH="$PATH:$LOCAL_BIN:$LOCAL_SCRIPTS"
 export PYTHONPATH="/usr/lib/python3.9"
 
