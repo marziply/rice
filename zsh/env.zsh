@@ -43,13 +43,16 @@ export FZF_DEFAULT_COMMAND="fd --type f"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_MARKS_FILE="$XDG_CONFIG_HOME/marks"
 
-export ZSH="$HOME/.oh-my-zsh"
+export ZSH="$XDG_CONFIG_HOME/omz"
+export ZSH_CUSTOM="$ZSH/custom"
 export ZSH_THEME="rice"
 export ZSH_CACHE_DIR="$XDG_CACHE_HOME/zsh"
 export ZSH_COMPDUMP="$ZSH_CACHE_DIR/zcompdump-$HOST-$ZSH_VERSION"
 
 export RVM_DIR="$HOME/.rvm"
 export RVM_BIN="$RVM_DIR/bin"
+
+export CARGO_HOME="$XDG_CONFIG_HOME/cargo"
 
 export DISABLE_UPDATE_PROMPT="true"
 export COMPLETION_WAITING_DOTS="true"

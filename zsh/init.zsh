@@ -97,7 +97,7 @@ startc() {
 
 source "$XDG_CONFIG_HOME/zsh/aliases.zsh"
 source "$ZSH/oh-my-zsh.sh"
-source "$HOME/.cargo/env"
+source "$CARGO_HOME/env"
 source "$NVM_DIR/nvm.sh"
 source "$RVM_DIR/scripts/rvm"
 
