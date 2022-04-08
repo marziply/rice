@@ -2,12 +2,11 @@
 
 #!/bin/zsh
 
-if [[ $TERM == "tmux" ]]; then
-  export LOCAL_BIN="$HOME/.local/bin"
+export LOCAL_BIN="$HOME/.local/bin"
+# export LOCAL_SCRIPTS="$XDG_CONFIG_HOME/scripts"
 
-  export PATH="$PATH:$LOCAL_BIN"
-  export PYTHONPATH="/usr/lib/python3.9"
-fi
+export PATH="$PATH:$LOCAL_BIN:$LOCAL_SCRIPTS"
+export PYTHONPATH="/usr/lib/python3.9"
 
 # export BROWSER="brave --enable-features=UseOzonePlatform --ozone-platform=wayland"
 export EDITOR="nvim"
@@ -58,10 +57,6 @@ export HISTFILE="$XDG_CACHE_HOME/zsh/history"
 export SAVEHIST="$HISTSIZE"
 export HIGHLIGHT_DATADIR="$XDG_CONFIG_HOME/highlight"
 export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
-
-export GIT_CONFIG_COUNT=1
-export GIT_CONFIG_KEY_0="config.dir"
-export GIT_CONFIG_VALUE_0="$XDG_CONFIG_HOME"
 
 export LESS="-XFR"
 export LPASS_CLIPBOARD_COMMAND="wl-copy"

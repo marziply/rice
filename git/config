@@ -15,10 +15,11 @@
 	helper = cache
 [init]
 	defaultbranch = master
-[gpg]
-	program = ./scripts/gpg.sh
+# [gpg]
+# 	program = /home/hayden/.config/scripts/gpg.sh
 [alias]
 	conflicts = diff --name-only --diff-filter=U
+	commit = -c "gpg.program = $XDG_CONFIG_HOME/scripts/gpg.sh" commit
 [merge]
   tool = native
 	conflictstyle = diff3
