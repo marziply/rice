@@ -4,6 +4,7 @@
 !LICENSE.md
 !README.md
 
+!scripts/
 !spotify-tui/
 !spotifyd/
 !alacritty/
@@ -17,12 +18,14 @@
 !highlight/
 !git/
 !pgcli/
-!scripts/
 !tmux/
+!monero-project/
 
 !git.ini
 !mimeapps.list
+!npm.conf
 
+!kube/config.yml
 spotify-tui/client.yml
 spotify-tui/*.json
 pgcli/history

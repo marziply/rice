@@ -16,10 +16,9 @@
 [init]
 	defaultbranch = master
 [gpg]
-	program = /home/hayden/.config/scripts/gpg.sh
+	program = ./scripts/gpg.sh
 [alias]
 	conflicts = diff --name-only --diff-filter=U
-
 [merge]
   tool = native
 	conflictstyle = diff3
@@ -27,9 +26,9 @@
 	trustexitcode = true
 	keepbackup = false
 	prompt = false
+[mergetool "native"]
+  cmd = nvim -d "$BASE" "$LOCAL" "$REMOTE" "$MERGED" -c '$wincmd w' -c 'wincmd J'
 [mergetool "fugitive"]
   cmd = nvim -c Gdiffsplit! "$MERGED" -c 'Git mergetool' -c 'normal zt'
-[mergetool "native"]
-  cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [mergetool "diffconflicts"]
   cmd = nvim -c DiffConflicts "$MERGED" "$BASE" "$LOCAL" "$REMOTE"

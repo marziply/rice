@@ -53,12 +53,21 @@ export RVM_DIR="$HOME/.rvm"
 export RVM_BIN="$RVM_DIR/bin"
 
 export CARGO_HOME="$XDG_CONFIG_HOME/cargo"
+export RUSTUP_HOME="$XDG_CONFIG_HOME/rustup"
+
+export KUBECONFIG="$XDG_CONFIG_HOME/kube/config.yml"
 
 export DISABLE_UPDATE_PROMPT="true"
 export COMPLETION_WAITING_DOTS="true"
 export HISTSIZE=999999999
 export HISTFILE="$XDG_CACHE_HOME/zsh/history"
 export SAVEHIST="$HISTSIZE"
+export HIGHLIGHT_DATADIR="$XDG_CONFIG_HOME/highlight"
+export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
+
+export GIT_CONFIG_COUNT=1
+export GIT_CONFIG_KEY_0="config.dir"
+export GIT_CONFIG_VALUE_0="$XDG_CONFIG_HOME"
 
 export LESS="-XFR"
 export LPASS_CLIPBOARD_COMMAND="wl-copy"
