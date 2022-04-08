@@ -3,9 +3,6 @@
 #!/bin/zsh
 
 if [[ $TERM == "tmux" ]]; then
-  export GEM_HOME="$HOME/.rvm/gems/ruby-3.0.0"
-  export GEM_PATH="$GEM_HOME/bin"
-
   export LOCAL_BIN="$HOME/.local/bin"
 
   export PATH="$PATH:$LOCAL_BIN"
@@ -48,9 +45,6 @@ export ZSH_CUSTOM="$ZSH/custom"
 export ZSH_THEME="rice"
 export ZSH_CACHE_DIR="$XDG_CACHE_HOME/zsh"
 export ZSH_COMPDUMP="$ZSH_CACHE_DIR/zcompdump-$HOST-$ZSH_VERSION"
-
-export RVM_DIR="$HOME/.rvm"
-export RVM_BIN="$RVM_DIR/bin"
 
 export CARGO_HOME="$XDG_CONFIG_HOME/cargo"
 export RUSTUP_HOME="$XDG_CONFIG_HOME/rustup"

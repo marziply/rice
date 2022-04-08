@@ -98,7 +98,6 @@ startc() {
 source "$XDG_CONFIG_HOME/zsh/aliases.zsh"
 source "$ZSH/oh-my-zsh.sh"
 source "$NVM_DIR/nvm.sh"
-source "$RVM_DIR/scripts/rvm"
 
 bindkey -s "^Z" "ranger\n"
 bindkey -s "^F" "fg\n"
