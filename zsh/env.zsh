@@ -53,7 +53,7 @@ export COMPLETION_WAITING_DOTS="true"
 export HISTSIZE=999999999
 export HISTFILE="$XDG_CACHE_HOME/zsh/history"
 export SAVEHIST="$HISTSIZE"
-export HIGHLIGHT_DATADIR="$XDG_CONFIG_HOME/highlight"
+export HIGHLIGHT_DATADIR="$XDG_CONFIG_HOME/highlight/"
 export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
 
 export LESS="-XFR"
