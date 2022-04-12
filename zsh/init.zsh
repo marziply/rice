@@ -35,7 +35,7 @@ setopt autocd
 
 tmux source-file "$XDG_CONFIG_HOME/tmux/tmux.conf"
 
-gpnv() {
+gcpnv() {
   git add .
   git commit -am "$1"
   git push origin "$(git_current_branch)" --no-verify
