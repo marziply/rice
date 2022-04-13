@@ -1,13 +1,9 @@
-# Resizing containers:
-
 mode "resize" {
   bindsym $left resize shrink width 30px
   bindsym $down resize grow height 30px
   bindsym $up resize shrink height 30px
   bindsym $right resize grow width 30px
 
-  # Return to default mode
-  bindsym Return mode "default"
   bindsym Escape mode "default"
 }
 
@@ -26,26 +22,22 @@ mode "$system" {
     poweroff, \
     mode "default"
 
-  # exit system mode: "Enter" or "Escape"
-  bindsym Return mode "default"
   bindsym Escape mode "default"
 }
 
-mode "$display" {
-  bindsym s exec --no-startup-id \
-    swaymsg 'output "HDMI-A-1" mode 3840x2160@60Hz', \
+mode "$scrot" {
+  bindsym w exec --no-startup-id \
+    $scripts/scrot.sh clip window, \
     mode "default"
-  bindsym t exec --no-startup-id \
-    swaymsg 'output "HDMI-A-1" mode 3840x2160@30Hz', \
+  bindsym Control+w exec --no-startup-id \
+    $scripts/scrot.sh save window, \
     mode "default"
-  bindsym e exec --no-startup-id \
-    swaymsg 'output "HDMI-A-1" enable', \
+  bindsym a exec --no-startup-id \
+    $scripts/scrot.sh clip area, \
     mode "default"
-  bindsym d exec --no-startup-id \
-    swaymsg 'output "HDMI-A-1" disable', \
+  bindsym Control+a exec --no-startup-id \
+    $scripts/scrot.sh save area, \
     mode "default"
 
-  # exit system mode: "Enter" or "Escape"
-  bindsym Return mode "default"
   bindsym Escape mode "default"
 }

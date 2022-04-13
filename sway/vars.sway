@@ -7,7 +7,7 @@ set $up k
 set $right l
 
 set $term alacritty
-set $system (l)ock, (e)xit, (r)eboot, (s)hutdown
-set $display (s)ixty fps, (t)hirty fps, (e)nable, (d)isable
+set $system [l] lock, [e] exit, [r] reboot, [s] shutdown
+set $scrot [w] clip window, [c-w] save window, [a] clip area, [c-a] save area
 set $now "$(date +%Y%m%d%H%M%S)"
 set $scripts "$config/scripts"

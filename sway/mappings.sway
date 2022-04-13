@@ -78,22 +78,15 @@ bindsym $mod+minus scratchpad show
 
 bindsym $mod+r mode "resize"
 bindsym $mod+0 mode "$system"
-bindsym $mod+9 mode "$display"
+bindsym Print mode "$scrot"
 
 # # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 1 +5%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume 1 -5%
 bindsym XF86AudioMute exec pactl set-sink-mute 1 toggle
 
-bindsym --release Print \
-  exec grim -o $(\
-     swaymsg -t get_outputs \
-     | jq -r '.[] | select(.focused) | .name' \
-   ) "$HOME/$now.png" \
-   && exec notify-send "Captured window"
-bindsym --release Shift+Print \
-  exec grim -g "$(slurp)" "$HOME/$now.png" && \
-  exec notify-send "Captured area"
+# bindsym --release Print exec $scripts/scrot.sh window
+# bindsym --release Shift+Print exec $scripts/scrot.sh area
 
 # Media player controls
 # bindsym XF86AudioPlay exec $scripts/pctl_ops.sh play-pause
