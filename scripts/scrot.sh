@@ -2,25 +2,18 @@
 
 mode="$1"
 now=$(date +%Y%m%d%H%M%S)
+output="${HOME}/${now}.png"
 display=$(\
  swaymsg -t get_outputs \
  | jq -r '.[] | select(.focused) | .name' \
 )
-
-if [ "$mode" = "clip" ]; then
-  output="-"
-fi
-
-if [ "$mode" = "save" ]; then
-  output="${HOME}/${now}.png"
-fi
 
 shift
 
 notify() {
   title="Captured $1"
 
-  if [ "$output" = "-" ]; then
+  if [ "$mode" = "clip" ]; then
     notify-send "$title" "Copied to clipboard"
   elif [ -e "$output" ]; then
     notify-send "$title" "Saved as ${now}.png"
@@ -28,13 +21,25 @@ notify() {
 }
 
 window() {
-  grim -o "$display" "$output"
+  if [ "$mode" = "clip" ]; then
+    grim -o "$display" - | wl-copy
+  fi
+
+  if [ "$mode" = "save" ]; then
+    grim -o "$display" "$output"
+  fi
 
   notify "window"
 }
 
 area() {
-  grim -g "$(slurp)" "$output"
+  if [ "$mode" = "clip" ]; then
+    grim -g "$(slurp)" - | wl-copy
+  fi
+
+  if [ "$mode" = "save" ]; then
+    grim -g "$(slurp)" "$output"
+  fi
 
   notify "area"
 }
