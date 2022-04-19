@@ -47,3 +47,6 @@ alias docker="sudo docker"
 alias dck="docker"
 alias dp="dck pull"
 alias stopc='dck container stop $(sudo docker container ls -lq)'
+alias vcm='veracrypt -p "$(lpass show 1215307261831005367)" --non-interactive'
+alias vcd="veracrypt -d"
+alias vcl="veracrypt -l"
