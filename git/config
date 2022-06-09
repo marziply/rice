@@ -6,10 +6,10 @@
 	signingkey = 5462549313B7F96740FD8EF2B541A47F7633DD59
 [core]
 	editor = nvim
-	sshcommand = ssh -i ~/.keys/rsa/github.pem -F /dev/null
 	pager = delta
-[url "ssh://git@github.com/"]
-	insteadof = "https://github.com/"
+	sshcommand = ssh -i "$KEYS_DIR/rsa/github.pem" -F /dev/null
+[url "ssh://git@github.com"]
+	insteadof = "https://github.com"
 [pull]
 	rebase = true
 [push]

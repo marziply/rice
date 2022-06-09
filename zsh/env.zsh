@@ -98,3 +98,5 @@ if [ -z "$LOCAL_BIN" ]; then
   export CARGO_BIN="$CONFIG_DIR/cargo/bin"
   export PATH="$PATH:$LOCAL_BIN:$GO_BIN:$CARGO_BIN"
 fi
+
+source "$ZSH_DIR/private.zsh"
