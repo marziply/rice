@@ -61,7 +61,7 @@ export NPM_CONFIG_USERCONFIG="$CONFIG_DIR/npm.conf"
 export NVM_DIR="$CONFIG_DIR/nvm"
 
 # Kubectl
-export KUBE_DIR="$CONFIG_DIR/kubectl"
+export KUBE_DIR="$CONFIG_DIR/kube"
 export LPASS_AGENT_TIMEOUT=0
 
 # Neovim
