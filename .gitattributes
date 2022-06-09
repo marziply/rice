@@ -1,3 +1,0 @@
-.gitattributes !filter !diff
-
-kube/** filter=git-crypt diff=git-crypt

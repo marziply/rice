@@ -18,3 +18,6 @@
 	path = omz/custom/plugins/send
 	url = https://github.com/robertzk/send.zsh
 	branch = master
+[submodule "kube"]
+	path = kube
+	url = git@github.com:marziply/kube
