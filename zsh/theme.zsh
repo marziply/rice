@@ -1,3 +1,5 @@
+# vi: ft=sh
+
 #!/bin/zsh
 
 local ret_status="%(?:%{$fg_bold[green]%}:%{$fg_bold[red]%})%?%{$reset_color%}"
