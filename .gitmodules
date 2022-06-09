@@ -30,3 +30,6 @@
 	path = zsh/plugins/zsh-autopair
 	url = git@github.com:hlissner/zsh-autopair
 	branch = master
+[submodule "tmux/plugins/tpm"]
+	path = tmux/plugins/tpm
+	url = git@github.com:tmux-plugins/tpm
