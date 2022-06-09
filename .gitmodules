@@ -26,3 +26,7 @@
 	path = zsh/plugins/send
 	url = git@github.com:robertzk/send.zsh
 	branch = master
+[submodule "zsh/plugins/zsh-autopair"]
+	path = zsh/plugins/zsh-autopair
+	url = git@github.com:hlissner/zsh-autopair
+	branch = master
