@@ -1,0 +1,4 @@
+.gitattributes !filter !diff
+
+marks filter=git-crypt diff=git-crypt
+zsh/private.zsh filter=git-crypt diff=git-crypt

@@ -5,6 +5,7 @@
 !README.md
 
 !kube/
+!omz
 !nvim/
 
 !alacritty/
@@ -13,8 +14,6 @@
 !gtk-3.0/
 !helm/
 !highlight/
-!omz/custom/plugins/
-!omz/custom/themes/
 !pgcli/
 !ranger/
 !scripts/
@@ -27,6 +26,7 @@
 
 !mimeapps.list
 !npm.conf
+!marks
 
 pgcli/history
 pgcli/log
