@@ -20,6 +20,7 @@
 !git/
 !pgcli/
 !tmux/
+!kube/
 !omz/custom/plugins/
 !omz/custom/themes/
 
