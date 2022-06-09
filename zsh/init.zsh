@@ -33,10 +33,10 @@ setopt inc_append_history
 setopt share_history
 setopt autocd
 
-current_tty=$(tty)
+current_tty="$(tty)"
 
 if [[ "$current_tty" =~ ^/dev/tty[0-9]+$ ]]; then
-  if [[ ${current_tty: -1} == "1" ]]; then
+  if [[ "${current_tty: -1}" == "1" ]]; then
     exec sway
   fi
 else
