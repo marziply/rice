@@ -62,7 +62,6 @@ export NVM_DIR="$CONFIG_DIR/nvm"
 
 # Kubectl
 export KUBE_DIR="$CONFIG_DIR/kubectl"
-export KUBECONFIG="$KUBE_DIR/config.yml:$KUBE_DIR/home.yml:$KUBE_DIR/work.yml"
 export LPASS_AGENT_TIMEOUT=0
 
 # Neovim
@@ -98,5 +97,9 @@ if [ -z "$LOCAL_BIN" ]; then
   export CARGO_BIN="$CONFIG_DIR/cargo/bin"
   export PATH="$PATH:$LOCAL_BIN:$GO_BIN:$CARGO_BIN"
 fi
+
+for i in config home work; do
+  export KUBECONFIG="$KUBECONFIG:$KUBE_DIR/$i.yaml"
+done
 
 source "$ZSH_DIR/private.zsh"
