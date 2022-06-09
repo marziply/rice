@@ -33,7 +33,15 @@ setopt inc_append_history
 setopt share_history
 setopt autocd
 
-tmux source-file "$XDG_CONFIG_HOME/tmux/tmux.conf"
+current_tty=$(tty)
+
+if [[ "$current_tty" =~ ^/dev/tty[0-9]+$ ]]; then
+  if [[ ${current_tty: -1} == "1" ]]; then
+    exec sway
+  fi
+else
+  tmux source-file "$XDG_CONFIG_HOME/tmux/tmux.conf"
+fi
 
 source "$XDG_CONFIG_HOME/zsh/aliases.zsh"
 source "$XDG_CONFIG_HOME/zsh/utils.zsh"

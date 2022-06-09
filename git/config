@@ -4,7 +4,10 @@
 	signingkey = 5462549313B7F96740FD8EF2B541A47F7633DD59
 [core]
 	editor = nvim
-	sshcommand = ssh -i ~/.ssh/id_rsa -F /dev/null
+	sshcommand = ssh -i ~/.keys/rsa/github.pem -F /dev/null
+	pager = delta
+[url "ssh://git@github.com/"]
+	insteadof = "https://github.com/"
 [pull]
 	rebase = true
 [push]
@@ -17,7 +20,14 @@
 	defaultbranch = master
 [alias]
 	conflicts = diff --name-only --diff-filter=U
-	commit = -c "gpg.program = $XDG_CONFIG_HOME/scripts/gpg.sh" commit
+	commit = -c "gpg.program = $SCRIPTS_DIR/gpg.sh" commit
+[interactive]
+	difffilter = delta --color-only
+[diff]
+	colormoved = default
+[delta]
+	navigate = true
+	light = false
 [merge]
   tool = native
 	conflictstyle = diff3
@@ -31,3 +41,9 @@
   cmd = nvim -c Gdiffsplit! "$MERGED" -c 'Git mergetool' -c 'normal zt'
 [mergetool "diffconflicts"]
   cmd = nvim -c DiffConflicts "$MERGED" "$BASE" "$LOCAL" "$REMOTE"
+[filter "strongbox"]
+	clean = strongbox -clean %f
+	smudge = strongbox -smudge %f
+	required = true
+[diff "strongbox"]
+	textconv = strongbox -diff

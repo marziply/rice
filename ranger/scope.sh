@@ -1,6 +1,7 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 set -o noclobber -o noglob -o nounset -o pipefail
+
 IFS=$'\n'
 
 ## If the option `use_preview_script` is set to `true`,
@@ -106,7 +107,7 @@ handle_extension() {
         ## JSON
         json)
             jq --color-output . "${FILE_PATH}" && exit 5
-            python -m json.tool -- "${FILE_PATH}" && exit 5
+            echo "Failed to parse JSON" && exit 5
             ;;
 
         ## Direct Stream Digital/Transfer (DSDIFF) and wavpack aren't detected
@@ -290,7 +291,7 @@ handle_mime() {
             exit 1;;
 
         ## Text
-        text/* | */xml | application/javascript)
+        text/* | */xml | application/javascript | application/pgp-keys)
             ## Syntax highlight
             if [[ "$( stat --printf='%s' -- "${FILE_PATH}" )" -gt "${HIGHLIGHT_SIZE_MAX}" ]]; then
                 exit 2
