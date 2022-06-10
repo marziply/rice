@@ -40,11 +40,11 @@ if [[ "$current_tty" =~ ^/dev/tty[0-9]+$ ]]; then
     exec sway
   fi
 else
-  tmux source-file "$XDG_CONFIG_HOME/tmux/tmux.conf"
+  tmux source-file "$TMUX_DIR/tmux.conf"
 fi
 
-source "$XDG_CONFIG_HOME/zsh/aliases.zsh"
-source "$XDG_CONFIG_HOME/zsh/utils.zsh"
+source "$ZSH_DIR/aliases.zsh"
+source "$ZSH_DIR/utils.zsh"
 source "$ZSH/oh-my-zsh.sh"
 source "$NVM_DIR/nvm.sh"
 

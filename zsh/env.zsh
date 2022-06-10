@@ -30,6 +30,8 @@ export GTK_THEME="Aritim-Dark"
 
 # Applications
 # export BROWSER="brave --enable-features=UseOzonePlatform --ozone-platform=wayland"
+export PAGER="nvimpager"
+export MANPAGER="nvimpager"
 export BROWSER="brave"
 export EDITOR="nvim"
 export TERMINAL="alacritty"
@@ -48,6 +50,7 @@ export HIGHLIGHT_TABWIDTH="2"
 
 # Lastpass
 export LPASS_CLIPBOARD_COMMAND="wl-copy"
+export LPASS_AGENT_TIMEOUT=0
 
 # GNUPG
 export GPG_TTY="$(tty)"
@@ -62,7 +65,6 @@ export NVM_DIR="$CONFIG_DIR/nvm"
 
 # Kubectl
 export KUBE_DIR="$CONFIG_DIR/kube"
-export LPASS_AGENT_TIMEOUT=0
 
 # Neovim
 export NVIM_DIR="$CONFIG_DIR/nvim"
@@ -91,15 +93,17 @@ export RUSTUP_HOME="$CONFIG_DIR/rustup"
 export GOPATH="$GO_DIR"
 
 # Paths
-if [ -z "$LOCAL_BIN" ]; then
+if [ ! $ZSH_ENV_LOADED ]; then
   export LOCAL_BIN="$HOME/.local/bin"
   export GO_BIN="$GO_DIR/bin"
   export CARGO_BIN="$CONFIG_DIR/cargo/bin"
   export PATH="$PATH:$LOCAL_BIN:$GO_BIN:$CARGO_BIN"
-fi
+  export ZSH_ENV_LOADED=1
+  export KUBECONFIG=""
 
-for i in config home work; do
-  export KUBECONFIG="$KUBECONFIG:$KUBE_DIR/$i.yaml"
-done
+  for i in config home work; do
+    export KUBECONFIG="$KUBECONFIG:$KUBE_DIR/$i.yaml"
+  done
+fi
 
 source "$ZSH_DIR/private.zsh"

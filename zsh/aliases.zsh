@@ -4,15 +4,23 @@
 
 alias n="nvim"
 alias nrc="n $NVIM_DIR/init.vim"
+
+# PostgreSQL
 alias pgc="clear && pgcli postgres postgres"
+
+# Pacman package manager
 alias pm="sudo pacman"
 alias pmi="yes | pm -S"
 alias pmr="yes | pm -Rvns"
 alias pms="pm -Ss"
 alias pmq="pm -Qs"
+
+# Yay package manager
 alias ym="yay"
 alias ymi="ym -S"
 alias yms="ym -Ss"
+
+# SystemD
 alias sc="sudo systemctl"
 alias scu="systemctl --user"
 alias scs="sc start"
@@ -27,14 +35,17 @@ alias sctu="scu status"
 alias scou="scu stop"
 alias scru="scu restart"
 alias sceu="scu enable"
+
+# GIT
 alias gacam="ga . && gcam"
 alias ggpnv="ggpush --no-verify"
-alias kssh="ssh rancher@pi.dev.gg"
-alias k="kubectl --cache-dir ~/.cache/kube"
-alias kc="k config"
-alias kcv="kc view"
-alias kcg="kc get"
-alias kcs="kc set"
+
+# Kubectl
+alias k="kubectl --cache-dir $CACHE_DIR/kube"
+alias kc="k context"
+# alias kcv="kc view"
+# alias kcg="kc get"
+# alias kcs="kc set"
 alias ke="k explain"
 alias kl="k logs"
 alias kg="k get"
@@ -63,11 +74,15 @@ alias mks="mk start"
 alias mkd="mk delete"
 alias mko="mk stop"
 alias mkp="mk pause"
-alias zs="source $XDG_CONFIG_HOME/zsh/*.zsh"
-alias zc="n $XDG_CONFIG_HOME/zsh/init.zsh"
-alias ze="n $XDG_CONFIG_HOME/zsh/env.zsh"
-alias za="n $XDG_CONFIG_HOME/zsh/aliases.zsh"
-alias zu="n $XDG_CONFIG_HOME/zsh/utils.zsh"
+
+# ZSH
+alias zs="source $ZSH_DIR/*.zsh"
+alias zc="n $ZSH_DIR/init.zsh"
+alias ze="n $ZSH_DIR/env.zsh"
+alias za="n $ZSH_DIR/aliases.zsh"
+alias zu="n $ZSH_DIR/utils.zsh"
+
+# Docker
 alias d="sudo docker"
 alias dr="d run"
 alias dp="d pull"
@@ -82,6 +97,8 @@ alias dck="dc kill"
 alias dcl="dc logs"
 alias dcls="dc ls"
 alias stopc='dco $(dcl -lq)'
+
+# Veracrypt
 alias vc="veracrypt"
 alias vcd="vc -d"
 alias vcl="vc -l"
