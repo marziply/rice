@@ -2,6 +2,9 @@
 
 #!/bin/zsh
 
+unalias _
+
+# Neovim
 alias n="nvim"
 alias nrc="n $NVIM_DIR/init.vim"
 
@@ -36,7 +39,7 @@ alias scou="scu stop"
 alias scru="scu restart"
 alias sceu="scu enable"
 
-# GIT
+# git
 alias gacam="ga . && gcam"
 alias ggpnv="ggpush --no-verify"
 

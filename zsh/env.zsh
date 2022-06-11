@@ -30,7 +30,7 @@ export GTK_THEME="Aritim-Dark"
 
 # Applications
 # export BROWSER="brave --enable-features=UseOzonePlatform --ozone-platform=wayland"
-export PAGER="nvimpager"
+# export PAGER="nvimpager"
 export MANPAGER="nvimpager"
 export BROWSER="brave"
 export EDITOR="nvim"
@@ -79,7 +79,7 @@ export PGUSER="postgres"
 export FZF_DEFAULT_OPTS="--layout=reverse --height 40%"
 export FZF_DEFAULT_COMMAND="fd --type f"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_MARKS_FILE="$CONFIG_DIR/marks"
+export FZF_MARKS_FILE="$CONFIG_DIR/marks.list"
 
 # Python
 export PYTHONPATH="/usr/lib/python3.9"

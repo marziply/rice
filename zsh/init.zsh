@@ -28,32 +28,26 @@ plugins=(\
   send \
 )
 
-setopt rmstarsilent
-setopt inc_append_history
-setopt share_history
-setopt autocd
-
-current_tty="$(tty)"
-
-if [[ "$current_tty" =~ ^/dev/tty[0-9]+$ ]]; then
-  if [[ "${current_tty: -1}" == "1" ]]; then
-    exec sway
-  fi
-else
-  tmux source-file "$TMUX_DIR/tmux.conf"
-fi
-
-source "$ZSH_DIR/aliases.zsh"
-source "$ZSH_DIR/utils.zsh"
+# Managers
 source "$ZSH/oh-my-zsh.sh"
 source "$NVM_DIR/nvm.sh"
+
+# Modules
+source "$ZSH_DIR/aliases.zsh"
+source "$ZSH_DIR/utils.zsh"
+
+start_sway
+generate_marks
 
 bindkey -s "^Z" "ranger\n"
 bindkey -s "^F" "fg\n"
 bindkey -s "^V" "n\n"
 bindkey -s "^\\" "zs && clear\n"
 
-unalias _
+setopt rmstarsilent
+setopt inc_append_history
+setopt share_history
+setopt autocd
 
 rm -rf \
   "$HOME/.zcompdump" \
