@@ -36,6 +36,8 @@ source "$NVM_DIR/nvm.sh"
 source "$ZSH_DIR/aliases.zsh"
 source "$ZSH_DIR/utils.zsh"
 
+lpass sync -b --color never
+
 start_sway
 generate_marks
 

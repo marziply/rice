@@ -1,12 +1,12 @@
 #!/bin/bash
 
-input=$(\
+title="Password length"
+len=$(\
   rofi \
-  -dmenu \
-  -p "Password length" \
-  -width 300 \
-  -lines 0 \
+    -dmenu \
+    -m $($SCRIPTS_DIR/focused_display.sh monitor) \
+    -p "$title" \
+    -l 0
 )
-len=$(echo | $input)
 
-pwgen -ys1 $((len)) | tr -d "\n" | xclip -sel clip
+pwgen -ys1 $len | wl-copy -n

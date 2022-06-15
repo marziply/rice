@@ -1,47 +1,34 @@
 #!/bin/bash
 
-declare -A map
-
+sep="|"
 list=$(\
   lpass ls \
-  --format "%ai,%an,%ag,%al,%au" \
-  | sed -r "s/^(.*)http:\/\/group//g" \
-  | sed -r "/^\s*$/d" \
-  | sed -r "s/\s+/###/g" \
+    --sync no \
+    --color never \
+    --format "%ai|%an|%au|%al" \
+  | grep -v "http://group" \
+  | column -JN "id,name,user,url" -s $sep \
+  | jq '.table'
 )
+index=$(\
+  echo $list \
+  | jq -r 'map(.name + " (" + .user + ")") | .[]' \
+  | tr "\n" $sep \
+  | rofi \
+    -dmenu \
+    -i \
+    -m "$($SCRIPTS_DIR/focused_display.sh monitor)" \
+    -sep $sep \
+    -format i
+)
+id=$(echo $list | jq -r ".[$index].id")
 
-for item in $list; do
-  IFS="," read -r -a vals <<< $item
+if [ -n "$id" ]; then
+  pass=$(lpass show --sync no --password $id)
 
-  declare -A row=(\
-    [id]=${vals[0]} \
-    [name]=${vals[1]} \
-    [group]=${vals[2]} \
-    [url]=${vals[3]} \
-    [user]=${vals[4]} \
-  )
-
-  if [[ -z ${row[user]} ]]; then
-    if [ "${row[url]}" == "http://sn" ]; then
-      row[user]="gpg/form"
-    elif [ "${row[url]}" == "http://" ]; then
-      row[user]="password"
-    else
-      row[user]="unknown"
-    fi
-  fi
-  
-  map["${row[name]//"###"/ } (${row[user]})"]=${row[id]}
-done
-
-sel=`printf "%s\n" "${!map[@]}" | wofi -S dmenu -i -p "Account" -width 1000`
-
-if [[ -n $sel ]]; then
-  pass=$(lpass show --password ${map[$sel]})
-
-  if [ -z $pass ]; then
-    pass=$(lpass show --field=Passphrase ${map[$sel]})
+  if [ -z "$pass" ]; then
+    pass=$(lpass show --sync no --field=Passphrase $id)
   fi
 
-  echo $pass | tr -d "\n" | wl-copy
+  echo $pass | wl-copy -n
 fi

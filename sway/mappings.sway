@@ -6,11 +6,13 @@ bindsym $mod+Shift+Return exec $term -e tmux
 bindsym $mod+Shift+q kill
 
 # Start launcher
-bindsym $mod+d exec wofi
-# bindsym $mod+d exec "ulauncher-toggle"
+bindsym $mod+d exec rofi -show drun -m "$($scripts/focused_display.sh monitor)"
 
 # Open lpass menu
 bindsym $mod+p exec $scripts/lpass.sh
+
+# Generate password
+bindsym $mod+Shift+p exec $scripts/pwgen.sh
 
 # Reload the configuration file
 bindsym $mod+Shift+r reload
