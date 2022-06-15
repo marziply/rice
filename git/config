@@ -8,8 +8,8 @@
 	editor = nvim
 	pager = delta
 	sshcommand = ssh -i "$KEYS_DIR/rsa/github.pem" -F /dev/null
-[url "ssh://git@github.com"]
-	insteadof = "https://github.com"
+[url "ssh://git@github.com/"]
+	insteadof = "https://github.com/"
 [pull]
 	rebase = true
 [push]
