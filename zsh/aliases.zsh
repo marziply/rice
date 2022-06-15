@@ -2,7 +2,7 @@
 
 #!/bin/zsh
 
-unalias _
+unalias _ 2&>/dev/null
 
 # Neovim
 alias n="nvim"
@@ -10,6 +10,9 @@ alias nrc="n $NVIM_DIR/init.vim"
 
 # PostgreSQL
 alias pgc="clear && pgcli postgres postgres"
+
+# List device blocks
+alias lb="lsblk -o name,size,fstype,mountpoints,uuid"
 
 # Pacman package manager
 alias pm="sudo pacman"
