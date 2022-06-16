@@ -7,7 +7,7 @@ default_marks=(
   "config : $CONFIG_DIR"
   "projects : $HOME/dev/projects"
   "work : $HOME/dev/work"
-  "ops : $HOME/dev/ops"
+  "rocinante : $HOME/dev/rocinante"
 )
 
 start_sway() {
