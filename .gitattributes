@@ -1,3 +1,4 @@
 .gitattributes !filter !diff
 
 zsh/private.zsh filter=git-crypt diff=git-crypt
+scripts/pwgen.sh filter=git-crypt diff=git-crypt
