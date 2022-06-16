@@ -21,7 +21,12 @@ index=$(\
     -sep $sep \
     -format i
 )
-id=$(echo $list | jq -r ".[$index].id")
+
+if [ -n "$index" ]; then
+  id=$(echo $list | jq -r ".[$index].id")
+else
+  exit 0
+fi
 
 if [ -n "$id" ]; then
   pass=$(lpass show --sync no --password $id)

@@ -9,8 +9,8 @@ mode "resize" {
 
 mode "$system" {
   # bindsym h exec --no-startup-id i3exit hibernate, mode "default"
+  # waylock -init-color 0x2C2C2C -input-color 0x0F0F0F,
   bindsym l exec --no-startup-id \
-    # waylock -init-color 0x2C2C2C -input-color 0x0F0F0F, \
     swaylock -c '#000000', \
     mode "default"
   bindsym e exec --no-startup-id \
