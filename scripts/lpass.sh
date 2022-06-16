@@ -8,7 +8,19 @@ list=$(\
     --format "%ai|%an|%au|%al" \
   | grep -v "http://group" \
   | column -JN "id,name,user,url" -s $sep \
-  | jq '.table'
+  | jq '
+    .table
+    | map(
+      setpath(
+        ["user"];
+        .user // 
+          if .url == "http://sn" then
+            "gpg"
+          else
+            "password"
+          end
+      )
+    )'
 )
 index=$(\
   echo $list \
