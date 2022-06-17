@@ -1,0 +1,5 @@
+configuration {
+  modes: [ drun, dmenu ];
+}
+
+@theme "arc.rasi"

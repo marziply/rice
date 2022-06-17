@@ -48,7 +48,7 @@ alias ggpnv="ggpush --no-verify"
 
 # Kubectl
 alias k="kubectl --cache-dir $CACHE_DIR/kube"
-alias kc="k context"
+alias kc="k --context"
 # alias kcv="kc view"
 # alias kcg="kc get"
 # alias kcs="kc set"
