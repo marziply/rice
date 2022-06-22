@@ -2,6 +2,8 @@
 
 #!/bin/zsh
 
+source "$ZSH_DIR/utils.zsh"
+
 unalias _ 2&>/dev/null
 
 # Neovim
