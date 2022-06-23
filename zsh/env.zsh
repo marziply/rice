@@ -74,6 +74,7 @@ export NVIM_COC_LOG_FILE="$XDG_RUNTIME_DIR/coc.log"
 # PostgreSQL
 export PSQL_HISTORY="$CACHE_DIR/pg/history"
 export PGUSER="postgres"
+export PGPASSFILE="$CONFIG_DIR/pgpass.list"
 
 # FZF
 export FZF_DEFAULT_OPTS="--layout=reverse --height 40%"

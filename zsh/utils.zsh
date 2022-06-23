@@ -25,9 +25,8 @@ start_sway() {
 generate_marks() {
   directories=$(stat $HOME/dev/{lib,work,projects}/* -c '%Y %n' | sort -r)
   directories_count=$(echo $directories | wc -l)
-  default_marks_count=${#default_marks}
   total_marks_count=$(cat $marks_list | wc -l 2&>/dev/null)
-  marks_count=$(($total_marks_count - $default_marks_count))
+  marks_count=$(($total_marks_count - ${#default_marks}))
 
   if [ "$directories_count" != "$marks_count" ]; then
     printf '%s\n' "${default_marks[@]}" > $marks_list

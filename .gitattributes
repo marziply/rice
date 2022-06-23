@@ -1,4 +1,6 @@
 .gitattributes !filter !diff
 
+pgpass.list filter=git-crypt diff=git-crypt
+
 zsh/private.zsh filter=git-crypt diff=git-crypt
 scripts/pwgen.sh filter=git-crypt diff=git-crypt

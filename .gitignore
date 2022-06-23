@@ -21,12 +21,14 @@
 !spotify-tui/
 !spotifyd/
 !sway/
+!swaync/
 !tmux/
 !rofi/
 !zsh/
 
 !mimeapps.list
 !npm.conf
+!pgpass.list
 
 pgcli/history
 pgcli/log
