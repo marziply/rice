@@ -14,3 +14,5 @@ include /etc/sway/config.d/*
 
 exec $sway/init.sh
 exec set-env --global XCURSOR_SIZE=16
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP

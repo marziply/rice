@@ -47,6 +47,7 @@ alias sceu="scu enable"
 # git
 alias gacam="ga . && gcam"
 alias ggpnv="ggpush --no-verify"
+alias gce="g commit --amend"
 
 # Kubectl
 alias k="kubectl --cache-dir $CACHE_DIR/kube"
