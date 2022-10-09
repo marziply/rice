@@ -44,7 +44,7 @@ generate_marks
 bindkey -s "^Z" "ranger\n"
 bindkey -s "^F" "fg\n"
 bindkey -s "^V" "n\n"
-bindkey -s "^H" "cd $HOME\n"
+# bindkey -s "^H" "cd $HOME\n"
 bindkey -s "^\\" "zs && clear\n"
 
 setopt rmstarsilent
