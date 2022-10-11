@@ -41,11 +41,17 @@ lpass sync -b --color never
 start_sway
 generate_marks
 
+# zle     -N     fzf-history-widget-accept
+# bindkey '^X^R' fzf-history-widget-accept
+
+zle -N fzf-history fzf_history
+bindkey "^R" fzf-history
+
 bindkey -s "^Z" "ranger\n"
-bindkey -s "^F" "fg\n"
 bindkey -s "^V" "n\n"
+# bindkey -s "^F" "fg\n"
 # bindkey -s "^H" "cd $HOME\n"
-bindkey -s "^\\" "zs && clear\n"
+# bindkey -s "^\\" "zs && clear\n"
 
 setopt rmstarsilent
 setopt inc_append_history

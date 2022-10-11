@@ -66,3 +66,25 @@ mc() {
 db() {
   sudo docker build -t "$1" .
 }
+
+pmrq() {
+  pmr $(pmqq $@)
+}
+
+# fzf-history-widget-accept() {
+#   fzf-history-widget
+#   zle accept-line
+# }
+
+fzf_history() {
+  local selected
+  IFS=$'\n' selected=($(fc -lnr 1 | fzf --expect=ctrl-v --no-sort --height=40% --query="$BUFFER"))
+  if [[ "$selected" ]]; then
+    LBUFFER="$selected"
+    if [[ ${#selected[@]} -eq 2 ]]; then
+      LBUFFER="${selected[2]}"
+      zle accept-line
+    fi
+  fi
+  zle reset-prompt
+}

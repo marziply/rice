@@ -6,7 +6,7 @@ bindsym $mod+Shift+Return exec $term -e tmux
 bindsym $mod+Shift+q kill
 
 # Start launcher
-bindsym $mod+d exec rofi -show drun -m "$($scripts/focused_display.sh monitor)"
+bindsym $mod+d exec $scripts/launcher.sh
 
 # Open lpass menu
 bindsym $mod+p exec $scripts/lpass.sh
@@ -54,7 +54,7 @@ bindsym $mod+Shift+5 move container to workspace number 5
 # You can "split" the current object of your focus with
 # $mod+b or $mod+v, for horizontal and vertical splits
 # respectively.
-bindsym $mod+b splith
+bindsym $mod+x splith
 bindsym $mod+v splitv
 
 # Switch the current container between different layout styles
@@ -63,7 +63,7 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # Make the current focus fullscreen
-bindsym $mod+f fullscreen
+# bindsym $mod+f fullscreen
 
 # Toggle the current focus between tiling and floating mode
 bindsym $mod+Shift+space floating toggle

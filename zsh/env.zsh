@@ -27,7 +27,7 @@ export COMPLETION_WAITING_DOTS="true"
 export LESS="-XFR"
 
 # Appearance
-export GTK_THEME="Aritim-Dark"
+export GTK_THEME="Arc-Dark"
 
 # Applications
 # export BROWSER="brave --enable-features=UseOzonePlatform --ozone-platform=wayland"
@@ -79,7 +79,7 @@ export PGPASSFILE="$CONFIG_DIR/pgpass.list"
 
 # FZF
 export FZF_DEFAULT_OPTS="--layout=reverse --height 40%"
-export FZF_DEFAULT_COMMAND="fd --type f"
+export FZF_DEFAULT_COMMAND="fd --type file"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_MARKS_FILE="$CONFIG_DIR/marks.list"
 

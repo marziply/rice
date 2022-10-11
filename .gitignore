@@ -12,7 +12,6 @@
 !alacritty/
 !git/
 !gpg/
-!gtk-3.0/
 !helm/
 !highlight/
 !pgcli/
@@ -26,6 +25,7 @@
 !rofi/
 !zsh/
 
+!gtk-3.0/settings.ini
 !mimeapps.list
 !npm.conf
 !pgpass.list
