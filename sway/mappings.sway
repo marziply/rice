@@ -1,5 +1,7 @@
 # Start a terminal
 bindsym $mod+Return exec $term
+
+# Start a tmux session in a new terminal
 bindsym $mod+Shift+Return exec $term -e tmux
 
 # Kill focused window
@@ -14,6 +16,7 @@ bindsym $mod+p exec $scripts/lpass.sh
 # Generate password
 bindsym $mod+Shift+p exec $scripts/pwgen.sh
 
+# Display notifications
 bindsym $mod+Shift+s exec swaync-client -t
 
 # Reload the configuration file

@@ -22,6 +22,7 @@ list=$(\
       )
     )'
 )
+# -m "$($SCRIPTS_DIR/focused_display.sh monitor)" \
 index=$(\
   echo $list \
   | jq -r 'map(.name + " (" + .user + ")") | .[]' \
@@ -29,7 +30,7 @@ index=$(\
   | rofi \
     -dmenu \
     -i \
-    -m "$($SCRIPTS_DIR/focused_display.sh monitor)" \
+    -m 2 \
     -sep $sep \
     -format i
 )

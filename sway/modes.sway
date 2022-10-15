@@ -10,21 +10,14 @@ mode "resize" {
 mode "$system" {
   # bindsym h exec --no-startup-id i3exit hibernate, mode "default"
   # waylock -init-color 0x2C2C2C -input-color 0x0F0F0F,
-  bindsym l exec --no-startup-id \
-    $scripts/toggle_lock.sh, \
-    mode "default"
-  bindsym e exec --no-startup-id \
-    swaymsg exit, \
-    mode "default"
-  bindsym h exec --no-startup-id \
-    systemctl hibernate, \
-    mode "default"
-  bindsym r exec --no-startup-id \
-    reboot, \
-    mode "default"
-  bindsym s exec --no-startup-id \
-    poweroff, \
-    mode "default"
+  # bindsym l exec --no-startup-id \
+  #   $scripts/toggle_lock.sh, \
+  #   mode "default"
+  bindsym l focus output DP-1, exec gtklock, mode "default"
+  bindsym e exec swaymsg exit, mode "default"
+  bindsym h exec systemctl hibernate, mode "default"
+  bindsym r exec reboot, mode "default"
+  bindsym s exec poweroff, mode "default"
 
   bindsym Escape mode "default"
 }
