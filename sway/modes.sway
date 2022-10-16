@@ -1,18 +1,13 @@
 mode "resize" {
-  bindsym $left resize shrink width 30px
-  bindsym $down resize grow height 30px
-  bindsym $up resize shrink height 30px
-  bindsym $right resize grow width 30px
+  bindsym $left exec $scripts/resize_window.sh $left
+  bindsym $right exec $scripts/resize_window.sh $right
+  bindsym $up exec $scripts/resize_window.sh $up
+  bindsym $down exec $scripts/resize_window.sh $down
 
   bindsym Escape mode "default"
 }
 
 mode "$system" {
-  # bindsym h exec --no-startup-id i3exit hibernate, mode "default"
-  # waylock -init-color 0x2C2C2C -input-color 0x0F0F0F,
-  # bindsym l exec --no-startup-id \
-  #   $scripts/toggle_lock.sh, \
-  #   mode "default"
   bindsym l focus output DP-1, exec gtklock, mode "default"
   bindsym e exec swaymsg exit, mode "default"
   bindsym h exec systemctl hibernate, mode "default"

@@ -90,6 +90,7 @@ export PYTHONPATH="/usr/lib/python3.9"
 export CARGO_HOME="$CONFIG_DIR/cargo"
 export CARGO_NET_GIT_FETCH_WITH_CLI="true"
 export RUSTUP_HOME="$CONFIG_DIR/rustup"
+export RUST_BACKTRACE=1
 
 # Go
 export GOPATH="$GO_DIR"

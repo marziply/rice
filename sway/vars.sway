@@ -5,6 +5,10 @@ set $left h
 set $down j
 set $up k
 set $right l
+set $LEFT H
+set $DOWN J
+set $UP K
+set $RIGHT L
 
 set $term alacritty
 set $system [l] lock, [e] exit, [h] hibernate, [r] reboot, [s] shutdown
