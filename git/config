@@ -31,18 +31,18 @@
 	navigate = true
 	light = false
 [merge]
-  tool = native
+	tool = native
 	conflictstyle = diff3
 [mergetool]
 	trustexitcode = true
 	keepbackup = false
 	prompt = false
 [mergetool "native"]
-  cmd = nvim -d "$BASE" "$LOCAL" "$REMOTE" "$MERGED" -c '$wincmd w' -c 'wincmd J'
+	cmd = nvim -d "$BASE" "$LOCAL" "$REMOTE" "$MERGED" -c '$wincmd w' -c 'wincmd J'
 [mergetool "fugitive"]
-  cmd = nvim -c Gdiffsplit! "$MERGED" -c 'Git mergetool' -c 'normal zt'
+	cmd = nvim -c Gdiffsplit! "$MERGED" -c 'Git mergetool' -c 'normal zt'
 [mergetool "diffconflicts"]
-  cmd = nvim -c DiffConflicts "$MERGED" "$BASE" "$LOCAL" "$REMOTE"
+	cmd = nvim -c DiffConflicts "$MERGED" "$BASE" "$LOCAL" "$REMOTE"
 [filter "strongbox"]
 	clean = strongbox -clean %f
 	smudge = strongbox -smudge %f
