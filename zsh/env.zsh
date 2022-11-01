@@ -70,7 +70,6 @@ export KUBE_DIR="$CONFIG_DIR/kube"
 # Neovim
 export NVIM_DIR="$CONFIG_DIR/nvim"
 export NVIM_CACHE_DIR="$CACHE_DIR/nvim"
-export NVIM_COC_LOG_FILE="$XDG_RUNTIME_DIR/coc.log"
 
 # PostgreSQL
 export PSQL_HISTORY="$CACHE_DIR/pg/history"
