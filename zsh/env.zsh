@@ -94,12 +94,18 @@ export RUST_BACKTRACE=1
 # Go
 export GOPATH="$GO_DIR"
 
+# Gcloud
+export GCLOUD_PATH="/usr/share/gcloud"
+
 # Paths
 if [ ! $ZSH_ENV_LOADED ]; then
   export LOCAL_BIN="$HOME/.local/bin"
   export GO_BIN="$GO_DIR/bin"
   export CARGO_BIN="$CONFIG_DIR/cargo/bin"
-  export PATH="$PATH:$LOCAL_BIN:$GO_BIN:$CARGO_BIN"
+	export GCLOUD_BIN="$GCLOUD_PATH/bin"
+
+  export PATH="$PATH:$LOCAL_BIN:$GO_BIN:$CARGO_BIN:$GCLOUD_BIN"
+
   export ZSH_ENV_LOADED=1
   export KUBECONFIG=""
 

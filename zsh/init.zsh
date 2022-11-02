@@ -36,6 +36,12 @@ source "$NVM_DIR/nvm.sh"
 source "$ZSH_DIR/aliases.zsh"
 source "$ZSH_DIR/utils.zsh"
 
+# Gcloud
+if [ -d "$GCLOUD_PATH" ]; then
+	source "$GCLOUD_PATH/path.zsh.inc"
+	source "$GCLOUD_PATH/completion.zsh.inc"
+fi
+
 lpass sync -b --color never
 
 # start_sway
@@ -49,9 +55,6 @@ bindkey "^R" fzf-history
 
 bindkey -s "^Z" "ranger\n"
 bindkey -s "^V" "n\n"
-# bindkey -s "^F" "fg\n"
-# bindkey -s "^H" "cd $HOME\n"
-# bindkey -s "^\\" "zs && clear\n"
 
 setopt rmstarsilent
 setopt inc_append_history
