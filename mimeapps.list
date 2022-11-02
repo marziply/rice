@@ -1,3 +1,4 @@
+# vi: ft=dosini
 
 [Default Applications]
 text/html=brave-browser.desktop

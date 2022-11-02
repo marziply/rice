@@ -1,8 +1,12 @@
 .gitattributes !filter !diff
 
+# Root configs
 pgpass.list filter=git-crypt diff=git-crypt
+npm.conf filter=git-crypt diff=git-crypt
 
+# Namespaced configs
 zsh/private.zsh filter=git-crypt diff=git-crypt
 scripts/pwgen.sh filter=git-crypt diff=git-crypt
 
+# Namespaced encryption
 ssh/* filter=git-crypt diff=git-crypt
