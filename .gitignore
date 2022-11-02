@@ -19,6 +19,7 @@
 !scripts/
 !spotify-tui/
 !spotifyd/
+!ssh/
 !sway/
 !swaync/
 !tmux/
