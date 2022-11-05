@@ -22,8 +22,10 @@ list=$(\
       )
     )'
 )
-# -m "$($SCRIPTS_DIR/focused_display.sh monitor)" \
+
+displays=($(xrandr --listmonitors | grep -Po '(?<=\+)XWAYLAND\d+'))
 monitor=$(swaymsg -rt get_outputs | jq 'map(.focused) | index(true)')
+
 index=$(\
   echo $list \
   | jq -r 'map(.name + " (" + .user + ")") | .[]' \
@@ -31,7 +33,7 @@ index=$(\
   | rofi \
     -dmenu \
     -i \
-    -m "XWAYLAND${monitor}" \
+    -m ${displays[$monitor]} \
     -sep $sep \
     -format i
 )
