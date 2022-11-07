@@ -6,6 +6,9 @@ source "$ZSH_DIR/utils.zsh"
 
 unalias _ 2&>/dev/null
 
+# General
+alias psg="ps aux | grep"
+
 # Neovim
 alias n="nvim"
 alias nrc="n $NVIM_DIR/init.vim"
