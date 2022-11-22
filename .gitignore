@@ -4,17 +4,16 @@
 !LICENSE.md
 !README.md
 
-!kube/
-!omz/
-!nvim/
-!nvimpager/
-
 !alacritty/
 !git/
 !helm/
 !highlight/
+!kube/
 !pgcli/
 !ranger/
+!nvim/
+!nvimpager/
+!omz/
 !scripts/
 !spotify-tui/
 !spotifyd/
