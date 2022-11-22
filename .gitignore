@@ -5,13 +5,12 @@
 !README.md
 
 !kube/
-!omz
+!omz/
 !nvim/
 !nvimpager/
 
 !alacritty/
 !git/
-!gpg/
 !helm/
 !highlight/
 !pgcli/
@@ -26,6 +25,7 @@
 !rofi/
 !zsh/
 
+!gnupg/gpg-agent.conf
 !gtk-3.0/settings.ini
 !mimeapps.list
 !npm.conf

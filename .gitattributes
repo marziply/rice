@@ -7,6 +7,7 @@ npm.conf filter=git-crypt diff=git-crypt
 # Namespaced configs
 zsh/private.zsh filter=git-crypt diff=git-crypt
 scripts/pwgen.sh filter=git-crypt diff=git-crypt
+gnupg/gpg-agent.conf filter=git-crypt diff=git-crypt
 
 # Namespaced encryption
 ssh/* filter=git-crypt diff=git-crypt

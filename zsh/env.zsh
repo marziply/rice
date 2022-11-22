@@ -97,6 +97,9 @@ export GOPATH="$GO_DIR"
 # Gcloud
 export GCLOUD_PATH="/usr/share/gcloud"
 
+# Wine
+export WINEPREFIX="$CONFIG_DIR/wine"
+
 # Paths
 if [ ! $ZSH_ENV_LOADED ]; then
   export LOCAL_BIN="$HOME/.local/bin"
