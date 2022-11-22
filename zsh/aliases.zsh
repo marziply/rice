@@ -8,6 +8,7 @@ unalias _ 2&>/dev/null
 
 # General
 alias psg="ps aux | grep"
+alias tldr="dr --rm -it -v $CACHE_DIR/tldr:/root/.tldr/cache nutellinoit/tldr"
 
 # Neovim
 alias n="nvim"
