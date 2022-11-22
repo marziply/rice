@@ -15,8 +15,6 @@
 !nvimpager/
 !omz/
 !scripts/
-!spotify-tui/
-!spotifyd/
 !ssh/
 !sway/
 !swaync/
@@ -32,5 +30,3 @@
 
 pgcli/history
 pgcli/log
-spotify-tui/*.json
-spotify-tui/client.yml
