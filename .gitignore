@@ -18,10 +18,10 @@
 !ssh/
 !sway/
 !swaync/
-!tmux/
 !rofi/
 !zsh/
 
+!tmux/tmux.conf
 !gnupg/gpg-agent.conf
 !gtk-3.0/settings.ini
 !mimeapps.list
