@@ -96,6 +96,7 @@ export GOPATH="$GO_DIR"
 
 # Gcloud
 export GCLOUD_PATH="/usr/share/gcloud"
+export USE_GKE_GCLOUD_AUTH_PLUGIN="True"
 
 # Wine
 export WINEPREFIX="$CONFIG_DIR/wine"
@@ -110,11 +111,7 @@ if [ ! $ZSH_ENV_LOADED ]; then
   export PATH="$PATH:$LOCAL_BIN:$GO_BIN:$CARGO_BIN:$GCLOUD_BIN"
 
   export ZSH_ENV_LOADED=1
-  export KUBECONFIG=""
-
-  for i in config home work; do
-    export KUBECONFIG="$KUBECONFIG:$KUBE_DIR/$i.yaml"
-  done
+  export KUBECONFIG="$KUBE_DIR/config.yaml"
 fi
 
 source "$ZSH_DIR/private.zsh"
