@@ -22,6 +22,7 @@ export TMUX_DIR="$CONFIG_DIR/tmux"
 export HISTSIZE=999999999
 export SAVEHIST=$HISTSIZE
 export HISTFILE="$CACHE_DIR/zsh/history"
+export KEYS_DIR="$HOME/.keys"
 export DISABLE_UPDATE_PROMPT="true"
 export COMPLETION_WAITING_DOTS="true"
 export LESS="-XFR"

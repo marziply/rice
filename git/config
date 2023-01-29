@@ -14,15 +14,15 @@
 	rebase = true
 [push]
 	recursesubmodules = on-demand
-[commit]
-	gpgsign = true
+# [commit]
+#	gpgsign = true
 [credential]
 	helper = cache
 [init]
 	defaultbranch = master
 [alias]
 	conflicts = diff --name-only --diff-filter=U
-	commit = -c "gpg.program = $SCRIPTS_DIR/gpg.sh" commit
+	# commit = -c "gpg.program = $SCRIPTS_DIR/gpg.sh" commit
 [interactive]
 	difffilter = delta --color-only
 [diff]
@@ -43,9 +43,3 @@
 	cmd = nvim -c Gdiffsplit! "$MERGED" -c 'Git mergetool' -c 'normal zt'
 [mergetool "diffconflicts"]
 	cmd = nvim -c DiffConflicts "$MERGED" "$BASE" "$LOCAL" "$REMOTE"
-[filter "strongbox"]
-	clean = strongbox -clean %f
-	smudge = strongbox -smudge %f
-	required = true
-[diff "strongbox"]
-	textconv = strongbox -diff

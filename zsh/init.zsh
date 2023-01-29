@@ -68,3 +68,4 @@ rm -rf \
   "$HOME/Music" \
   "$HOME/Videos" \
   "$HOME/Pictures"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
