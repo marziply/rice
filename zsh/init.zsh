@@ -16,16 +16,14 @@ plugins=(\
   nvm \
   ripgrep \
   zsh-interactive-cd \
-  # https://github.com/zdharma/fast-syntax-highlighting.git
+  # https://github.com/z-shell/F-Sy-H
   fast-syntax-highlighting \
-  # https://github.com/urbainvaes/fzf-marks
+  # https://github.com/z-shell/F-Sy-H
   fzf-marks \
   # https://github.com/hlissner/zsh-autopair
   zsh-autopair \
   # https://github.com/djui/alias-tips
   alias-tips \
-  # https://github.com/robertzk/send.zsh
-  send \
 )
 
 # Managers
@@ -62,10 +60,9 @@ setopt share_history
 setopt autocd
 
 rm -rf \
-  "$HOME/.zcompdump" \
   "$HOME/Documents" \
   "$HOME/Downloads" \
   "$HOME/Music" \
   "$HOME/Videos" \
-  "$HOME/Pictures"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+  "$HOME/Pictures" \
+  "$HOME/.zcompdump"
