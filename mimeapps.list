@@ -11,3 +11,4 @@ x-scheme-handler/mailto=brave-browser.desktop
 x-scheme-handler/postman=Postman.desktop
 x-scheme-handler/com.cloudflare.warp=warp-cli.desktop
 x-scheme-handler/eclipse+command=_usr_lib_dbeaver_.desktop
+x-scheme-handler/msteams=teams.desktop
