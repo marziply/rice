@@ -114,5 +114,3 @@ if [ ! $ZSH_ENV_LOADED ]; then
   export ZSH_ENV_LOADED=1
   export KUBECONFIG="$KUBE_DIR/config.yaml"
 fi
-
-source "$ZSH_DIR/private.zsh"
