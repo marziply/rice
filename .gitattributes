@@ -2,10 +2,10 @@
 
 # Root configs
 # pgpass.list filter=git-crypt diff=git-crypt
-# npm.conf filter=git-crypt diff=git-crypt
+npm.conf filter=git-crypt diff=git-crypt
 
 # Namespaced configs
-# scripts/pwgen.sh filter=git-crypt diff=git-crypt
+scripts/pwgen.sh filter=git-crypt diff=git-crypt
 # gnupg/gpg-agent.conf filter=git-crypt diff=git-crypt
 
 # Namespaced encryption
