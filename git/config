@@ -14,15 +14,15 @@
 	rebase = true
 [push]
 	recursesubmodules = on-demand
-# [commit]
-#	gpgsign = true
+[commit]
+  gpgsign = true
 [credential]
 	helper = cache
 [init]
 	defaultbranch = master
 [alias]
 	conflicts = diff --name-only --diff-filter=U
-	# commit = -c "gpg.program = $SCRIPTS_DIR/gpg.sh" commit
+	commit = -c "gpg.program = $SCRIPTS_DIR/gpg.sh" commit
 [interactive]
 	difffilter = delta --color-only
 [diff]
