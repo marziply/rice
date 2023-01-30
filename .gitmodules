@@ -6,25 +6,13 @@
 	path = kube
 	url = git@github.com:marziply/kube
 	branch = master
-[submodule "omz"]
-	path = omz
-	url = git@github.com:ohmyzsh/ohmyzsh
-	branch = master
 [submodule "zsh/plugins/alias-tips"]
 	path = zsh/plugins/alias-tips
 	url = git@github.com:djui/alias-tips
 	branch = master
-[submodule "zsh/plugins/fast-syntax-highlighting"]
-	path = zsh/plugins/fast-syntax-highlighting
-	url = git@github.com:zdharma/fast-syntax-highlighting
-	branch = master
 [submodule "zsh/plugins/fzf-marks"]
 	path = zsh/plugins/fzf-marks
 	url = git@github.com:urbainvaes/fzf-marks
-	branch = master
-[submodule "zsh/plugins/send"]
-	path = zsh/plugins/send
-	url = git@github.com:robertzk/send.zsh
 	branch = master
 [submodule "zsh/plugins/zsh-autopair"]
 	path = zsh/plugins/zsh-autopair
@@ -33,3 +21,9 @@
 [submodule "tmux/plugins/tpm"]
 	path = tmux/plugins/tpm
 	url = git@github.com:tmux-plugins/tpm
+[submodule "omz"]
+	path = omz
+	url = https://github.com/ohmyzsh/ohmyzsh
+[submodule "zsh/plugins/F-Sy-H"]
+	path = zsh/plugins/F-Sy-H
+	url = https://github.com/z-shell/F-Sy-H

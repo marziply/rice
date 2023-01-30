@@ -17,7 +17,7 @@ plugins=(\
   ripgrep \
   zsh-interactive-cd \
   # https://github.com/z-shell/F-Sy-H
-  fast-syntax-highlighting \
+  F-Sy-H \
   # https://github.com/z-shell/F-Sy-H
   fzf-marks \
   # https://github.com/hlissner/zsh-autopair
