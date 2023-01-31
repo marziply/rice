@@ -84,7 +84,7 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_MARKS_FILE="$CONFIG_DIR/marks.list"
 
 # Python
-export PYTHONPATH="/usr/lib/python3.9"
+export PYTHONPATH="/usr/lib/python3.10"
 
 # Rust
 export CARGO_HOME="$CONFIG_DIR/cargo"

@@ -1,7 +1,7 @@
 .gitattributes !filter !diff
 
 # Root configs
-# pgpass.list filter=git-crypt diff=git-crypt
+pgpass.list filter=git-crypt diff=git-crypt
 npm.conf filter=git-crypt diff=git-crypt
 
 # Namespaced configs
