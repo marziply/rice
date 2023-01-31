@@ -89,6 +89,12 @@ alias mks="mk start"
 alias mkd="mk delete"
 alias mko="mk stop"
 alias mkp="mk pause"
+alias kkda="kka --dry-run=server"
+alias kka="\
+  kustomize build \
+    --load-restrictor LoadRestrictionsNone \
+    | kc rocinante apply -f - \
+"
 
 # ZSH
 alias zs="source $ZSH_DIR/*.zsh"

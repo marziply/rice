@@ -68,6 +68,8 @@ export NVM_DIR="$CONFIG_DIR/nvm"
 
 # Kubectl
 export KUBE_DIR="$CONFIG_DIR/kube"
+export KUBECONFIG="$KUBE_DIR/config.yaml"
+export KUBECACHEDIR="$CACHE_DIR/kube"
 export MINIKUBE_HOME="$XDG_STATE_HOME/minikube"
 
 # Neovim
@@ -114,5 +116,4 @@ if [ ! $ZSH_ENV_LOADED ]; then
   export PATH="$PATH:$LOCAL_BIN:$GO_BIN:$CARGO_BIN:$GCLOUD_BIN"
 
   export ZSH_ENV_LOADED=1
-  export KUBECONFIG="$KUBE_DIR/config.yaml"
 fi
