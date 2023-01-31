@@ -6,6 +6,7 @@
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
 export XDG_RUNTIME_DIR="/run/user/1000"
 export XDG_CURRENT_DESKTOP="sway"
 export XDG_SCREENSHOTS_DIR="$HOME"
@@ -67,6 +68,7 @@ export NVM_DIR="$CONFIG_DIR/nvm"
 
 # Kubectl
 export KUBE_DIR="$CONFIG_DIR/kube"
+export MINIKUBE_HOME="$XDG_STATE_HOME/minikube"
 
 # Neovim
 export NVIM_DIR="$CONFIG_DIR/nvim"
