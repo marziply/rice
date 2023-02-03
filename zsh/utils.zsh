@@ -130,7 +130,13 @@ kka() {
 
     shift 2
 
-    build "$ctx" --prune -l "app=${label}" $@
+    build "$ctx" \
+      --prune \
+      --prune-allowlist /v1/ConfigMap \
+      --prune-allowlist /v1/Secret \
+      -n "$label" \
+      -l "app=${label}" \
+      $@
   else
     ctx="$1"; shift
 
@@ -140,6 +146,12 @@ kka() {
 
 kkda() {
   kka "$1" "$2" --dry-run=server
+}
+
+k9() {
+  ctx="$1"; shift
+
+  k9s --context "$ctx" -A
 }
 
 tldr() {
