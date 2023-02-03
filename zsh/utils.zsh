@@ -23,17 +23,19 @@ start_sway() {
 }
 
 generate_marks() {
-  directories=$(stat $HOME/dev/{lib,work,projects}/* -c '%Y %n' | sort -r)
-  directories_count=$(echo $directories | wc -l)
+  dirs=$(stat $HOME/dev/{lib,work,projects}/* -c '%Y %n' | sort -r)
+  dirs_count=$(echo $dirs | wc -l)
   total_marks_count=$(cat $marks_list | wc -l 2&>/dev/null)
   marks_count=$(($total_marks_count - ${#default_marks}))
 
-  if [ "$directories_count" != "$marks_count" ]; then
+  if [ "$dirs_count" != "$marks_count" ]; then
     printf '%s\n' "${default_marks[@]}" > $marks_list
 
-    echo "$directories" \
+    echo "$dirs" \
       | cut -d ' ' -f 2 \
-      | xargs -I {} bash -c 'echo "$(grep -Po "[^/]+/[^/]+$" <<< "{}") : {}"' \
+      | xargs \
+        -I {} \
+        bash -c 'echo "$(grep -Po "[^/]+/[^/]+$" <<< "{}") : {}"' \
       >> $marks_list
   fi
 }
@@ -64,11 +66,89 @@ mc() {
 }
 
 db() {
-  sudo docker build -t "$1" .
+  tag="$1"; shift
+
+  sudo docker build -t "$tag" $@ .
 }
 
 pmrq() {
   pmr $(pmqq $@)
+}
+
+k() {
+  kubectl $@ --cache-dir "$CACHE_DIR/kube"
+}
+
+kc() {
+  ctx="$1"; shift
+
+  k --context "$ctx" $@
+}
+
+kcv() {
+  ctx="$1"; shift
+
+  kc "$ctx" view $@
+}
+
+kcg() {
+  ctx="$1"; shift
+
+  kc "$ctx" get $@
+}
+
+kcga() {
+  ctx="$1"; shift
+
+  kc "$ctx" get all $@
+}
+
+kcgaa() {
+  ctx="$1"; shift
+
+  kc "$ctx" get all --all-namespaces $@
+}
+
+kka() {
+  if [ -z "$1" ]; then
+    echo "Context argument required"
+
+    return 1
+  fi
+
+  build() {
+    ctx="$1"; shift
+
+    kustomize build \
+      --load-restrictor LoadRestrictionsNone \
+      | kc "$ctx" apply -f - $@
+  }
+
+  if [ -n "$2" ]; then
+    ctx="$1"
+    label="$2"
+
+    shift 2
+
+    build "$ctx" --prune -l "app=${label}" $@
+  else
+    ctx="$1"; shift
+
+    build "$ctx" $@
+  fi
+}
+
+kkda() {
+  kka "$1" "$2" --dry-run=server
+}
+
+tldr() {
+  sudo docker run \
+    --rm \
+    -it \
+    -v "$CACHE_DIR/tldr:/root/.tldr/cache" \
+    $@ \
+    nutellinoit/tldr
 }
 
 # fzf-history-widget-accept() {
@@ -76,15 +156,15 @@ pmrq() {
 #   zle accept-line
 # }
 
-fzf_history() {
-  local selected
-  IFS=$'\n' selected=($(fc -lnr 1 | fzf --expect=ctrl-v --no-sort --height=40% --query="$BUFFER"))
-  if [[ "$selected" ]]; then
-    LBUFFER="$selected"
-    if [[ ${#selected[@]} -eq 2 ]]; then
-      LBUFFER="${selected[2]}"
-      zle accept-line
-    fi
-  fi
-  zle reset-prompt
-}
+# fzf_history() {
+#   local selected
+#   IFS=$'\n' selected=($(fc -lnr 1 | fzf --expect=ctrl-v --no-sort --height=40% --query="$BUFFER"))
+#   if [[ "$selected" ]]; then
+#     LBUFFER="$selected"
+#     if [[ ${#selected[@]} -eq 2 ]]; then
+#       LBUFFER="${selected[2]}"
+#       zle accept-line
+#     fi
+#   fi
+#   zle reset-prompt
+# }

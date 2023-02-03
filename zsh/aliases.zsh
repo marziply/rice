@@ -8,7 +8,6 @@ unalias _ 2&>/dev/null
 
 # General
 alias psg="ps aux | grep"
-alias tldr="dr --rm -it -v $CACHE_DIR/tldr:/root/.tldr/cache nutellinoit/tldr"
 
 # Neovim
 alias n="nvim"
@@ -56,22 +55,6 @@ alias ggpnv="ggpush --no-verify"
 alias gce="g commit --amend"
 
 # Kubectl
-alias k="kubectl --cache-dir $CACHE_DIR/kube"
-alias kc="k --context"
-# alias kcv="kc view"
-# alias kcg="kc get"
-# alias kcs="kc set"
-alias ke="k explain"
-alias kl="k logs"
-alias kg="k get"
-alias ki="k describe"
-alias kip="ki pod"
-alias kgp="kg pods"
-alias kga="kg all"
-alias kgaa="kg all --all-namespaces"
-alias kd="k delete"
-alias kdp="kd pod"
-alias kdj="kd job"
 alias km="kc minikube"
 alias kme="km explain"
 alias kml="km logs"
@@ -89,12 +72,6 @@ alias mks="mk start"
 alias mkd="mk delete"
 alias mko="mk stop"
 alias mkp="mk pause"
-alias kkda="kka --dry-run=server"
-alias kka="\
-  kustomize build \
-    --load-restrictor LoadRestrictionsNone \
-    | kc rocinante apply -f - \
-"
 
 # ZSH
 alias zs="source $ZSH_DIR/*.zsh"
@@ -120,7 +97,11 @@ alias dcls="dc ls"
 alias stopc='dco $(dcl -lq)'
 
 # Veracrypt
-alias vc="veracrypt"
-alias vcd="vc -d"
-alias vcl="vc -l"
-alias vcm='vc --non-interactive -p "$(lpass show --password 1215307261831005367)"'
+# alias vc="veracrypt"
+# alias vcd="vc -d"
+# alias vcl="vc -l"
+# alias vcm='\
+#   vc \
+#     --non-interactive \
+#     -p "$(lpass show --password 1215307261831005367)" \
+# '

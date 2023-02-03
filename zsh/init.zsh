@@ -68,7 +68,11 @@ rm -rf \
   "$HOME/.zcompdump"
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/hayden/google-cloud-sdk/path.zsh.inc' ]; then . '/home/hayden/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f "/home/hayden/gcloud/path.zsh.inc" ]; then
+  source "/home/hayden/gcloud/path.zsh.inc"
+fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/home/hayden/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/hayden/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f "/home/hayden/gcloud/completion.zsh.inc" ]; then
+  source "/home/hayden/gcloud/completion.zsh.inc"
+fi
