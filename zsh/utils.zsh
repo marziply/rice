@@ -109,6 +109,14 @@ kcgaa() {
   kc "$ctx" get all --all-namespaces $@
 }
 
+kb() {
+  kustomize build --load-restrictor LoadRestrictionsNone $@
+}
+
+kbj() {
+  kb | yq -s
+}
+
 kka() {
   if [ -z "$1" ]; then
     echo "Context argument required"
@@ -119,9 +127,7 @@ kka() {
   build() {
     ctx="$1"; shift
 
-    kustomize build \
-      --load-restrictor LoadRestrictionsNone \
-      | kc "$ctx" apply -f - $@
+    kb | kc "$ctx" apply -f - $@
   }
 
   if [ -n "$2" ]; then
@@ -149,6 +155,12 @@ kkda() {
 }
 
 k9() {
+  if [ -z "$1" ]; then
+    echo "Context argument required"
+
+    return 1
+  fi
+
   ctx="$1"; shift
 
   k9s --context "$ctx" -A

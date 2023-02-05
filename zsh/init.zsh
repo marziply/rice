@@ -42,7 +42,7 @@ fi
 
 lpass sync -b --color never
 
-# start_sway
+start_sway
 generate_marks
 
 # zle     -N     fzf-history-widget-accept
