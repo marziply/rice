@@ -23,7 +23,7 @@ alias lb="lsblk -o name,size,fstype,mountpoints,uuid"
 alias pm="sudo pacman"
 alias pmi="yes | pm -S"
 alias pmr="yes | pm -Rvns"
-alias pms="pm -Ss"
+alias pms='(){ pm -Ss $1 || yms $1 }'
 alias pmq="pm -Qs"
 alias pmqq="pmq -q"
 
@@ -67,11 +67,19 @@ alias kmgaa="kmg all --all-namespaces"
 alias kmd="km delete"
 alias kmdp="kmd pod"
 alias kmdj="kmd job"
+
+# Minikube
 alias mk="minikube"
 alias mks="mk start"
 alias mkd="mk delete"
 alias mko="mk stop"
 alias mkp="mk pause"
+
+# Terraform
+alias tf="terraform"
+alias tfi="tf init"
+alias tfp="tf plan"
+alias tfa="tf apply"
 
 # ZSH
 alias zs="source $ZSH_DIR/*.zsh"

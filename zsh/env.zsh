@@ -69,6 +69,7 @@ export NVM_DIR="$CONFIG_DIR/nvm"
 # Kubectl
 export KUBE_DIR="$CONFIG_DIR/kube"
 export KUBECONFIG="$KUBE_DIR/config.yaml"
+export KUBE_CONFIG_PATH="$KUBECONFIG"
 export KUBECACHEDIR="$CACHE_DIR/kube"
 export MINIKUBE_HOME="$XDG_STATE_HOME/minikube"
 
@@ -100,8 +101,8 @@ export RUST_BACKTRACE=1
 export GOPATH="$GO_DIR"
 
 # Gcloud
-export GCLOUD_PATH="/usr/share/gcloud"
-export USE_GKE_GCLOUD_AUTH_PLUGIN="True"
+export GCLOUD_PATH="/var/lib/google-cloud-sdk"
+export USE_GKE_GCLOUD_AUTH_PLUGIN="true"
 
 # Wine
 export WINEPREFIX="$CONFIG_DIR/wine"

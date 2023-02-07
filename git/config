@@ -1,45 +1,49 @@
 # vi: ft=gitconfig
 
 [user]
-	name = marziply
-	email = contact@marziply.dev
-	signingkey = 5462549313B7F96740FD8EF2B541A47F7633DD59
+  name = marziply
+  email = contact@marziply.dev
+  signingkey = 5462549313B7F96740FD8EF2B541A47F7633DD59
 [core]
-	editor = nvim
-	pager = delta
-	sshcommand = ssh -i "$KEYS_DIR/rsa/github.pem" -F /dev/null
+  editor = nvim
+  pager = delta
+#  sshcommand = ssh -i "$KEYS_DIR/rsa/github.pem" -F /dev/null
 [url "ssh://git@github.com/"]
-	insteadof = "https://github.com/"
+  insteadof = "https://github.com/"
+[url "http://hayden:8c62863b142513ad03d40ce508373c4b301ddd32@git.dev.gg/"]
+  insteadof = "http://git.dev.gg/"
+# [url "ssh://git@git.dev.gg:23/"]
+#   insteadof = "http://git.dev.gg/"
 [pull]
-	rebase = true
+  rebase = true
 [push]
-	recursesubmodules = on-demand
+  recursesubmodules = on-demand
 [commit]
   gpgsign = true
 [credential]
-	helper = cache
+  helper = cache
 [init]
-	defaultbranch = master
+  defaultbranch = master
 [alias]
-	conflicts = diff --name-only --diff-filter=U
-	commit = -c "gpg.program = $SCRIPTS_DIR/gpg.sh" commit
+  conflicts = diff --name-only --diff-filter=U
+  commit = -c "gpg.program = $SCRIPTS_DIR/gpg.sh" commit
 [interactive]
-	difffilter = delta --color-only
+  difffilter = delta --color-only
 [diff]
-	colormoved = default
+  colormoved = default
 [delta]
-	navigate = true
-	light = false
+  navigate = true
+  light = false
 [merge]
-	tool = native
-	conflictstyle = diff3
+  tool = native
+  conflictstyle = diff3
 [mergetool]
-	trustexitcode = true
-	keepbackup = false
-	prompt = false
+  trustexitcode = true
+  keepbackup = false
+  prompt = false
 [mergetool "native"]
-	cmd = nvim -d "$BASE" "$LOCAL" "$REMOTE" "$MERGED" -c '$wincmd w' -c 'wincmd J'
+  cmd = nvim -d "$BASE" "$LOCAL" "$REMOTE" "$MERGED" -c '$wincmd w' -c 'wincmd J'
 [mergetool "fugitive"]
-	cmd = nvim -c Gdiffsplit! "$MERGED" -c 'Git mergetool' -c 'normal zt'
+  cmd = nvim -c Gdiffsplit! "$MERGED" -c 'Git mergetool' -c 'normal zt'
 [mergetool "diffconflicts"]
-	cmd = nvim -c DiffConflicts "$MERGED" "$BASE" "$LOCAL" "$REMOTE"
+  cmd = nvim -c DiffConflicts "$MERGED" "$BASE" "$LOCAL" "$REMOTE"

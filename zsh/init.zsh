@@ -40,8 +40,9 @@ if [ -d "$GCLOUD_PATH" ]; then
 	source "$GCLOUD_PATH/completion.zsh.inc"
 fi
 
-lpass sync -b --color never
+eval "$(kubectl completion zsh)"
 
+lpass sync -b --color never
 start_sway
 generate_marks
 
@@ -53,6 +54,10 @@ generate_marks
 
 bindkey -s "^Z" "ranger\n"
 bindkey -s "^V" "n\n"
+
+# autoload -Uz compinit
+#
+# compinit
 
 setopt rmstarsilent
 setopt inc_append_history
@@ -66,13 +71,3 @@ rm -rf \
   "$HOME/Videos" \
   "$HOME/Pictures" \
   "$HOME/.zcompdump"
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f "/home/hayden/gcloud/path.zsh.inc" ]; then
-  source "/home/hayden/gcloud/path.zsh.inc"
-fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f "/home/hayden/gcloud/completion.zsh.inc" ]; then
-  source "/home/hayden/gcloud/completion.zsh.inc"
-fi
