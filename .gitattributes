@@ -6,6 +6,7 @@ npm.conf filter=git-crypt diff=git-crypt
 
 # Namespaced configs
 scripts/pwgen.sh filter=git-crypt diff=git-crypt
+git/config filter=git-crypt diff=git-crypt
 # gnupg/gpg-agent.conf filter=git-crypt diff=git-crypt
 
 # Namespaced encryption
