@@ -78,6 +78,12 @@ export TF_CLI_CONFIG_FILE="$CONFIG_DIR/terraform/config.tfrc"
 export TF_DATA_DIR="$XDG_STATE_HOME/terraform"
 export TF_PLUGIN_CACHE_DIR="$CACHE_DIR/terraform"
 
+# Vault
+export VAULT_TOKEN="$(cat $KEYS_DIR/vault.json | jq -r '.root_token')"
+export VAULT_ADDRESS="$(cat $KEYS_DIR/vault.json | jq -r '.address')"
+export VAULT_FORMAT="json"
+export VAULT_SKIP_VERIFY="true"
+
 # Neovim
 export NVIM_DIR="$CONFIG_DIR/nvim"
 export NVIM_CACHE_DIR="$CACHE_DIR/nvim"
