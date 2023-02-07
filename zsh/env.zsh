@@ -73,6 +73,11 @@ export KUBE_CONFIG_PATH="$KUBECONFIG"
 export KUBECACHEDIR="$CACHE_DIR/kube"
 export MINIKUBE_HOME="$XDG_STATE_HOME/minikube"
 
+# Terraform
+export TF_CLI_CONFIG_FILE="$CONFIG_DIR/terraform/config.tfrc"
+export TF_DATA_DIR="$XDG_STATE_HOME/terraform"
+export TF_PLUGIN_CACHE_DIR="$CACHE_DIR/terraform"
+
 # Neovim
 export NVIM_DIR="$CONFIG_DIR/nvim"
 export NVIM_CACHE_DIR="$CACHE_DIR/nvim"

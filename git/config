@@ -7,13 +7,11 @@
 [core]
   editor = nvim
   pager = delta
-#  sshcommand = ssh -i "$KEYS_DIR/rsa/github.pem" -F /dev/null
+  sshcommand = ssh -i "$KEYS_DIR/ssh/me.pem" -F /dev/null
 [url "ssh://git@github.com/"]
   insteadof = "https://github.com/"
 [url "http://hayden:8c62863b142513ad03d40ce508373c4b301ddd32@git.dev.gg/"]
   insteadof = "http://git.dev.gg/"
-# [url "ssh://git@git.dev.gg:23/"]
-#   insteadof = "http://git.dev.gg/"
 [pull]
   rebase = true
 [push]
