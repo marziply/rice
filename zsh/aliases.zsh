@@ -80,6 +80,7 @@ alias tf="terraform"
 alias tfi="tf init"
 alias tfp="tf plan"
 alias tfa="tf apply"
+alias tfaa="tfa -auto-approve"
 
 # ZSH
 alias zs="source $ZSH_DIR/*.zsh"
