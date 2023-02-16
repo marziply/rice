@@ -1,38 +1,38 @@
-# Filename and shebang mapping
-#
-# Add an entry for a language syntax which is occupied by multiple source
-# file extensions. If there is only one extension, just name the lang file
-# accordingly and it will work (no entry needed here). The filetype entries
-# in gui_files/ext/fileopenfilter.conf should also be updated for the GUI
-# file dialogs.
-#
-# Extensions can be configured for multiple languages (see "asm", which is
-# assigned to assembler and fasm). The command line (CLI) and Qt GUI builds
-# handle ambiguous assignments as follows:
-#  - CLI: the first association listed here will be used
-#  - GUI: a syntax selection prompt will be shown
-#
-# If a filename has no extension by convention (ie. makefile), it may be added
-# here nevertheless or be configured as "Shebang".
-#
-# You can assign complete filenames to a syntax with "Filenames", see the
-# "cmake" entry. To define both filenames and extensions, add two separate
-# entries (see "sh" entry).
-#
-# A default input encoding can be set with an EncodingHint attribute (requires
-# version 3.55).
-#
-# The first filetypes.conf found in a highlight search directory wins. See
-# README.adoc for search dirs.
-#
-# You can override specific settings in ~/.highlight/filetypes.conf like this:
-#
-# dofile "/etc/highlight/filetypes.conf"
-#
-# table.insert(FileMapping, {
-#   Lang="yourlang",
-#   Shebang=[[^#!\s*(/usr)?(/local)?/bin/(env\s+)?yourlang]]
-# })
+-- Filename and shebang mapping
+--
+-- Add an entry for a language syntax which is occupied by multiple source
+-- file extensions. If there is only one extension, just name the lang file
+-- accordingly and it will work (no entry needed here). The filetype entries
+-- in gui_files/ext/fileopenfilter.conf should also be updated for the GUI
+-- file dialogs.
+--
+-- Extensions can be configured for multiple languages (see "asm", which is
+-- assigned to assembler and fasm). The command line (CLI) and Qt GUI builds
+-- handle ambiguous assignments as follows:
+--  - CLI: the first association listed here will be used
+--  - GUI: a syntax selection prompt will be shown
+--
+-- If a filename has no extension by convention (ie. makefile), it may be added
+-- here nevertheless or be configured as "Shebang".
+--
+-- You can assign complete filenames to a syntax with "Filenames", see the
+-- "cmake" entry. To define both filenames and extensions, add two separate
+-- entries (see "sh" entry).
+--
+-- A default input encoding can be set with an EncodingHint attribute (requires
+-- version 3.55).
+--
+-- The first filetypes.conf found in a highlight search directory wins. See
+-- README.adoc for search dirs.
+--
+-- You can override specific settings in ~/.highlight/filetypes.conf like this:
+--
+-- dofile "/etc/highlight/filetypes.conf"
+--
+-- table.insert(FileMapping, {
+--   Lang="yourlang",
+--   Shebang=[[^#!\s*(/usr)?(/local)?/bin/(env\s+)?yourlang]]
+-- })
 
 FileMapping = {
   {
@@ -177,7 +177,7 @@ FileMapping = {
       "fas",
       "scm",
       "mud",
-      "fasl" 
+      "fasl"
     }
   },
   {
@@ -192,7 +192,7 @@ FileMapping = {
     Lang="meson",
     Filenames={
       "meson.build",
-      "meson_options.txt" 
+      "meson_options.txt"
     }
   },
   {
@@ -403,13 +403,19 @@ FileMapping = {
       "gyp",
       "gypi",
       "snakefile",
-      "wscript" 
+      "wscript"
     }
   },
   {
     Lang="python",
     Filenames={
       "SConstruct"
+    }
+  },
+  {
+    Lang="vue",
+    Extensions={
+      "vue"
     }
   },
   {
@@ -489,7 +495,8 @@ FileMapping = {
     Shebang=[[^#!\s*(/usr)?(/local)?/bin/(env\s+)?([bd]ash|t?csh|[akz]?sh)]]
   },
   {
-    Lang="makefile",Shebang=[[^#!\s*(/usr)?(/local)?/bin/(env\s+)?make]]
+    Lang="makefile",
+    Shebang=[[^#!\s*(/usr)?(/local)?/bin/(env\s+)?make]]
   },
   {
     Lang="awk",
@@ -513,6 +520,6 @@ FileMapping = {
   },
   {
     Lang="javascript",
-    Shebang=[[^#!\s*(/usr)?(/local)?/bin/(env\s+)?node]
+    Shebang=[[^#!\s*(/usr)?(/local)?/bin/(env\s+)?node]]
   }
 }
