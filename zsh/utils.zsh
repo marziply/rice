@@ -171,8 +171,8 @@ tldr() {
     --rm \
     -it \
     -v "$CACHE_DIR/tldr:/root/.tldr/cache" \
-    $@ \
-    nutellinoit/tldr
+    nutellinoit/tldr \
+    $@
 }
 
 # fzf-history-widget-accept() {
