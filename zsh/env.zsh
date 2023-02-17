@@ -1,5 +1,3 @@
-# vi: ft=sh
-
 #!/bin/zsh
 
 # XDG
@@ -44,7 +42,7 @@ export READER="mupdf"
 export ZSH="$CONFIG_DIR/omz"
 export ZSH_CUSTOM="$ZSH/custom"
 export ZSH_CACHE_DIR="$CACHE_DIR/zsh"
-export ZSH_COMPDUMP="$ZSH_CACHE_DIR/zcompdump-$HOST-$ZSH_VERSION"
+export ZSH_COMPDUMP="$ZSH_CACHE_DIR/zcompdump-${HOST}-${ZSH_VERSION}"
 export ZSH_THEME="rice"
 
 # Highlight
@@ -72,6 +70,9 @@ export KUBECONFIG="$KUBE_DIR/config.yaml"
 export KUBE_CONFIG_PATH="$KUBECONFIG"
 export KUBECACHEDIR="$CACHE_DIR/kube"
 export MINIKUBE_HOME="$XDG_STATE_HOME/minikube"
+
+# Docker
+export DOCKER_CONFIG="$CONFIG_DIR/docker"
 
 # Terraform
 export TF_CLI_CONFIG_FILE="$CONFIG_DIR/terraform/config.tfrc"
