@@ -71,9 +71,12 @@ alias kmdj="kmd job"
 # Minikube
 alias mk="minikube"
 alias mks="mk start"
-alias mkd="mk delete"
+alias mkss="mks --cpus 8 --memory 16g --disk-size 20g"
 alias mko="mk stop"
 alias mkp="mk pause"
+alias mki="mk status"
+alias mkd="mk delete"
+alias mkda"mkd --all --purge"
 
 # Terraform
 alias tf="terraform"

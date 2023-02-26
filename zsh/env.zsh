@@ -66,10 +66,11 @@ export NVM_DIR="$CONFIG_DIR/nvm"
 
 # Kubectl
 export KUBE_DIR="$CONFIG_DIR/kube"
-export KUBECONFIG="$KUBE_DIR/config.yaml"
-export KUBE_CONFIG_PATH="$KUBECONFIG"
+export KUBE_CONFIG_PATH="$KUBE_DIR/config.yaml"
+export KUBECONFIG="$KUBE_CONFIG_PATH"
 export KUBECACHEDIR="$CACHE_DIR/kube"
-export MINIKUBE_HOME="$XDG_STATE_HOME/minikube"
+export MINIKUBE_HOME="$HOME/.minikube"
+# export MINIKUBE_HOME="$XDG_STATE_HOME/minikube"
 
 # Docker
 export DOCKER_CONFIG="$CONFIG_DIR/docker"
@@ -111,6 +112,7 @@ export RUST_BACKTRACE=1
 
 # Go
 export GOPATH="$GO_DIR"
+export GOBIN="$GO_DIR/bin"
 
 # Gcloud
 export GCLOUD_PATH="/var/lib/google-cloud-sdk"
