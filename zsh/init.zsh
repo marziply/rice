@@ -46,6 +46,13 @@ lpass sync -b --color never
 start_sway
 generate_marks
 
+zstyle ":completion:*" list-prompt ""
+zstyle ":completion:*" select-prompt ""
+
+complete -C "$(which aws_completer)" aws
+autoload -Uz compinit
+compinit
+
 # zle     -N     fzf-history-widget-accept
 # bindkey '^X^R' fzf-history-widget-accept
 
@@ -54,10 +61,6 @@ generate_marks
 
 bindkey -s "^Z" "ranger\n"
 bindkey -s "^V" "n\n"
-
-# autoload -Uz compinit
-#
-# compinit
 
 setopt rmstarsilent
 setopt inc_append_history
