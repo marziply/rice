@@ -19,7 +19,7 @@ env:
 window:
   # Allow terminal applications to change Alacritty's window title.
   dynamic_title: true
-  decorations_theme_variant: dark
+  decorations_theme_variant: Dark
 
   # Window dimensions (changes require restart)
   #

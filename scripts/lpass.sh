@@ -23,8 +23,8 @@ list=$(\
     )'
 )
 
-displays=($(xrandr --listmonitors | grep -Po '(?<=\+)XWAYLAND\d+'))
-monitor=$(swaymsg -rt get_outputs | jq 'map(.focused) | index(true)')
+# displays=($(xrandr --listmonitors | grep -Po '(?<=\+)XWAYLAND\d+'))
+# monitor=$(swaymsg -rt get_outputs | jq 'map(.focused) | index(true)')
 
 index=$(\
   echo $list \
@@ -33,7 +33,7 @@ index=$(\
   | rofi \
     -dmenu \
     -i \
-    -m ${displays[$monitor]} \
+    -m 1 \
     -sep $sep \
     -format i
 )

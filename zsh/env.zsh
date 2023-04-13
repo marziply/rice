@@ -110,6 +110,10 @@ export CARGO_NET_GIT_FETCH_WITH_CLI="true"
 export RUSTUP_HOME="$CONFIG_DIR/rustup"
 export RUST_BACKTRACE=1
 
+if [[ $(command -v sccache) ]]; then
+  export RUSTC_WRAPPER="$(which sccache)"
+fi
+
 # Go
 export GOPATH="$GO_DIR"
 export GOBIN="$GO_DIR/bin"
@@ -130,5 +134,6 @@ if [ ! $ZSH_ENV_LOADED ]; then
 
   export PATH="$PATH:$LOCAL_BIN:$GO_BIN:$CARGO_BIN:$GCLOUD_BIN"
 
+  export NVM_LIB="$NVM_DIR/versions/node/$(nvm version)/lib"
   export ZSH_ENV_LOADED=1
 fi
