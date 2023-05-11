@@ -9,9 +9,9 @@
 !git/
 !helm/
 !highlight/
-!kube/
 !pgcli/
 !ranger/
+!remmina/
 !nvim/
 !nvimpager/
 !scripts/

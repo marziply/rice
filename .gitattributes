@@ -11,3 +11,4 @@ git/config filter=git-crypt diff=git-crypt
 
 # Namespaced encryption
 ssh/* filter=git-crypt diff=git-crypt
+remmina/* filter=git-crypt diff=git-crypt
