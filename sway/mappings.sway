@@ -8,7 +8,7 @@ bindsym $mod+Shift+Return exec $term -e tmux
 bindsym $mod+Shift+q kill
 
 # Start launcher
-bindsym $mod+d exec $scripts/launcher.sh
+bindsym $mod+d exec rofi -show drun
 
 # Open lpass menu
 bindsym $mod+p exec $scripts/lpass.sh

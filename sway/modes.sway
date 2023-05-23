@@ -1,8 +1,8 @@
 mode "resize" {
-  bindsym $left exec $scripts/resize_window.sh $left
-  bindsym $right exec $scripts/resize_window.sh $right
-  bindsym $up exec $scripts/resize_window.sh $up
-  bindsym $down exec $scripts/resize_window.sh $down
+  bindsym $left exec $scripts/winsize.sh $left
+  bindsym $right exec $scripts/winsize.sh $right
+  bindsym $up exec $scripts/winsize.sh $up
+  bindsym $down exec $scripts/winsize.sh $down
 
   bindsym Escape mode "default"
 }

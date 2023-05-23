@@ -110,10 +110,6 @@ export CARGO_NET_GIT_FETCH_WITH_CLI="true"
 export RUSTUP_HOME="$CONFIG_DIR/rustup"
 export RUST_BACKTRACE=1
 
-if [[ $(command -v sccache) ]]; then
-  export RUSTC_WRAPPER="$(which sccache)"
-fi
-
 # Go
 export GOPATH="$GO_DIR"
 export GOBIN="$GO_DIR/bin"
@@ -124,6 +120,15 @@ export USE_GKE_GCLOUD_AUTH_PLUGIN="true"
 
 # Wine
 export WINEPREFIX="$CONFIG_DIR/wine"
+
+# Redis
+export REDISCLI_RCFILE="$CONFIG_DIR/redis.conf"
+export REDISCLI_HISTFILE="$CACHE_DIR/redis.log"
+
+# Rust cache wrapper
+if [[ $(command -v sccache) ]]; then
+  export RUSTC_WRAPPER="$(which sccache)"
+fi
 
 # Paths
 if [ ! $ZSH_ENV_LOADED ]; then
