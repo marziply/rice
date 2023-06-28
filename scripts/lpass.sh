@@ -1,51 +1,32 @@
 #!/bin/bash
 
-sep="|"
-list=$(\
-  lpass ls \
-    --sync no \
-    --color never \
-    --format "%ai|%an|%au|%al" \
+get_pw() {
+  lpass show --sync no ${@:2} $1
+}
+
+list_pw() {
+  lpass ls --sync no --color never --format "%ai|%an|%au|%al" \
   | grep -v "http://group" \
-  | column -JN "id,name,user,url" -s $sep \
-  | jq '
-    .table
-    | map(
-      setpath(
-        ["user"];
-        .user // 
-          if .url == "http://sn" then
-            "gpg"
-          else
-            "password"
-          end
-      )
-    )'
-)
+  | column -JN "id,name,user,url" -s "|" \
+  | jq -f "${SCRIPTS_DIR}/assets/lpass.jq"
+}
 
-index=$(\
-  echo $list \
-  | jq -r 'map(.name + " (" + .user + ")") | .[]' \
-  | tr "\n" $sep \
-  | rofi \
-    -dmenu \
-    -i \
-    -sep $sep \
-    -format i
-)
+get_id() {
+  local list=`list_pw`
 
-if [ -n "$index" ]; then
-  id=$(echo $list | jq -r ".[$index].id")
-else
-  exit 0
-fi
+  jq -r 'map("\(.name) (\(.user))") | .[]' <<< $list \
+  | rofi -dmenu -i -format i -theme "windows/lpass" \
+  | jq -r --argjson list "$list" '. as $i | $list[$i].id'
+}
 
-if [ -n "$id" ]; then
-  pass=$(lpass show --sync no --password $id)
+id=`get_id`
 
-  if [ -z "$pass" ]; then
-    pass=$(lpass show --sync no --field=Passphrase $id)
+if [[ -n "$id" ]]; then
+  pass=`get_pw --password $id`
+
+  if [[ -z "$pass" ]]; then
+    pass=`get_pw --field=Passphrase $id`
   fi
 
-  echo $pass | wl-copy -n
+  wl-copy -no $pass
 fi

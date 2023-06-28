@@ -1,0 +1,5 @@
+@import "config"
+
+window {
+  width: 400px;
+}

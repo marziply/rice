@@ -2,7 +2,7 @@
 
 #!/bin/zsh
 
-source "$ZSH_DIR/utils.zsh"
+source "${ZSH_DIR}/utils.zsh"
 
 unalias _ 2&>/dev/null
 
@@ -71,7 +71,6 @@ alias kmdj="kmd job"
 # Minikube
 alias mk="minikube"
 alias mks="mk start"
-alias mkss="mks --cpus 8 --memory 16g --disk-size 20g"
 alias mko="mk stop"
 alias mkp="mk pause"
 alias mki="mk status"

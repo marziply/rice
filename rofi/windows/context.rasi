@@ -1,0 +1,15 @@
+@import "config"
+
+window {
+  width: 200px;
+}
+
+listview {
+  scrollbar: false;
+  fixed-height: false;
+  dynamic: false;
+}
+
+entry {
+  blink: false;
+}

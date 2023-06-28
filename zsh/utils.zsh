@@ -175,6 +175,10 @@ tldr() {
     $@
 }
 
+mkss() {
+  mks --addons metallb,ingress,default-storageclass
+}
+
 # fzf-history-widget-accept() {
 #   fzf-history-widget
 #   zle accept-line
