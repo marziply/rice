@@ -1,13 +1,11 @@
-# vi: ft=sh
-
 #!/bin/zsh
 
-marks_list="$CONFIG_DIR/marks.list"
+marks_list="${CONFIG_DIR}/marks.list"
 default_marks=(
-  "config : $CONFIG_DIR"
-  "projects : $HOME/dev/projects"
-  "work : $HOME/dev/work"
-  "rocinante : $HOME/dev/rocinante"
+  "config : ${CONFIG_DIR}"
+  "rocinante : ${HOME}/dev/rocinante"
+  "projects : ${HOME}/dev/projects"
+  "work : ${HOME}/dev/work"
 )
 
 start_sway() {
@@ -18,42 +16,52 @@ start_sway() {
       exec sway
     fi
   else
-    tmux source-file "$TMUX_DIR/tmux.conf"
+    tmux source-file "${TMUX_DIR}/tmux.conf"
   fi
 }
 
 generate_marks() {
-  dirs=$(stat $HOME/dev/{lib,work,projects}/* -c '%Y %n' | sort -r)
-  dirs_count=$(echo $dirs | wc -l)
-  total_marks_count=$(cat $marks_list | wc -l 2&>/dev/null)
-  marks_count=$(($total_marks_count - ${#default_marks}))
+  dirs=`stat ${HOME}/dev/{lib,work,projects}/* -c '%Y %n' | sort -r`
+  dirs_count=`echo $dirs | wc -l`
+  total_marks=`cat $marks_list | wc -l`
+  marks_count=$(($total_marks - ${#default_marks}))
 
-  if [ "$dirs_count" != "$marks_count" ]; then
+  if [[ "$dirs_count" != "$marks_count" ]]; then
     printf '%s\n' "${default_marks[@]}" > $marks_list
 
     echo "$dirs" \
-      | cut -d ' ' -f 2 \
-      | xargs \
-        -I {} \
-        bash -c 'echo "$(grep -Po "[^/]+/[^/]+$" <<< "{}") : {}"' \
-      >> $marks_list
+    | cut -d ' ' -f 2 \
+    | xargs -I % bash -c 'echo "$(grep -Po "[^/]+/[^/]+$" <<< "%") : %"' \
+    >> $marks_list
   fi
+}
+
+kbsel() {
+  kustomize build \
+    --enable-alpha-plugins \
+    --enable-exec \
+    $1 \
+  | yq \
+    -sy \
+    --arg kind $2 \
+    --arg name $3 \
+    'map(select(.kind == $kind and .metadata.name == $name)) | first'
+}
+
+startc() {
+  sudo docker run \
+    --env-file .env \
+    --net host \
+    --init \
+    --rm \
+    -it \
+    $@
 }
 
 gcpnv() {
   git add .
   git commit -am "$1"
-  git push origin "$(git_current_branch)" --no-verify
-}
-
-startc() {
-  sudo docker run \
-    --env-file=.env \
-    --net=host \
-    --init \
-    --rm \
-    -it \
-    $@
+  git push origin `git_current_branch` --no-verify
 }
 
 psqlv() {
@@ -66,9 +74,7 @@ mc() {
 }
 
 db() {
-  tag="$1"; shift
-
-  sudo docker build -t "$tag" $@ .
+  sudo docker build -t "$1" ${@:2} .
 }
 
 pmrq() {
@@ -76,37 +82,27 @@ pmrq() {
 }
 
 k() {
-  kubectl $@ --cache-dir "$CACHE_DIR/kube"
+  kubectl $@ --cache-dir "${CACHE_DIR}/kube"
 }
 
 kc() {
-  ctx="$1"; shift
-
-  k --context "$ctx" $@
+  k --context "$1" ${@:2}
 }
 
 kcv() {
-  ctx="$1"; shift
-
-  kc "$ctx" view $@
+  kc "$1" view ${@:2}
 }
 
 kcg() {
-  ctx="$1"; shift
-
-  kc "$ctx" get $@
+  kc "$1" get ${@:2}
 }
 
 kcga() {
-  ctx="$1"; shift
-
-  kc "$ctx" get all $@
+  kc "$1" get all ${@:2}
 }
 
 kcgaa() {
-  ctx="$1"; shift
-
-  kc "$ctx" get all --all-namespaces $@
+  kc "$1" get all --all-namespaces ${@:2}
 }
 
 kb() {
@@ -118,35 +114,26 @@ kbj() {
 }
 
 kka() {
-  if [ -z "$1" ]; then
+  if [[ -z "$1" ]]; then
     echo "Context argument required"
 
     return 1
   fi
 
   build() {
-    ctx="$1"; shift
-
-    kb | kc "$ctx" apply -f - $@
+    kb | kc "$1" apply -f - ${@:2}
   }
 
-  if [ -n "$2" ]; then
-    ctx="$1"
-    label="$2"
-
-    shift 2
-
-    build "$ctx" \
+  if [[ -n "$2" ]]; then
+    build "$1" \
       --prune \
       --prune-allowlist /v1/ConfigMap \
       --prune-allowlist /v1/Secret \
-      -n "$label" \
-      -l "app=${label}" \
-      $@
+      -n "$2" \
+      -l "app=${2}" \
+      ${@:3}
   else
-    ctx="$1"; shift
-
-    build "$ctx" $@
+    build "$1" ${@:2}
   fi
 }
 
@@ -155,22 +142,20 @@ kkda() {
 }
 
 k9() {
-  if [ -z "$1" ]; then
+  if [[ -z "$1" ]]; then
     echo "Context argument required"
 
     return 1
   fi
 
-  ctx="$1"; shift
-
-  k9s --context "$ctx" -A
+  k9s --context "$1" -A
 }
 
 tldr() {
   sudo docker run \
     --rm \
     -it \
-    -v "$CACHE_DIR/tldr:/root/.tldr/cache" \
+    -v "${CACHE_DIR}/tldr:/root/.tldr/cache" \
     nutellinoit/tldr \
     $@
 }
