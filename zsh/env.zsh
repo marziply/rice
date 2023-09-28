@@ -12,6 +12,7 @@ export XDG_SCREENSHOTS_DIR="$HOME"
 # Directories
 export CONFIG_DIR="$XDG_CONFIG_HOME"
 export CACHE_DIR="$XDG_CACHE_HOME"
+export STATE_DIR="$XDG_STATE_HOME"
 export SCRIPTS_DIR="${CONFIG_DIR}/scripts"
 export GO_DIR="${CONFIG_DIR}/go"
 export ZSH_DIR="${CONFIG_DIR}/zsh"
@@ -64,25 +65,24 @@ export RANGER_LOAD_DEFAULT_RC="FALSE"
 export NPM_CONFIG_USERCONFIG="${CONFIG_DIR}/npm.conf"
 export NVM_DIR="$CONFIG_DIR/nvm"
 
-# Kubectl
+# Kubernetes
 export KUBE_DIR="${CONFIG_DIR}/kube"
 export KUBE_CONFIG_PATH="${KUBE_DIR}/config.yaml"
 export KUBECONFIG="$KUBE_CONFIG_PATH"
 export KUBECACHEDIR="${CACHE_DIR}/kube"
-export MINIKUBE_HOME="${HOME}/.minikube"
-# export MINIKUBE_HOME="$XDG_STATE_HOME/minikube"
+# export MINIKUBE_HOME="${STATE_DIR}/minikube"
 
 # Docker
 export DOCKER_CONFIG="${CONFIG_DIR}/docker"
 
 # Terraform
 export TF_CLI_CONFIG_FILE="${CONFIG_DIR}/terraform/config.tfrc"
-export TF_DATA_DIR="${XDG_STATE_HOME}/terraform"
 export TF_PLUGIN_CACHE_DIR="${CACHE_DIR}/terraform"
+export TF_DATA_DIR="${STATE_DIR}/terraform"
 
 # Vault
-export VAULT_TOKEN="$(cat $KEYS_DIR/vault.json | jq -r '.root_token')"
-export VAULT_ADDR="$(cat $KEYS_DIR/vault.json | jq -r '.address')"
+export VAULT_TOKEN=`jq -r '.root_token' "${KEYS_DIR}/vault.json"`
+export VAULT_ADDR=`jq -r '.address' "${KEYS_DIR}/vault.json"`
 export VAULT_FORMAT="json"
 export VAULT_SKIP_VERIFY="true"
 
@@ -104,12 +104,6 @@ export FZF_MARKS_FILE="${CONFIG_DIR}/marks.list"
 # Python
 export PYTHONPATH="/usr/lib/python3.10"
 
-# Rust
-export CARGO_HOME="${CONFIG_DIR}/cargo"
-export CARGO_NET_GIT_FETCH_WITH_CLI="true"
-export RUSTUP_HOME="${CONFIG_DIR}/rustup"
-export RUST_BACKTRACE=1
-
 # Go
 export GOPATH="$GO_DIR"
 export GOBIN="${GO_DIR}/bin"
@@ -130,20 +124,50 @@ export ANDROID_HOME="${HOME}/android"
 export ANDROID_USER_HOME="${CONFIG_DIR}/android"
 export STUDIO_JDK="${ANDROID_USER_HOME}/jdk"
 
+# AWS
+export AWS_CONFIG_FILE="${CONFIG_DIR}/aws/config.toml"
+export AWS_DATA_PATH="${CONFIG_DIR}/aws/models"
+export AWS_SHARED_CREDENTIALS_FILE="${CONFIG_DIR}/aws/credentials.toml"
+
+# Bun
+export BUN_INSTALL="${CONFIG_DIR}/bun"
+export BUN_BIN="${BUN_INSTALL}/bin"
+
+# Rust
+export CARGO_HOME="${CONFIG_DIR}/cargo"
+export CARGO_NET_GIT_FETCH_WITH_CLI="true"
+export RUSTUP_HOME="${CONFIG_DIR}/rustup"
+export RUST_BACKTRACE=1
+
 # Rust cache wrapper
 if [[ $(command -v sccache) ]]; then
   export RUSTC_WRAPPER="$(which sccache)"
 fi
 
+# Porter
+export PORTER_BIN="${HOME}/.porter"
+
 # Paths
-if [ ! $ZSH_ENV_LOADED ]; then
+if [[ ! $ZSH_ENV_LOADED ]]; then
   export LOCAL_BIN="${HOME}/.local/bin"
   export GO_BIN="${GO_DIR}/bin"
   export CARGO_BIN="${CONFIG_DIR}/cargo/bin"
 	export GCLOUD_BIN="${GCLOUD_PATH}/bin"
 
-  export PATH="${PATH}:${LOCAL_BIN}:${GO_BIN}:${CARGO_BIN}:${GCLOUD_BIN}"
+  if [[ $(command -v nvm) ]]; then
+    export NVM_LIB="${NVM_DIR}/versions/node/$(nvm version)/lib"
+  fi
 
-  export NVM_LIB="${NVM_DIR}/versions/node/$(nvm version)/lib"
   export ZSH_ENV_LOADED=1
 fi
+
+export PATHS=(
+  $PATH
+  $LOCAL_BIN
+  $GO_BIN
+  $CARGO_BIN
+  $GCLOUD_BIN
+  $PORTER_BIN
+  $BUN_BIN
+)
+export PATH=`echo $PATHS | tr ' ' ':'`

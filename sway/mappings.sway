@@ -2,7 +2,7 @@
 bindsym $mod+Return exec $term
 
 # Start a tmux session in a new terminal
-bindsym $mod+Shift+Return exec $term -e tmux
+bindsym $mod+Shift+Return exec $term -e tmux -u
 
 # Kill focused window
 bindsym $mod+Shift+q kill
@@ -13,8 +13,11 @@ bindsym $mod+d exec rofi -show drun -theme "windows/run"
 # Open Kubernetes context menu
 bindsym $mod+c exec $scripts/context.sh
 
-# Open lpass menu
-bindsym $mod+p exec $scripts/lpass.sh
+# Open lpass password menu
+bindsym $mod+p exec $scripts/lpass.sh passwords
+
+# Open lpass notes menu
+bindsym $mod+o exec $scripts/lpass.sh notes
 
 # Generate password
 bindsym $mod+Shift+p exec $scripts/pwgen.sh

@@ -41,8 +41,9 @@ kbsel() {
     --enable-alpha-plugins \
     --enable-exec \
     $1 \
-  | yq \
-    -sy \
+  | yq -o json \
+  | jq \
+    -s \
     --arg kind $2 \
     --arg name $3 \
     'map(select(.kind == $kind and .metadata.name == $name)) | first'
@@ -162,6 +163,13 @@ tldr() {
 
 mkss() {
   mks --addons metallb,ingress,default-storageclass
+}
+
+ssht() {
+  ssh \
+    -o StrictHostKeyChecking=no \
+    -o UserKnownHostsFile=/dev/null \
+    $@
 }
 
 # fzf-history-widget-accept() {

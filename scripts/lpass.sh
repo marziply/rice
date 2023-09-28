@@ -1,10 +1,20 @@
 #!/bin/bash
 
-get_pw() {
-  lpass show --sync no ${@:2} $1
+get_record() {
+  lpass show --sync no ${@:1:$#-1} ${@:$#}
 }
 
-list_pw() {
+get_password() {
+  pass=`get_record --password $1`
+
+  if [[ -z "$pass" ]]; then
+    get_record --field=Passphrase $1
+  else
+    echo $pass
+  fi
+}
+
+list_records() {
   lpass ls --sync no --color never --format "%ai|%an|%au|%al" \
   | grep -v "http://group" \
   | column -JN "id,name,user,url" -s "|" \
@@ -12,7 +22,7 @@ list_pw() {
 }
 
 get_id() {
-  local list=`list_pw`
+  local list=`list_records`
 
   jq -r 'map("\(.name) (\(.user))") | .[]' <<< $list \
   | rofi -dmenu -i -format i -theme "windows/lpass" \
@@ -22,11 +32,14 @@ get_id() {
 id=`get_id`
 
 if [[ -n "$id" ]]; then
-  pass=`get_pw --password $id`
+  case "$1" in
+    passwords)
+      output=`get_password $id`
+    ;;
+    notes)
+      output=`get_record --notes $id`
+    ;;
+  esac
 
-  if [[ -z "$pass" ]]; then
-    pass=`get_pw --field=Passphrase $id`
-  fi
-
-  wl-copy -no $pass
+  wl-copy -n $output
 fi

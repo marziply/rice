@@ -27,3 +27,6 @@
 [submodule "zsh/plugins/F-Sy-H"]
 	path = zsh/plugins/F-Sy-H
 	url = https://github.com/z-shell/F-Sy-H
+[submodule "zsh/plugins/zsh-completions"]
+	path = zsh/plugins/zsh-completions
+	url = https://github.com/zsh-users/zsh-completions

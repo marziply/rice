@@ -1,5 +1,3 @@
-# vi: ft=sh
-
 #!/bin/zsh
 
 source "${ZSH_DIR}/utils.zsh"
@@ -53,6 +51,11 @@ alias scdu="scu disable"
 alias gacam="ga . && gcam"
 alias ggpnv="ggpush --no-verify"
 alias gce="g commit --amend"
+alias gcr="g conflicts --relative"
+
+# Spotify
+alias sp="spotify_player"
+alias spr="scru spotifyd && sp"
 
 # Kubectl
 alias km="kc minikube"
@@ -60,13 +63,8 @@ alias kme="km explain"
 alias kml="km logs"
 alias kmg="km get"
 alias kmi="km describe"
-alias kmip="kim pod"
-alias kmgp="kmg pods"
-alias kmga="kmg all"
-alias kmgaa="kmg all --all-namespaces"
 alias kmd="km delete"
-alias kmdp="kmd pod"
-alias kmdj="kmd job"
+alias vk="vipe | xargs -I % kubectl"
 
 # Minikube
 alias mk="minikube"
