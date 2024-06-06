@@ -2,19 +2,18 @@ xwayland enable
 seat * hide_cursor 5000
 # seat * xcursor_theme Adwaita 0
 
+font SourceCodePro 9
 focus_follows_mouse no
 focus_wrapping no
 default_border pixel 2
 default_floating_border normal
-font SourceCodePro 9
 workspace_auto_back_and_forth no
 floating_modifier $mod
 
-workspace 1 output "DP-3"
-workspace 2 output "DP-1"
+workspace 1 output "DP-1"
+workspace 2 output "DP-3"
 workspace 3 output "DP-2"
 
-for_window [app_id="ulauncher"] floating enable, border none
 for_window [instance="spotify"] move to workspace 1
 
 assign [instance="brave-browser"] 3
@@ -31,32 +30,26 @@ output "DP-2" {
 }
 
 # Landscape center display
-output "DP-1" {
+output "DP-3" {
   position 3840,520
 }
 
 # Portrait left display
-output "DP-3" {
+output "DP-1" {
   position 2400,0
   transform 270
 }
 
 output "HDMI-A-1" disable {
-  position 0,740
-  mode 3840x2160@60Hz
+  position 0,0
 }
 
 ### Input configuration
-
 input "type:keyboard" {
+  xkb_options caps:escape
   xkb_layout gb
-  repeat_delay 300
-  repeat_rate 30
-}
-
-input "6790:57382:HID_1a86:e026_Keyboard" {
-  repeat_delay 0
-  repeat_rate 0
+  repeat_delay 200
+  repeat_rate 20
 }
 
 # Drag floating windows by holding down $mod and left mouse button.

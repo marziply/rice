@@ -1,0 +1,11 @@
+[
+  {
+    "qom-type": "memory-backend-ram",
+    "id": "pc.ram",
+    "size": 17179869184
+  },
+  {
+    "qom-type": "iothread",
+    "id": "iothread1"
+  }
+]

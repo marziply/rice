@@ -1,0 +1,51 @@
+[
+  {
+    "driver": "file",
+    "filename": "/usr/share/edk2/x64/OVMF_CODE.fd",
+    "node-name": "libvirt-pflash0-storage",
+    "auto-read-only": true,
+    "discard": "unmap"
+  },
+  {
+    "node-name": "libvirt-pflash0-format",
+    "read-only": true,
+    "driver": "raw",
+    "file": "libvirt-pflash0-storage"
+  },
+  {
+    "driver": "file",
+    "filename": "/var/lib/libvirt/qemu/nvram/bindows_VARS.fd",
+    "node-name": "libvirt-pflash1-storage",
+    "auto-read-only": true,
+    "discard": "unmap"
+  },
+  {
+    "node-name": "libvirt-pflash1-format",
+    "read-only": false,
+    "driver": "raw",
+    "file": "libvirt-pflash1-storage"
+  },
+  {
+    "driver": "host_device",
+    "filename": "/dev/sdc1",
+    "aio": "native",
+    "node-name": "libvirt-1-storage",
+    "auto-read-only": true,
+    "discard": "unmap",
+    "cache": {
+      "direct": true,
+      "no-flush": false
+    }
+  },
+  {
+    "node-name": "libvirt-1-format",
+    "read-only": false,
+    "discard": "unmap",
+    "cache": {
+      "direct": true,
+      "no-flush": false
+    },
+    "driver": "raw",
+    "file": "libvirt-1-storage"
+  }
+]

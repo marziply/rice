@@ -1,35 +1,68 @@
-mode "resize" {
-  bindsym $left exec $scripts/winsize.sh $left
-  bindsym $right exec $scripts/winsize.sh $right
-  bindsym $up exec $scripts/winsize.sh $up
-  bindsym $down exec $scripts/winsize.sh $down
+mode resize {
+  bindsym $left exec $scripts/resize $left
+  bindsym $right exec $scripts/resize $right
+  bindsym $up exec $scripts/resize $up
+  bindsym $down exec $scripts/resize $down
 
-  bindsym Escape mode "default"
+  bindsym Escape mode default
 }
 
 mode "$system" {
-  bindsym l focus output DP-1, exec gtklock, mode "default"
-  bindsym e exec swaymsg exit, mode "default"
-  bindsym h exec systemctl hibernate, mode "default"
-  bindsym r exec reboot, mode "default"
-  bindsym s exec poweroff, mode "default"
+  # bindsym l focus output DP-1, exec gtklock, mode default
+  bindsym e exec swaymsg exit, mode default
+  bindsym h exec systemctl hibernate, mode default
+  bindsym s exec systemctl suspend, mode default
+  bindsym r exec reboot, mode default
+  bindsym p exec poweroff, mode default
 
-  bindsym Escape mode "default"
+  bindsym Escape mode default
 }
 
 mode "$scrot" {
   bindsym w exec --no-startup-id \
-    $scripts/scrot.sh clip window, \
-    mode "default"
+    $scripts/scrot clip window, \
+    mode default
   bindsym Control+w exec --no-startup-id \
-    $scripts/scrot.sh save window, \
-    mode "default"
+    $scripts/scrot save window, \
+    mode default
   bindsym a exec --no-startup-id \
-    $scripts/scrot.sh clip area, \
-    mode "default"
+    $scripts/scrot clip area, \
+    mode default
   bindsym Control+a exec --no-startup-id \
-    $scripts/scrot.sh save area, \
-    mode "default"
+    $scripts/scrot save area, \
+    mode default
 
-  bindsym Escape mode "default"
+  bindsym Escape mode default
+}
+
+mode "$bindows" {
+  bindsym s exec sudo virsh start $vm, mode default
+  bindsym o exec sudo virsh shutdown $vm, mode default
+  bindsym r exec sudo virsh reboot $vm, mode default
+  bindsym u exec sudo virsh suspend $vm, mode default
+  bindsym e exec sudo virsh resume $vm, mode default
+
+  bindsym Escape mode default
+}
+
+mode "$virt" {
+  bindsym s exec sudo systemctl start libvirtd.service, mode default
+  bindsym o exec sudo systemctl stop libvirtd.service, mode default
+  bindsym r exec sudo systemctl restart libvirtd.service, mode default
+
+  bindsym Escape mode default
+}
+
+mode "$reload" {
+  bindsym s reload, mode default
+  bindsym h exec $scripts/resetbt host, mode default
+  bindsym u exec $scripts/resetbt usb, mode default
+
+  bindsym Escape mode default
+}
+
+mode "$utils" {
+  bindsym h exec pactl set-card-profile $earphones handsfree_head_unit, mode default
+
+  bindsym Escape mode default
 }

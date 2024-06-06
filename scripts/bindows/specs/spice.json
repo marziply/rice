@@ -1,0 +1,8 @@
+[
+  "port=0",
+  "disable-ticketing=on",
+  "image-compression=off",
+  "gl=on",
+  "rendernode=/dev/dri/renderD128",
+  "seamless-migration=on"
+]

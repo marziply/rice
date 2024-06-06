@@ -1,32 +1,36 @@
+# Kill focused window
+bindsym $mod+Shift+q kill
+
+# Reload the configuration file
+bindsym $mod+Control+r reload
+
 # Start a terminal
 bindsym $mod+Return exec $term
 
 # Start a tmux session in a new terminal
 bindsym $mod+Shift+Return exec $term -e tmux -u
 
-# Kill focused window
-bindsym $mod+Shift+q kill
-
 # Start launcher
-bindsym $mod+d exec rofi -show drun -theme "windows/run"
+bindsym $mod+d exec rofi -show drun -theme windows/run
 
 # Open Kubernetes context menu
-bindsym $mod+c exec $scripts/context.sh
+bindsym $mod+c exec $scripts/context
 
 # Open lpass password menu
-bindsym $mod+p exec $scripts/lpass.sh passwords
+bindsym $mod+p exec $scripts/lpass password
 
 # Open lpass notes menu
-bindsym $mod+o exec $scripts/lpass.sh notes
+bindsym $mod+o exec $scripts/lpass notes
+
+bindsym $mod+i exec $scripts/lpass id
+
+bindsym $mod+Shift+i exec $scripts/lpass sh
 
 # Generate password
-bindsym $mod+Shift+p exec $scripts/pwgen.sh
+bindsym $mod+Shift+p exec $scripts/pwgen
 
 # Display notifications
 bindsym $mod+Shift+s exec swaync-client -t
-
-# Reload the configuration file
-bindsym $mod+Shift+r reload
 
 # Moving around
 
@@ -91,6 +95,10 @@ bindsym $mod+minus scratchpad show
 
 bindsym $mod+r mode "resize"
 bindsym $mod+0 mode "$system"
+bindsym $mod+Shift+b mode "$bindows"
+bindsym $mod+Shift+v mode "$virt"
+bindsym $mod+Shift+r mode "$reload"
+bindsym $mod+Shift+u mode "$utils"
 bindsym Print mode "$scrot"
 
 # # Pulse Audio controls

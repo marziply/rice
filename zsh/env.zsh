@@ -66,23 +66,21 @@ export NPM_CONFIG_USERCONFIG="${CONFIG_DIR}/npm.conf"
 export NVM_DIR="$CONFIG_DIR/nvm"
 
 # Kubernetes
+# export MINIKUBE_HOME="${STATE_DIR}/minikube"
 export KUBE_DIR="${CONFIG_DIR}/kube"
 export KUBE_CONFIG_PATH="${KUBE_DIR}/config.yaml"
 export KUBECONFIG="$KUBE_CONFIG_PATH"
 export KUBECACHEDIR="${CACHE_DIR}/kube"
-# export MINIKUBE_HOME="${STATE_DIR}/minikube"
+
+# Helm
+export HELMFILE_TEMPDIR="/tmp/helmfile"
 
 # Docker
 export DOCKER_CONFIG="${CONFIG_DIR}/docker"
 
-# Terraform
-export TF_CLI_CONFIG_FILE="${CONFIG_DIR}/terraform/config.tfrc"
-export TF_PLUGIN_CACHE_DIR="${CACHE_DIR}/terraform"
-export TF_DATA_DIR="${STATE_DIR}/terraform"
-
 # Vault
-export VAULT_TOKEN=`jq -r '.root_token' "${KEYS_DIR}/vault.json"`
-export VAULT_ADDR=`jq -r '.address' "${KEYS_DIR}/vault.json"`
+# export VAULT_TOKEN=`jq -r '.root_token' "${KEYS_DIR}/vault.json"`
+# export VAULT_ADDR=`jq -r '.address' "${KEYS_DIR}/vault.json"`
 export VAULT_FORMAT="json"
 export VAULT_SKIP_VERIFY="true"
 
@@ -91,9 +89,9 @@ export NVIM_DIR="${CONFIG_DIR}/nvim"
 export NVIM_CACHE_DIR="${CACHE_DIR}/nvim"
 
 # PostgreSQL
-export PSQL_HISTORY="${CACHE_DIR}/pg/history"
 export PGUSER="postgres"
 export PGPASSFILE="${CONFIG_DIR}/pgpass.list"
+export PSQL_HISTORY="${CACHE_DIR}/pg/history"
 
 # FZF
 export FZF_DEFAULT_OPTS="--layout=reverse --height 40%"
@@ -147,12 +145,15 @@ fi
 # Porter
 export PORTER_BIN="${HOME}/.porter"
 
+# Misc
+export SSH_AUTH_SOCK=/run/user/1000/ssh-agent.socket
+
 # Paths
 if [[ ! $ZSH_ENV_LOADED ]]; then
   export LOCAL_BIN="${HOME}/.local/bin"
   export GO_BIN="${GO_DIR}/bin"
   export CARGO_BIN="${CONFIG_DIR}/cargo/bin"
-	export GCLOUD_BIN="${GCLOUD_PATH}/bin"
+  export GCLOUD_BIN="${GCLOUD_PATH}/bin"
 
   if [[ $(command -v nvm) ]]; then
     export NVM_LIB="${NVM_DIR}/versions/node/$(nvm version)/lib"
@@ -170,4 +171,4 @@ export PATHS=(
   $PORTER_BIN
   $BUN_BIN
 )
-export PATH=`echo $PATHS | tr ' ' ':'`
+export PATH=$(echo $PATHS | tr ' ' ':')

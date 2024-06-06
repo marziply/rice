@@ -3,36 +3,42 @@
 marks_list="${CONFIG_DIR}/marks.list"
 default_marks=(
   "config : ${CONFIG_DIR}"
-  "rocinante : ${HOME}/dev/rocinante"
+  "lab : ${HOME}/dev/lab"
   "projects : ${HOME}/dev/projects"
   "work : ${HOME}/dev/work"
 )
 
 start_sway() {
-  current_tty="$(tty)"
+  local current_tty="$(tty)"
 
   if [[ "$current_tty" =~ ^/dev/tty[0-9]+$ ]]; then
     if [[ "${current_tty: -1}" == "1" ]]; then
-      exec sway
+      sway
     fi
-  else
+  elif [[ -z "$SSH_CLIENT" && -z "$SSH_TTY" ]]; then
     tmux source-file "${TMUX_DIR}/tmux.conf"
+  else
+    echo "foo"
   fi
+
+  # if ! systemctl -q is-active libvirtd.service; then
+  #   systemctl -q start libvirtd.service
+  # fi
 }
 
 generate_marks() {
-  dirs=`stat ${HOME}/dev/{lib,work,projects}/* -c '%Y %n' | sort -r`
-  dirs_count=`echo $dirs | wc -l`
-  total_marks=`cat $marks_list | wc -l`
+  dirs=$(stat ${HOME}/dev/{lab,lib,work}/* -c '%Y %n' | sort -r)
+  dirs_count=$(echo $dirs | wc -l)
+  total_marks=$(cat $marks_list | wc -l)
   marks_count=$(($total_marks - ${#default_marks}))
 
   if [[ "$dirs_count" != "$marks_count" ]]; then
-    printf '%s\n' "${default_marks[@]}" > $marks_list
+    printf '%s\n' "${default_marks[@]}" >$marks_list
 
-    echo "$dirs" \
-    | cut -d ' ' -f 2 \
-    | xargs -I % bash -c 'echo "$(grep -Po "[^/]+/[^/]+$" <<< "%") : %"' \
-    >> $marks_list
+    echo "$dirs" |
+      cut -d ' ' -f 2 |
+      xargs -I % bash -c 'echo "$(grep -Po "[^/]+/[^/]+$" <<< "%") : %"' \
+        >>$marks_list
   fi
 }
 
@@ -40,13 +46,13 @@ kbsel() {
   kustomize build \
     --enable-alpha-plugins \
     --enable-exec \
-    $1 \
-  | yq -o json \
-  | jq \
-    -s \
-    --arg kind $2 \
-    --arg name $3 \
-    'map(select(.kind == $kind and .metadata.name == $name)) | first'
+    $1 |
+    yq -o json |
+    jq \
+      -s \
+      --arg kind $2 \
+      --arg name $3 \
+      'map(select(.kind == $kind and .metadata.name == $name)) | first'
 }
 
 startc() {
@@ -62,7 +68,7 @@ startc() {
 gcpnv() {
   git add .
   git commit -am "$1"
-  git push origin `git_current_branch` --no-verify
+  git push origin $(git_current_branch) --no-verify
 }
 
 psqlv() {
@@ -171,21 +177,3 @@ ssht() {
     -o UserKnownHostsFile=/dev/null \
     $@
 }
-
-# fzf-history-widget-accept() {
-#   fzf-history-widget
-#   zle accept-line
-# }
-
-# fzf_history() {
-#   local selected
-#   IFS=$'\n' selected=($(fc -lnr 1 | fzf --expect=ctrl-v --no-sort --height=40% --query="$BUFFER"))
-#   if [[ "$selected" ]]; then
-#     LBUFFER="$selected"
-#     if [[ ${#selected[@]} -eq 2 ]]; then
-#       LBUFFER="${selected[2]}"
-#       zle accept-line
-#     fi
-#   fi
-#   zle reset-prompt
-# }

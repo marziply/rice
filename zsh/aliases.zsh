@@ -6,29 +6,42 @@ unalias _ 2&>/dev/null
 
 # General
 alias psg="ps aux | grep"
+alias bctl="bluetoothctl"
+alias px="pulsemixer"
 
 # Neovim
 alias n="nvim"
-alias nrc="n $NVIM_DIR/init.vim"
+alias nn="n ${NVIM_DIR}/init.vim"
+alias ne="n ${ZSH_DIR}/env.zsh"
+alias na="n ${ZSH_DIR}/aliases.zsh"
+alias sn="sudo -E nvim"
 
 # PostgreSQL
 alias pgc="clear && pgcli postgres postgres"
+
+# OS Query
+alias oj='() { osqueryi --json "$1" | jq }'
+alias soj='() { sudo osqueryi --json "$1" | jq }'
+
+# Virt manager
+alias vs="sudo -E virsh"
 
 # List device blocks
 alias lb="lsblk -o name,size,fstype,mountpoints,uuid"
 
 # Pacman package manager
 alias pm="sudo pacman"
-alias pmi="yes | pm -S"
-alias pmr="yes | pm -Rvns"
-alias pms='(){ pm -Ss $1 || yms $1 }'
+alias pmu="pm -Syyu --noconfirm"
+alias pmi="pm -S --noconfirm"
+alias pmr="pm -Rvns --noconfirm"
+alias pms='() { pm -Ss $1 || yms $1 }'
 alias pmq="pm -Qs"
 alias pmqq="pmq -q"
 
 # Yay package manager
-alias ym="yay"
-alias ymi="ym -S"
-alias yms="ym -Ss"
+alias ymu="yay -Syyu --noconfirm"
+alias ymi="yay -S --noconfirm"
+alias yms="yay -Ss"
 
 # SystemD
 alias sc="sudo systemctl"

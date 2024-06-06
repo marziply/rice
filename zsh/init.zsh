@@ -1,31 +1,31 @@
-# vi: ft=sh
-
 #!/bin/zsh
 
-plugins=(\
-  git \
-  sudo \
-  rust \
-  colored-man-pages \
-  colorize \
-  common-aliases \
-  fbterm \
-  fzf \
-  git-extras \
-  gitfast \
-  nvm \
-  ripgrep \
+# vi: ft=sh
+
+plugins=(
+  git
+  sudo
+  rust
+  colored-man-pages
+  colorize
+  common-aliases
+  fbterm
+  fzf
+  git-extras
+  gitfast
+  nvm
+  ripgrep
   # https://github.com/zsh-users/zsh-completions
-  # zsh-autocompletions \
+  # zsh-autocompletions
   # https://github.com/changyuheng/zsh-interactive-cd
-  zsh-interactive-cd \
+  zsh-interactive-cd
   # https://github.com/hlissner/zsh-autopair
-  zsh-autopair \
+  zsh-autopair
   # https://github.com/djui/alias-tips
-  alias-tips \
+  alias-tips
   # https://github.com/z-shell/F-Sy-H
-  F-Sy-H \
-  # https://github.com/z-shell/F-Sy-H
+  F-Sy-H
+  # https://github.com/urbainvaes/fzf-marks
   fzf-marks
 )
 
@@ -38,21 +38,15 @@ source "${ZSH_DIR}/aliases.zsh"
 source "${ZSH_DIR}/utils.zsh"
 
 # Google Cloud
-if [ -d "$GCLOUD_PATH" ]; then
-	source "${GCLOUD_PATH}/path.zsh.inc"
-	source "${GCLOUD_PATH}/completion.zsh.inc"
+if [[ -d "$GCLOUD_PATH" ]]; then
+  source "${GCLOUD_PATH}/path.zsh.inc"
+  source "${GCLOUD_PATH}/completion.zsh.inc"
 fi
 
 # Bun
-if [ -d "$BUN_INSTALL" ]; then
-	source "${BUN_INSTALL}/_bun"
+if [[ -d "$BUN_INSTALL" ]]; then
+  source "${BUN_INSTALL}/_bun"
 fi
-
-# zle     -N     fzf-history-widget-accept
-# bindkey '^X^R' fzf-history-widget-accept
-
-# zle -N fzf-history fzf_history
-# bindkey "^R" fzf-history
 
 bindkey -s "^Z" "ranger\n"
 bindkey -s "^V" "n\n"
@@ -68,14 +62,17 @@ zstyle ":completion:*" select-prompt ""
 autoload -Uz compinit && compinit -d "${ZSH_CACHE_DIR}/zcompdump"
 autoload -U +X bashcompinit && bashcompinit
 
-eval `kubectl completion zsh`
-eval `just --completions zsh`
+complete -o nospace -C $(which aws_completer) aws
+complete -o nospace -C $(which vault) vault
+complete -o nospace -C $(which terraform) terraform
+complete -o nospace -C $(which tk) tk
+complete -o nospace -C $(which helmfile) helmfile
+complete -o nospace -C $(which terramate) terramate install-completions
 
-complete -o nospace -C `which aws_completer` aws
-complete -o nospace -C `which vault` vault
-complete -o nospace -C `which terraform` terraform
-complete -o nospace -C `which tk` tk
+eval $(kubectl completion zsh)
+eval $(just --completions zsh)
 
+ssh-add -q ~/.keys/ssh/marziply/prv.pem
 lpass sync -b --color never
 generate_marks
 start_sway

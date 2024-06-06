@@ -1,0 +1,7 @@
+[
+  "on",
+  "obsolete=deny",
+  "elevateprivileges=deny",
+  "spawn=deny",
+  "resourcecontrol=deny"
+]

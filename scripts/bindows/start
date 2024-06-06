@@ -1,0 +1,55 @@
+#!/bin/bash
+
+spec_to_args() {
+  local file_name=$1
+  local arg_name=${2:-$file_name}
+  local file_path="specs/${file_name}.json"
+
+  cat $file_path | jq -r --arg v $arg_name -f ../assets/args.jq
+}
+
+list_to_arg() {
+  local file_name=$1
+  local file_path="specs/${file_name}.json"
+
+  cat $file_path | jq -r 'join(",")'
+}
+
+id="b6f568a3-4f5d-41a3-8064-eea19c5867db"
+objects=`spec_to_args objects object`
+devices=`spec_to_args devices device`
+blocks=`spec_to_args blocks blockdev`
+chars=`spec_to_args chars chardev`
+net=`spec_to_args net netdev`
+globals=`spec_to_args globals global`
+machine=`spec_to_args machine`
+sandbox=`spec_to_args sandbox`
+spice=`list_to_arg spice`
+cpu=`list_to_arg cpu`
+audio=`cat specs/audio.json | jq -cj`
+
+/usr/bin/qemu-system-x86_64 \
+  $objects \
+  $blocks \
+  $devices \
+  $chars \
+  $net \
+  $machine \
+  $sandbox \
+  -uuid $id \
+  -cpu $cpu \
+  -spice $spice \
+  -audiodev $audio \
+  -nodefaults \
+  -no-user-config \
+  -no-shutdown \
+  -accel kvm \
+  -watchdog-action reset \
+  -name guest=bindows,debug-threads=on \
+  -overcommit mem-lock=off \
+  -smp 16,sockets=1,dies=1,cores=8,threads=2 \
+  -mon chardev=charmonitor,id=monitor,mode=control \
+  -rtc base=localtime,driftfix=slew \
+  -boot strict=on \
+  -msg timestamp=on \
+  -m size=16g
