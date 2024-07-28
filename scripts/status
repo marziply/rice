@@ -26,9 +26,13 @@ def dev_count() -> int:
 
     return len(devs)
 
+def k_context() -> str:
+    return cmd(["kubectl", "config", "current-context"])
+
 after: datetime = future_time()
 state: dict[str, str | int] = dict()
 renderers: dict[str, Callable[[], str | int]] = {
+    "kubernetes": lambda: k_context(),
     "bluetooth": lambda: dev_count(),
     "bindows": lambda: virt_state("bindows"),
     "libvirtd": lambda: libvirtd_status()
