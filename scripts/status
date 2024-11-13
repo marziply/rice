@@ -38,6 +38,14 @@ renderers: dict[str, Callable[[], str | int]] = {
     "libvirtd": lambda: libvirtd_status()
 }
 
+for k in renderers:
+    render = renderers[k]
+
+    try:
+        render()
+    except:
+        del renderers[k]
+
 while True:
     now: datetime = datetime.now()
 
