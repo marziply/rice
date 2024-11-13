@@ -1,4 +1,3 @@
-import = ["/home/hayden/.config/alacritty/themes/one_dark.toml"]
 
 [cursor]
 unfocused_hollow = true
@@ -26,3 +25,6 @@ family = "SourceCodePro"
 decorations_theme_variant = "Dark"
 dynamic_title = true
 title = "Alacritty"
+
+[general]
+import = ["/home/hayden/.config/alacritty/themes/one_dark.toml"]

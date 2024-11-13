@@ -5,8 +5,8 @@ toggle_output() {
 }
 
 toggle_vertical_displays() {
+  toggle_output 1
   toggle_output 2
-  toggle_output 3
 }
 
 toggle_vertical_displays

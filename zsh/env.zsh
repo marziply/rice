@@ -105,6 +105,7 @@ export PYTHONPATH="/usr/lib/python3.10"
 # Go
 export GOPATH="$GO_DIR"
 export GOBIN="${GO_DIR}/bin"
+export GOPRIVATE="buf.build/gameye,buf.build/gen/go/gameye,gitlab.com/gameye"
 
 # Gcloud
 export GCLOUD_PATH="/var/lib/google-cloud-sdk"

@@ -83,3 +83,6 @@ rm -rf \
   "${HOME}/Music" \
   "${HOME}/Videos" \
   "${HOME}/Pictures"
+
+# bun completions
+[ -s "/home/hayden/.config/bun/_bun" ] && source "/home/hayden/.config/bun/_bun"

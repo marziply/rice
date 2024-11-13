@@ -1,6 +1,6 @@
 #!/bin/bash
 
 title="Password length"
-len=`rofi -dmenu -p "$title" -l 0 -theme 'windows/pwgen'`
+len=$(rofi -dmenu -p "$title" -l 0 -theme 'windows/pwgen')
 
-pwgen -ys1 -r "\",',\\,\$\`" $len | wl-copy -n
+pwgen -ys1 -r "\"\`,',\$,\\,/,!,?,&,@,;,:,|,{,},[,],(,),<,>" $len | wl-copy -n

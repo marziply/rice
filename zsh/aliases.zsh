@@ -2,7 +2,7 @@
 
 source "${ZSH_DIR}/utils.zsh"
 
-unalias _ 2&>/dev/null
+unalias _ 2 &>/dev/null
 
 # General
 alias psg="ps aux | grep"
@@ -105,6 +105,7 @@ alias zu="n $ZSH_DIR/utils.zsh"
 # Docker
 alias d="sudo docker"
 alias dr="d run"
+alias drsh="dr --entrypoint sh"
 alias dp="d pull"
 alias dc="d container"
 alias di="d image"

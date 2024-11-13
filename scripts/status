@@ -18,7 +18,7 @@ def libvirtd_status() -> str:
     return cmd(["systemctl", "is-active", "libvirtd.service"])
 
 def virt_state(name: str) -> str:
-    return cmd(["sudo", "virsh", "domstate", name])
+    return cmd(["virsh", "--connect", "qemu:///system", "domstate", name])
 
 def dev_count() -> int:
     proc = run(["bluetoothctl", "devices", "Connected"], capture_output = True)
