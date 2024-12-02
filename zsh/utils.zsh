@@ -27,7 +27,7 @@ start_sway() {
 }
 
 generate_marks() {
-  dirs=$(stat ${HOME}/dev/{lab,lib,work}/* -c '%Y %n' | sort -r)
+  dirs=`find $HOME/* -maxdepth 2 -type d`
   dirs_count=$(echo $dirs | wc -l)
   total_marks=$(cat $marks_list | wc -l)
   marks_count=$(($total_marks - ${#default_marks}))
