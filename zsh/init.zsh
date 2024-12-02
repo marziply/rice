@@ -29,13 +29,20 @@ plugins=(
   fzf-marks
 )
 
-# Managers
-source "${ZSH}/oh-my-zsh.sh"
-source "${NVM_DIR}/nvm.sh"
+# Omg My ZSH
+if [[ -d "$ZSH" ]]; then
+  source "${ZSH}/oh-my-zsh.sh"
+fi
 
-# Modules
-source "${ZSH_DIR}/aliases.zsh"
-source "${ZSH_DIR}/utils.zsh"
+# ZSH modules
+if [[ -d "$ZSH_DIR" ]]; then
+  source "${ZSH_DIR}/aliases.zsh"
+  source "${ZSH_DIR}/utils.zsh"
+fi
+
+if [[ -d "$NVM_DIR" ]]; then
+  source "${NVM_DIR}/nvm.sh"
+fi
 
 # Google Cloud
 if [[ -d "$GCLOUD_PATH" ]]; then
@@ -83,6 +90,3 @@ rm -rf \
   "${HOME}/Music" \
   "${HOME}/Videos" \
   "${HOME}/Pictures"
-
-# bun completions
-[ -s "/home/hayden/.config/bun/_bun" ] && source "/home/hayden/.config/bun/_bun"
