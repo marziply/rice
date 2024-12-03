@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+import re
 from subprocess import run
 from datetime import datetime, timedelta
 from time import sleep
@@ -7,7 +8,8 @@ from sys import stdout
 from typing import Callable
 
 def future_time() -> datetime:
-    return datetime.now() + timedelta(seconds = 10)
+    # return datetime.now() + timedelta(seconds = 10)
+    return datetime.now() + timedelta(seconds = 1)
 
 def cmd(args: list[str]) -> str:
     proc = run(args, capture_output = True)
@@ -19,6 +21,13 @@ def libvirtd_status() -> str:
 
 def bat_cap() -> str:
     return cmd(["cat", "/sys/class/power_supply/BAT0/capacity"])
+
+def wifi() -> str:
+    proc = run(["iwctl", "station", "wlan0", "show"], capture_output = True)
+    lines = proc.stdout.decode("utf-8").splitlines()
+    cols = re.split(r"\s+", lines[6])
+
+    return cols[3]
 
 def virt_state(name: str) -> str:
     return cmd(["virsh", "--connect", "qemu:///system", "domstate", name])
@@ -36,10 +45,11 @@ after: datetime = future_time()
 state: dict[str, str | int] = dict()
 deletions: list[str] = []
 renderers: dict[str, Callable[[], str | int]] = {
-    "kubernetes": lambda: k_context(),
-    "bluetooth": lambda: dev_count(),
-    "bindows": lambda: virt_state("bindows"),
-    "libvirtd": lambda: libvirtd_status(),
+    # "kubernetes": lambda: k_context(),
+    # "bluetooth": lambda: dev_count(),
+    # "bindows": lambda: virt_state("bindows"),
+    # "libvirtd": lambda: libvirtd_status(),
+    "wifi": lambda: wifi(),
     "bat": lambda: bat_cap()
 }
 
