@@ -8,17 +8,17 @@ default_marks=(
   "work : ${HOME}/dev/work"
 )
 
-start_sway() {
+startwm() {
   local current_tty="$(tty)"
 
   if [[ "$current_tty" =~ ^/dev/tty[0-9]+$ ]]; then
     if [[ "${current_tty: -1}" == "1" ]]; then
-      sway
+      i3
     fi
   elif [[ -z "$SSH_CLIENT" && -z "$SSH_TTY" ]]; then
-    tmux source-file "${TMUX_DIR}/tmux.conf"
+    tmux source-file "${TMUX_DIR}/tmux.conf" || true
   else
-    echo "foo"
+    # @TODO: Possibly an SSH client
   fi
 
   # if ! systemctl -q is-active libvirtd.service; then
@@ -26,7 +26,7 @@ start_sway() {
   # fi
 }
 
-generate_marks() {
+genmarks() {
   dirs=`find $HOME/* -maxdepth 2 -type d`
   dirs_count=$(echo $dirs | wc -l)
   total_marks=$(cat $marks_list | wc -l)
