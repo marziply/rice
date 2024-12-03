@@ -35,10 +35,10 @@ generate_marks() {
   if [[ "$dirs_count" != "$marks_count" ]]; then
     printf '%s\n' "${default_marks[@]}" >$marks_list
 
-    echo "$dirs" |
-      cut -d ' ' -f 2 |
-      xargs -I % bash -c 'echo "$(grep -Po "[^/]+/[^/]+$" <<< "%") : %"' \
-        >>$marks_list
+    echo "$dirs" \
+    | cut -d ' ' -f 2 \
+    | xargs bash -c 'echo "$(grep -Po "[^/]+/[^/]+$" <<< "{}") : {}"' \
+    >> $marks_list
   fi
 }
 

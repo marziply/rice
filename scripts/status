@@ -17,6 +17,9 @@ def cmd(args: list[str]) -> str:
 def libvirtd_status() -> str:
     return cmd(["systemctl", "is-active", "libvirtd.service"])
 
+def bat_cap() -> str:
+    return cmd(["cat", "/sys/class/power_supply/BAT0/capacity"])
+
 def virt_state(name: str) -> str:
     return cmd(["virsh", "--connect", "qemu:///system", "domstate", name])
 
@@ -36,7 +39,8 @@ renderers: dict[str, Callable[[], str | int]] = {
     "kubernetes": lambda: k_context(),
     "bluetooth": lambda: dev_count(),
     "bindows": lambda: virt_state("bindows"),
-    "libvirtd": lambda: libvirtd_status()
+    "libvirtd": lambda: libvirtd_status(),
+    "bat": lambda: bat_cap()
 }
 
 for k in renderers:
