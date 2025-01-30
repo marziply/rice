@@ -16,7 +16,7 @@ startwm() {
       startx /usr/bin/i3
     fi
   elif [[ -z "$SSH_CLIENT" && -z "$SSH_TTY" ]]; then
-    tmux source-file "${TMUX_DIR}/tmux.conf" || true
+    tmux source-file "${TMUX_DIR}/tmux.conf" &> /dev/null
   else
     # @TODO: Possibly an SSH client
   fi
