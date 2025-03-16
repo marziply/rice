@@ -1,18 +1,19 @@
 #!/bin/bash
 
-toggle_output() {
-  swaymsg output "DP-${1}" dpms toggle
-}
+i3lock -c 222222
 
-toggle_vertical_displays() {
-  toggle_output 1
-  toggle_output 2
-}
-
-toggle_vertical_displays
-
-trap "toggle_vertical_displays" SIGUSR1
-
-swaylock -Fetc '#000000'
-
-toggle_vertical_displays
+# i3lock -c 222222 -e &
+#
+# pid=$$
+#
+# log() {
+#   echo "[$(date -I)] ${1}" >> /var/log/lock.log
+# }
+#
+# until ! kill -0 $pid || fprintd-verify; do
+#   log "Fingerprint failure"
+# done
+#
+# log "Login success"
+#
+# kill $pid
