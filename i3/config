@@ -49,7 +49,7 @@ bindsym $mod+Shift+Return exec $term -e tmux -u
 bindsym $mod+d exec rofi -show drun -theme windows/run
 
 # Open Kubernetes context menu
-bindsym $mod+c exec $scripts/context
+# bindsym $mod+c exec $scripts/context
 
 # Open lpass password menu
 bindsym $mod+p exec $scripts/lpass password
