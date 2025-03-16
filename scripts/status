@@ -29,6 +29,9 @@ def wifi() -> str:
 
     return cols[3]
 
+def brightness() -> str:
+    return cmd(["brightnessctl", "g"])
+
 def virt_state(name: str) -> str:
     return cmd(["virsh", "--connect", "qemu:///system", "domstate", name])
 
@@ -50,7 +53,8 @@ renderers: dict[str, Callable[[], str | int]] = {
     # "bindows": lambda: virt_state("bindows"),
     # "libvirtd": lambda: libvirtd_status(),
     "wifi": lambda: wifi(),
-    "bat": lambda: bat_cap()
+    "bat": lambda: bat_cap(),
+    "dim": lambda: brightness()
 }
 
 for k in renderers:
