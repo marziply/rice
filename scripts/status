@@ -30,7 +30,11 @@ def wifi() -> str:
     return cols[3]
 
 def brightness() -> str:
-    return cmd(["brightnessctl", "g"])
+    proc = run(["brightnessctl", "g"], capture_output = True)
+    level = int(proc.stdout.decode("utf-8"))
+    perc = (level / 255) * 100
+
+    return int(perc)
 
 def virt_state(name: str) -> str:
     return cmd(["virsh", "--connect", "qemu:///system", "domstate", name])
