@@ -105,7 +105,6 @@ export PYTHONPATH="/usr/lib/python3.10"
 # Go
 export GOPATH="$GO_DIR"
 export GOBIN="${GO_DIR}/bin"
-export GOPRIVATE="buf.build/gameye,buf.build/gen/go/gameye,gitlab.com/gameye"
 
 # Gcloud
 export GCLOUD_PATH="/var/lib/google-cloud-sdk"
@@ -119,9 +118,16 @@ export REDISCLI_RCFILE="${CONFIG_DIR}/redis.conf"
 export REDISCLI_HISTFILE="${CACHE_DIR}/redis.log"
 
 # Android
-export ANDROID_HOME="${HOME}/android"
-export ANDROID_USER_HOME="${CONFIG_DIR}/android"
+export ANDROID_HOME="${HOME}/dev/android"
+export ANDROID_USER_HOME="$ANDROID_HOME"
+# export ANDROID_SDK_HOME="${ANDROID_HOME}/Sdk"
+export ANDROID_SDK_ROOT="${ANDROID_HOME}/Sdk"
 export STUDIO_JDK="${ANDROID_USER_HOME}/jdk"
+export NDK_HOME="${ANDROID_HOME}/ndk/$(ls -1 ${ANDROID_HOME}/ndk)"
+export ANDROID_PLATFORM_BIN="${ANDROID_HOME}/platform-tools"
+export ANDROID_EMULATOR_BIN="${ANDROID_HOME}/emulator"
+export FLUTTER_DIR="${HOME}/dev/flutter"
+export FLUTTER_BIN="${FLUTTER_DIR}/bin"
 
 # AWS
 export AWS_CONFIG_FILE="${CONFIG_DIR}/aws/config.toml"
@@ -150,7 +156,7 @@ export PORTER_BIN="${HOME}/.porter"
 export SSH_AUTH_SOCK=/run/user/1000/ssh-agent.socket
 
 # Paths
-if [[ ! $ZSH_ENV_LOADED ]]; then
+if [[ $- != *i* ]]; then
   export LOCAL_BIN="${HOME}/.local/bin"
   export GO_BIN="${GO_DIR}/bin"
   export CARGO_BIN="${CONFIG_DIR}/cargo/bin"
@@ -160,16 +166,16 @@ if [[ ! $ZSH_ENV_LOADED ]]; then
     export NVM_LIB="${NVM_DIR}/versions/node/$(nvm version)/lib"
   fi
 
-  export ZSH_ENV_LOADED=1
-fi
+  export PATHS=(
+    $LOCAL_BIN
+    $GO_BIN
+    $BUN_BIN
+    $ANDROID_PLATFORM_BIN
+    $ANDROID_EMULATOR_BIN
+    $FLUTTER_BIN
+  )
 
-export PATHS=(
-  $PATH
-  $LOCAL_BIN
-  $GO_BIN
-  $CARGO_BIN
-  $GCLOUD_BIN
-  $PORTER_BIN
-  $BUN_BIN
-)
-export PATH=$(echo $PATHS | tr ' ' ':')
+  for p in ${PATHS[@]}; do
+    export PATH="${PATH}:${p}"
+  done
+fi

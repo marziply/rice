@@ -9,10 +9,10 @@ render_timer = false
 TERM = "alacritty"
 
 [font]
-size = 11.0
+size = 14.0
 
 [font.normal]
-family = "SourceCodePro"
+family = "Roboto Mono"
 
 # [shell]
 # modifiers = "Super"
