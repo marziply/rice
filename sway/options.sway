@@ -1,7 +1,7 @@
 xwayland enable
 seat * hide_cursor 5000
 
-font SourceCodePro 9
+font SourceCodePro 12
 focus_follows_mouse no
 focus_wrapping no
 default_border pixel 2
