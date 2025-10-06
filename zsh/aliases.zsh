@@ -119,6 +119,9 @@ alias dcl="dc logs"
 alias dcls="dc ls"
 alias stopc='dco $(dcl -lq)'
 
+# Android
+alias emu='ANDROID_SDK_HOME=$ANDROID_HOME emulator'
+
 # Veracrypt
 # alias vc="veracrypt"
 # alias vcd="vc -d"

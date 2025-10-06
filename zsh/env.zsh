@@ -121,11 +121,12 @@ export REDISCLI_HISTFILE="${CACHE_DIR}/redis.log"
 export ANDROID_HOME="${HOME}/dev/android"
 export ANDROID_USER_HOME="$ANDROID_HOME"
 # export ANDROID_SDK_HOME="${ANDROID_HOME}/Sdk"
-export ANDROID_SDK_ROOT="${ANDROID_HOME}/Sdk"
-export STUDIO_JDK="${ANDROID_USER_HOME}/jdk"
-export NDK_HOME="${ANDROID_HOME}/ndk/$(ls -1 ${ANDROID_HOME}/ndk)"
+# export ANDROID_SDK_ROOT="${ANDROID_HOME}/Sdk"
+export ANDROID_NDK_HOME="${ANDROID_HOME}/ndk/$(ls -1 ${ANDROID_HOME}/ndk | head -1)"
 export ANDROID_PLATFORM_BIN="${ANDROID_HOME}/platform-tools"
 export ANDROID_EMULATOR_BIN="${ANDROID_HOME}/emulator"
+export STUDIO_JDK="${ANDROID_USER_HOME}/jdk"
+export NDK_HOME="$ANDROID_NDK_HOME"
 export FLUTTER_DIR="${HOME}/dev/flutter"
 export FLUTTER_BIN="${FLUTTER_DIR}/bin"
 
@@ -170,6 +171,7 @@ if [[ $- != *i* ]]; then
     $LOCAL_BIN
     $GO_BIN
     $BUN_BIN
+    $CARGO_BIN
     $ANDROID_PLATFORM_BIN
     $ANDROID_EMULATOR_BIN
     $FLUTTER_BIN

@@ -1,6 +1,5 @@
 xwayland enable
 seat * hide_cursor 5000
-# seat * xcursor_theme Adwaita 0
 
 font SourceCodePro 9
 focus_follows_mouse no
@@ -14,8 +13,6 @@ workspace 1 output "DP-3"
 workspace 2 output "DP-1"
 workspace 3 output "DP-2"
 
-for_window [instance="spotify"] move to workspace 1
-
 assign [instance="brave-browser"] 3
 assign [instance="slack"] 3
 assign [instance="discord"] 1
@@ -25,13 +22,14 @@ assign [instance="spotify"] 1
 
 # Portrait right display
 output "DP-2" {
-  position 6400,0
+  position 6684,0
   transform 270
 }
 
 # Landscape center display
 output "DP-1" {
-  position 3840,520
+  position 3840,630
+  scale 0.9
 }
 
 # Portrait left display
