@@ -143,7 +143,7 @@ export BUN_BIN="${BUN_INSTALL}/bin"
 export CARGO_HOME="${CONFIG_DIR}/cargo"
 export CARGO_NET_GIT_FETCH_WITH_CLI="true"
 export RUSTUP_HOME="${CONFIG_DIR}/rustup"
-export RUST_BACKTRACE=1
+# export RUST_BACKTRACE=1
 
 # Rust cache wrapper
 if [[ $(command -v sccache) ]]; then
