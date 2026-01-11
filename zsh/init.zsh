@@ -14,7 +14,6 @@ plugins=(
   git-extras
   gitfast
   nvm
-  ripgrep
   # https://github.com/zsh-users/zsh-completions
   # zsh-autocompletions
   # https://github.com/changyuheng/zsh-interactive-cd
