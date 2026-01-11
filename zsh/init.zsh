@@ -80,7 +80,7 @@ eval $(kubectl completion zsh)
 eval $(just --completions zsh)
 
 ssh-add -q ~/.keys/ssh/marziply/prv.pem
-lpass sync -b --color never
+# lpass sync -b --color never
 generate_marks
 start_sway
 
