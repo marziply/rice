@@ -11,12 +11,9 @@ set $UP K
 set $RIGHT L
 
 set $term alacritty
-set $system '[l] lock, [e] exit, [h] hibernate, [s] sleep, [r] reboot, [p] power off'
+set $system [l] lock, [e] exit, [h] hibernate, [r] reboot, [s] shutdown
 set $scrot [w] clip window, [c-w] save window, [a] clip area, [c-a] save area
-set $bindows [s] start, [o] stop, [r] reboot, [u] suspend, [e] resume
-set $virt [s] start, [o] stop, [r] restart
-set $reload [s] sway, [h] bt host, [u] bt usb
-set $utils [h] hands free
+# set $utils [h] hands free
 set $vm bindows
 set $earphones bluez_card.00_14_BE_78_37_FD
 set $now "$(date +%Y%m%d%H%M%S)"

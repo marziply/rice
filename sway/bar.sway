@@ -1,6 +1,6 @@
 bar {
   position top
-  font SourceCodePro 12
+  font SourceCodePro 14
 
   status_command $scripts/status
 

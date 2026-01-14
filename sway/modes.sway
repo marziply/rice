@@ -8,12 +8,11 @@ mode resize {
 }
 
 mode "$system" {
-  # bindsym l focus output DP-1, exec gtklock, mode default
+  bindsym l exec gtklock, mode default
   bindsym e exec swaymsg exit, mode default
   bindsym h exec systemctl hibernate, mode default
-  bindsym s exec systemctl suspend, mode default
   bindsym r exec reboot, mode default
-  bindsym p exec poweroff, mode default
+  bindsym s exec shutdown, mode default
 
   bindsym Escape mode default
 }
@@ -31,32 +30,6 @@ mode "$scrot" {
   bindsym Control+a exec --no-startup-id \
     $scripts/scrot save area, \
     mode default
-
-  bindsym Escape mode default
-}
-
-mode "$bindows" {
-  bindsym s exec sudo virsh start $vm, mode default
-  bindsym o exec sudo virsh shutdown $vm, mode default
-  bindsym r exec sudo virsh reboot $vm, mode default
-  bindsym u exec sudo virsh suspend $vm, mode default
-  bindsym e exec sudo virsh resume $vm, mode default
-
-  bindsym Escape mode default
-}
-
-mode "$virt" {
-  bindsym s exec sudo systemctl start libvirtd.service, mode default
-  bindsym o exec sudo systemctl stop libvirtd.service, mode default
-  bindsym r exec sudo systemctl restart libvirtd.service, mode default
-
-  bindsym Escape mode default
-}
-
-mode "$reload" {
-  bindsym s reload, mode default
-  bindsym h exec $scripts/resetbt host, mode default
-  bindsym u exec $scripts/resetbt usb, mode default
 
   bindsym Escape mode default
 }
