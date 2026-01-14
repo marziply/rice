@@ -1,6 +1,0 @@
-[
-  "kvm-pit.lost_tick_policy=delay",
-  "ICH9-LPC.disable_s3=1",
-  "ICH9-LPC.disable_s4=1",
-  "ICH9-LPC.noreboot=off"
-]

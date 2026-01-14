@@ -1,9 +1,0 @@
-[
-  "host",
-  "migratable=on",
-  "hv-time=on",
-  "hv-relaxed=on",
-  "hv-vapic=on",
-  "hv-spinlocks=0x1fff",
-  "kvm=off"
-]

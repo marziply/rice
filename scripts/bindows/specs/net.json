@@ -1,9 +1,0 @@
-[
-  {
-    "type": "tap",
-    "fd": "27",
-    "vhost": true,
-    "vhostfd": "29",
-    "id": "hostnet0"
-  }
-]
