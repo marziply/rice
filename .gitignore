@@ -6,8 +6,8 @@
 !alacritty/
 !clangd/
 !git/
+!gtklock/
 !highlight/
-|k9s/
 !pgcli/
 !ranger/
 !nvim/
