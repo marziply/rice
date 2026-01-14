@@ -10,6 +10,9 @@ bindsym $mod+Return exec $term
 # Start a tmux session in a new terminal
 bindsym $mod+Shift+Return exec $term -e tmux -u
 
+# Lock the session
+bindsym $mod+Shift+0 exec gtklock
+
 # Start launcher
 bindsym $mod+d exec rofi -show drun -theme windows/run
 
