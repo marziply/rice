@@ -1,28 +1,22 @@
-xwayland enable
-seat * hide_cursor 5000
-
 font SourceCodePro 12
 focus_follows_mouse no
 focus_wrapping no
 default_border pixel 2
 default_floating_border normal
 workspace_auto_back_and_forth no
-floating_modifier $mod
+floating_modifier $mod normal
+seat * hide_cursor 5000
+xwayland enable
 
 workspace 1 output "DP-3"
 workspace 2 output "DP-1"
 workspace 3 output "DP-2"
 
-assign [instance="brave-browser"] 3
-assign [instance="slack"] 3
-assign [instance="discord"] 1
-assign [instance="spotify"] 1
+assign [title="Brave"] 3
 
-### Output configuration
-
-# Portrait right display
-output "DP-2" {
-  position 6684,0
+# Portrait left display
+output "DP-3" {
+  position 2400,0
   transform 270
 }
 
@@ -32,27 +26,19 @@ output "DP-1" {
   scale 0.9
 }
 
-# Portrait left display
-output "DP-3" {
-  position 2400,0
+# Portrait right display
+output "DP-2" {
+  position 6684,0
   transform 270
 }
 
-output "HDMI-A-1" disable {
-  position 0,0
+output "HDMI-A-1" {
+  position 8124,300
 }
 
-### Input configuration
 input "type:keyboard" {
   xkb_options caps:escape
   xkb_layout gb
   repeat_delay 200
   repeat_rate 20
 }
-
-# Drag floating windows by holding down $mod and left mouse button.
-# Resize them with right mouse button + $mod.
-# Despite the name, also works for non-floating windows.
-# Change normal to inverse to use left mouse button for resizing and right
-# mouse button for dragging.
-floating_modifier $mod normal
