@@ -1,5 +1,0 @@
-@theme "arc"
-
-configuration {
-  modes: [ drun ];
-}

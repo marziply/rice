@@ -1,6 +1,0 @@
-@import "config"
-
-window {
-  width: 600px;
-  height: 300px;
-}

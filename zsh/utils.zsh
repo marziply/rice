@@ -17,8 +17,6 @@ start_sway() {
     fi
   elif [[ -z "$SSH_CLIENT" && -z "$SSH_TTY" ]]; then
     tmux source-file "${TMUX_DIR}/tmux.conf"
-  else
-    echo "foo"
   fi
 
   # if ! systemctl -q is-active libvirtd.service; then
@@ -42,19 +40,6 @@ generate_marks() {
   fi
 }
 
-kbsel() {
-  kustomize build \
-    --enable-alpha-plugins \
-    --enable-exec \
-    $1 |
-    yq -o json |
-    jq \
-      -s \
-      --arg kind $2 \
-      --arg name $3 \
-      'map(select(.kind == $kind and .metadata.name == $name)) | first'
-}
-
 startc() {
   sudo docker run \
     --env-file .env \
@@ -71,91 +56,12 @@ gcpnv() {
   git push origin $(git_current_branch) --no-verify
 }
 
-psqlv() {
+pgcp() {
   psql -Atc "$1" | wl-copy -n
-}
-
-mc() {
-  mkdir -p "$1"
-  cd "$1"
 }
 
 db() {
   sudo docker build -t "$1" ${@:2} .
-}
-
-pmrq() {
-  pmr $(pmqq $@)
-}
-
-k() {
-  kubectl $@ --cache-dir "${CACHE_DIR}/kube"
-}
-
-kc() {
-  k --context $(k config current-context) $@
-}
-
-kcv() {
-  kc "$1" view ${@:2}
-}
-
-kcg() {
-  kc "$1" get ${@:2}
-}
-
-kcga() {
-  kc "$1" get all ${@:2}
-}
-
-kcgaa() {
-  kc "$1" get all --all-namespaces ${@:2}
-}
-
-kb() {
-  kustomize build --load-restrictor LoadRestrictionsNone $@
-}
-
-kbj() {
-  kb | yq -s
-}
-
-kka() {
-  if [[ -z "$1" ]]; then
-    echo "Context argument required"
-
-    return 1
-  fi
-
-  build() {
-    kb | kc "$1" apply -f - ${@:2}
-  }
-
-  if [[ -n "$2" ]]; then
-    build "$1" \
-      --prune \
-      --prune-allowlist /v1/ConfigMap \
-      --prune-allowlist /v1/Secret \
-      -n "$2" \
-      -l "app=${2}" \
-      ${@:3}
-  else
-    build "$1" ${@:2}
-  fi
-}
-
-kkda() {
-  kka "$1" "$2" --dry-run=server
-}
-
-k9() {
-  if [[ -z "$1" ]]; then
-    echo "Context argument required"
-
-    return 1
-  fi
-
-  k9s --context "$1" -A
 }
 
 tldr() {
@@ -164,16 +70,5 @@ tldr() {
     -it \
     -v "${CACHE_DIR}/tldr:/root/.tldr/cache" \
     nutellinoit/tldr \
-    $@
-}
-
-mkss() {
-  mks --addons metallb,ingress,default-storageclass
-}
-
-ssht() {
-  ssh \
-    -o StrictHostKeyChecking=no \
-    -o UserKnownHostsFile=/dev/null \
     $@
 }

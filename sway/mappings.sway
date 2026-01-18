@@ -20,6 +20,9 @@ bindsym $mod+d exec rofi -show drun -theme windows/run
 bindsym $mod+c exec $scripts/context
 
 # # Open lpass password menu
+bindsym $mod+p exec $scripts/bw
+
+# # Open lpass password menu
 # bindsym $mod+p exec $scripts/lpass password
 #
 # # Open lpass notes menu
