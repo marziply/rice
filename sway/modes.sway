@@ -18,18 +18,10 @@ mode "$system" {
 }
 
 mode "$scrot" {
-  bindsym w exec --no-startup-id \
-    $scripts/scrot clip window, \
-    mode default
-  bindsym Control+w exec --no-startup-id \
-    $scripts/scrot save window, \
-    mode default
-  bindsym a exec --no-startup-id \
-    $scripts/scrot clip area, \
-    mode default
-  bindsym Control+a exec --no-startup-id \
-    $scripts/scrot save area, \
-    mode default
+  bindsym w exec --no-startup-id $scripts/scrot clip window, mode default
+  bindsym Control+w exec --no-startup-id $scripts/scrot save window, mode default
+  bindsym a exec --no-startup-id $scripts/scrot clip area, mode default
+  bindsym Control+a exec --no-startup-id $scripts/scrot save area, mode default
 
   bindsym Escape mode default
 }
