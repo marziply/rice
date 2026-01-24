@@ -1,6 +1,5 @@
-@theme "arc"
+@theme "dracula"
 
 configuration {
   modes: [drun];
-  font: "mono 16";
 }
