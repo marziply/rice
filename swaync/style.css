@@ -1,4 +1,5 @@
 :root {
+
   --red: #ed8796;
   --maroon: #ee99a0;
   --pink: #f5bde6;
@@ -22,9 +23,12 @@
   --accent-hover: var(--flamingo);
   --accent-active: var(--yellow);
 
-  --summary: var(--text);
-  --title: var(--text);
-  --body: var(--subtext0);
+  --title-size: 24px;
+  --title-colour: var(--text);
+
+  --body-size: 18px;
+  --body-colour: var(--text);
+
   --time: var(--subtext0);
   --dnd: var(--subtext0);
   --low: var(--surface1);
@@ -34,8 +38,7 @@
 
 * {
   all: unset;
-  font-size: 14px;
-  font-family: "FiraSans Nerd Font";
+  font-family: "Source Code Pro";
   transition: 200ms;
 }
 
@@ -75,9 +78,8 @@
 }
 
 .notification-content .summary {
-  font-size: 16px;
-  font-weight: bold;
-  color: var(--summary);
+  font-size: var(--title-size);
+  color: var(--title-colour);
 }
 
 .notification.critical > * > .notification-content .summary {
@@ -90,7 +92,8 @@
 }
 
 .notification-content .body {
-  color: var(--body);
+  font-size: var(--body-size);
+  color: var(--body-colour);
 }
 
 .notification > *:last-child > * {
@@ -149,7 +152,6 @@
   padding: 3px 0;
 }
 
-/* TODO: appear from right */
 .control-center {
   padding: 14px;
 }
@@ -163,7 +165,7 @@
 }
 
 .control-center .widget-title > label {
-  color: var(--title);
+  color: var(--title-colour);
   font-weight: bold;
   font-size: 1.3em;
 }

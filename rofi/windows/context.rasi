@@ -1,7 +1,7 @@
 @import "config"
 
 window {
-  width: 200px;
+  width: 500px;
 }
 
 listview {

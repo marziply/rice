@@ -22,16 +22,6 @@ bindsym $mod+c exec $scripts/context
 # # Open lpass password menu
 bindsym $mod+p exec $scripts/bw
 
-# # Open lpass password menu
-# bindsym $mod+p exec $scripts/lpass password
-#
-# # Open lpass notes menu
-# bindsym $mod+o exec $scripts/lpass notes
-#
-# bindsym $mod+i exec $scripts/lpass id
-#
-# bindsym $mod+Shift+i exec $scripts/lpass sh
-
 # Generate password
 bindsym $mod+Shift+p exec $scripts/pwgen
 
