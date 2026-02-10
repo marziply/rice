@@ -11,7 +11,7 @@ mode "$system" {
   bindsym l exec gtklock, mode default
   bindsym e exec swaymsg exit, mode default
   bindsym h exec systemctl hibernate, mode default
-  bindsym s exec systemctl suspend, mode default
+  bindsym s exec systemctl sleep -i, mode default
   bindsym r exec reboot, mode default
   bindsym p exec poweroff, mode default
 
