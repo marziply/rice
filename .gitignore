@@ -1,12 +1,12 @@
 /*
 
-!LICENSE.md
-!README.md
-
 !alacritty/
+!cargo
 !clangd/
 !git/
+!gtk-3.0/
 !gtklock/
+!gnupg/
 !highlight/
 !pgcli/
 !ranger/
@@ -16,16 +16,25 @@
 !ssh/
 !sway/
 !swaync/
+!tmux/
 !rofi/
 !zsh/
 
+cargo/*
+gnupg/*
+gtk-3.0/*
+pgcli/*
+tmux/*
+
 !cargo/config.toml
-!tmux/tmux.conf
 !gnupg/gpg-agent.conf
 !gtk-3.0/settings.ini
+!pgcli/config
+!tmux/tmux.conf
+
 !mimeapps.list
 !npm.conf
 !pgpass.list
 
-pgcli/history
-pgcli/log
+!LICENSE.md
+!README.md
