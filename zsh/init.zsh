@@ -53,6 +53,7 @@ autoload -U +X bashcompinit && bashcompinit
 eval $(kubectl completion zsh)
 eval $(just --completions zsh)
 eval $(gh completion)
+eval $(rustup completions zsh)
 
 ssh-add -q ~/.keys/ssh/marziply/prv.pem
 # lpass sync -b --color never

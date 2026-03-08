@@ -59,7 +59,7 @@ alias sceu="scu enable"
 alias scdu="scu disable"
 
 # git
-alias gacam="ga . && gcam"
+alias gacm="ga . && gcam"
 alias gce="g commit --amend"
 alias gcr="g conflicts --relative"
 

@@ -50,7 +50,7 @@ startc() {
     $@
 }
 
-gcpnv() {
+gcmp() {
   git add .
   git commit -am "$1"
   git push origin $(git_current_branch) --no-verify
