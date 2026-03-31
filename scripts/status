@@ -14,12 +14,6 @@ def cmd(args: list[str]) -> str:
 
     return proc.stdout.decode("utf-8").strip()
 
-def libvirtd_status() -> str:
-    return cmd(["systemctl", "is-active", "libvirtd.service"])
-
-def virt_state(name: str) -> str:
-    return cmd(["virsh", "--connect", "qemu:///system", "domstate", name])
-
 def dev_count() -> int:
     proc = run(["bluetoothctl", "devices", "Connected"], capture_output = True)
     devs = proc.stdout.decode("utf-8").splitlines()
@@ -35,8 +29,6 @@ deletions: list[str] = []
 renderers: dict[str, Callable[[], str | int]] = {
     "kubernetes": lambda: k_context(),
     "bluetooth": lambda: dev_count(),
-    "bindows": lambda: virt_state("bindows"),
-    "libvirtd": lambda: libvirtd_status()
 }
 
 for k in renderers:
