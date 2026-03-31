@@ -72,3 +72,8 @@ tldr() {
     nutellinoit/tldr \
     $@
 }
+
+merge() {
+  gh pr create --assignee @me --title "${1}" --body "Closed ${2}"
+  gh pr merge --merge --delete-branch
+}
