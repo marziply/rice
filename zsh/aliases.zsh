@@ -9,7 +9,7 @@ alias px="pulsemixer"
 
 # Neovim
 alias n="nvim"
-alias nn="n ${NVIM_DIR}/init.vim"
+alias ni="n ${NVIM_DIR}/init.vim"
 alias ne="n ${ZSH_DIR}/env.zsh"
 alias na="n ${ZSH_DIR}/aliases.zsh"
 alias sn="sudo -E nvim"
@@ -63,7 +63,12 @@ alias gacm="ga . && gcam"
 alias gce="g commit --amend"
 alias gcr="g conflicts --relative"
 
-# Docker
+# GitHub CLI
+alias ghm="gh pr merge --merge --delete-branch"
+alias ghi='() { gh issue develop $1 --checkout --name $2 }'
+alias ghc='() { gh pr create --assignee @me --title "$1" --body "Closes #${2}" }'
+
+# Docker CLI
 alias d="sudo docker"
 alias dr="d run"
 alias drs="dr --entrypoint sh"
