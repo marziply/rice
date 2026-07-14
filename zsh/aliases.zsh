@@ -65,8 +65,8 @@ alias gcr="g conflicts --relative"
 
 # GitHub CLI
 alias ghm="gh pr merge --merge --delete-branch"
-alias ghi='() { gh issue develop $1 --checkout --name $2 }'
-alias ghc='() { gh pr create --assignee @me --title "$1" --body "Closes #${2}" }'
+alias ghi='() { gh issue develop $1 --checkout --name feat/$2 }'
+alias ghp='() { gh pr create --assignee @me --title "$2" --body "Closes #${1}" }'
 
 # Docker CLI
 alias d="sudo docker"
